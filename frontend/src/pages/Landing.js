@@ -18,22 +18,20 @@ const Landing = () => {
         <nav>
           <ul className="flex space-x-10">
             <li>
-              <a href="#home" className="text-lg font-medium text-gray"> Home </a>
+              <a href="#home" className="text-lg font-medium text-gray hover:text-sky-500"> Home </a>
             </li>
             <li>
-              <a href="#about" className="text-lg font-medium text-gray"> About </a>
+              <a href="#about" className="text-lg font-medium text-gray hover:text-sky-500"> About </a>
             </li>
             <li>
-              <a href="#contact" className="text-lg font-medium text-gray"> Contact </a>
+              <a href="#contact" className="text-lg font-medium text-gray hover:text-sky-500"> Contact </a>
             </li>
           </ul>
         </nav>
 
         {/* TEMPORARY GET STARTED TEXT OR LIGHT/DARK TOGGLE */}
         <div>
-            <a href="#getstarted" className="text-lg font-medium text-gray">
-              Get started
-            </a>
+            <a href="#getstarted" className="text-lg font-medium text-gray hover:text-sky-500"> Get started </a>
         </div>
 
       </header>
