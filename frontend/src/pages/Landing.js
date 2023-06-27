@@ -1,8 +1,6 @@
 import React from "react";
 import Logo from "../assets/images/logo.svg";
 import Worker from "../assets/images/landing.svg";
-import { SponsorList } from "../data/SponsorsList";
-import SponsorItem from "../components/SponsorItem";
 
 const Landing = () => {
   return (
@@ -54,16 +52,21 @@ const Landing = () => {
       </body>
 
       {/* FOOTER */}
-      {/* ADD EDUCATION INSTITUTES LOGOS HERE*/}
-      <footer className="bg-lightergray ">
-        <h2 className="mb-6 text-3xl font-bold">Our Sponsors</h2>
-        <div className="flex items-center justify-between w-3/5 p-2 mx-auto">
-          {SponsorList.map((sponsor) => {
-              return (
-                <SponsorItem image={sponsor.image} />
-                );
-            })}
+      <footer className="py-8 mb-10 bg-lightergray">
+      <div className="container px-4 mx-auto">
+        <h2 className="mb-4 text-3xl font-bold">Facts About Our Software</h2>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="p-4 bg-white rounded-md shadow-md">
+            <h3 className="mb-2 text-lg font-semibold">Applications Tracked</h3>
+            <p className="text-2xl font-bold">5000+</p>
+          </div>
+          <div className="p-4 bg-white rounded-md shadow-md">
+            <h3 className="mb-2 text-lg font-semibold">Weekly Users</h3>
+            <p className="text-2xl font-bold">500+</p>
+          </div>
+  
         </div>
+      </div>
       </footer>
     </div>
   );
