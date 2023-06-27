@@ -1,6 +1,21 @@
 import React from "react";
 import Logo from "../assets/images/logo.svg";
 import Worker from "../assets/images/landing.svg";
+import { useSpring, animated } from "react-spring";
+
+
+
+// Utilized the React Spring library to animate the 'facts' numbers
+const AnimateNumber = ({ n }) => {
+  const {number} = useSpring({
+  from: {number: 0},
+  number: n,
+  delay: 350,
+  config: {mass: 1, tension: 30, friction: 14}});
+  return <animated.span>{number.to((n) => n.toFixed(0))}</animated.span>
+}
+
+
 
 const Landing = () => {
   return (
@@ -27,7 +42,7 @@ const Landing = () => {
           </ul>
         </nav>
 
-        {/* TEMPORARY GET STARTED TEXT OR LIGHT/DARK TOGGLE */}
+        {/* LOGIN BUTTON  (ADD LIGHT/DARK TOGGLE) */}
         <div>
             <a href="#login" className="px-4 py-1 text-lg font-medium text-white rounded-full cursor-pointer bg-gray hover:bg-blue-700"> Login</a>
         </div>
@@ -35,7 +50,7 @@ const Landing = () => {
       </header>
 
       {/* BODY */}
-      <body className="flex items-center justify-between w-4/5 p-12 mx-auto ">
+      <body className="flex items-center justify-between w-4/5 p-12 pb-2 mx-auto ">
         <div className="ml-[10%] mt-[-100px]">
           <h1 className={"w-auto item-start text-5xl text-left font-bold text-gray mr-12"}>Job Tracking Made Easy</h1>
           <p className={"w-auto text-gray text-left text-lg font-semibold mt-10 mr-12"}>
@@ -52,17 +67,18 @@ const Landing = () => {
       </body>
 
       {/* FOOTER */}
-      <footer className="py-8 mb-10 bg-lightergray">
+      {/* FACTS SECTION */}
+      <footer className="bg-lightergray">
       <div className="container px-4 mx-auto">
         <h2 className="mb-4 text-3xl font-bold">Facts About Our Software</h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <div className="p-4 bg-white rounded-md shadow-md">
             <h3 className="mb-2 text-lg font-semibold">Applications Tracked</h3>
-            <p className="text-2xl font-bold">5000+</p>
+            <p className="text-2xl font-bold whitespace-nowrap"><AnimateNumber n={12000} /><span>+</span></p>
           </div>
           <div className="p-4 bg-white rounded-md shadow-md">
             <h3 className="mb-2 text-lg font-semibold">Weekly Users</h3>
-            <p className="text-2xl font-bold">500+</p>
+            <p className="text-2xl font-bold whitespace-nowrap"><AnimateNumber n={1500} /><span>+</span></p>
           </div>
   
         </div>
