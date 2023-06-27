@@ -1,6 +1,8 @@
 import React from "react";
 import Logo from "../assets/images/logo.svg";
 import Worker from "../assets/images/landing.svg";
+import { SponsorList } from "../data/SponsorsList";
+import SponsorItem from "../components/SponsorItem";
 
 const Landing = () => {
   return (
@@ -54,10 +56,18 @@ const Landing = () => {
         </div>
       </body>
 
-    {/* FOOTER */}
-    {/* ADD COMPANY LOGOS HERE*/}
-  
-
+      {/* FOOTER */}
+      {/* ADD EDUCATION INSTITUTES LOGOS HERE*/}
+      <footer className="bg-lightergray ">
+        <h2 className="mb-4 text-3xl font-bold">Our Sponsors</h2>
+        <div className="flex items-center justify-between w-4/5 p-6 mx-auto">
+          {SponsorList.map((sponsor) => {
+              return (
+                <SponsorItem image={sponsor.image} />
+                );
+            })}
+        </div>
+      </footer>
     </div>
   );
 };
