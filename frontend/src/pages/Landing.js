@@ -1,8 +1,9 @@
-import React from "react";
+import { useState } from 'react'
 import Logo from "../assets/images/logo.svg";
 import Worker from "../assets/images/landing.svg";
 import { useSpring, animated } from "react-spring";
-
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 // Utilized the React Spring library to animate the 'facts' numbers
@@ -16,20 +17,25 @@ const AnimateNumber = ({ n }) => {
 }
 
 
-
 const Landing = () => {
+  const [isExpandNavbar, setIsExpandNavbar] = useState(false);
+  
+  const handleNav = () => {
+    setIsExpandNavbar(!isExpandNavbar);
+  }
+
   return (
     <div className={"bg-lightergray h-screen"} id="home">
       {/* HEADER */}
-      <header className="flex items-center justify-between w-4/5 p-6 mx-auto">
+      <header className="flex items-center justify-between w-4/5 p-6 mx-auto max-lg:w-[95%]">
         {/* LOGO */}
         <div className="flex items-center space-x-4">
-          <img src={Logo} alt="Logo" className="w-[175px] h-[60px]" />
+          <img src={Logo} alt="Logo" className="w-[175px] h-[60px] static" />
         </div>
 
         {/* NAVIGATION LINKS */}
         <nav>
-          <ul className="flex space-x-10">
+          <ul className="flex space-x-10 max-md:hidden">
             <li>
               <a href="#home" className="text-lg font-medium text-gray hover:text-sky-500"> Home </a>
             </li>
@@ -42,9 +48,20 @@ const Landing = () => {
           </ul>
         </nav>
 
+        {/*  Navigation option for smaller devices (Hamburger menu navbar) */}
+        <div className="block px-4 py-3 mx-2 md:hidden max-lg:mx-0 max-lg:px-0 max-md:ml-[50%]" onClick={handleNav}>
+          <MenuIcon style={{fontSize: 35}} />
+          <ul className={isExpandNavbar ? 'fixed left-0 top-0 w-[100%] h-full bg-white ease-in-out duration-500 flex flex-col items-center justify-center text-2xl text-gray font-semibold' : 'ease-in-out duration-500 fixed left-[-100%]'}>
+            <div className={"flex ml-auto mr-12 mb-20 mt-[-120px]"}><CloseIcon style={{fontSize: 35}} /></div>
+            <li className={"py-5"}><a href="home" className={"hover:text-sky-500"}>Home</a></li>
+            <li className={"py-5"}><a href="#about" className={"hover:text-sky-500"}>About</a></li>
+            <li className={"py-5"}><a href="#contact" className={"hover:text-sky-500"}>Contact</a></li>
+          </ul>
+        </div>
+
         {/* LOGIN BUTTON  (ADD LIGHT/DARK TOGGLE) */}
         <div>
-            <a href="#login" className="px-4 py-1 text-lg font-medium text-white rounded-full cursor-pointer bg-gray hover:bg-blue-700"> Login</a>
+            <a href="#login" className="px-4 py-1 text-lg font-medium text-white rounded-full cursor-pointer bg-gray hover:bg-blue-700 max-md:hidden"> Login</a>
         </div>
 
       </header>
@@ -60,7 +77,7 @@ const Landing = () => {
           <button class="bg-gray hover:bg-blue-700 text-white font-bold text-lg py-3 px-5 rounded-full mt-5 mr-16"> Get Started </button>
         </div>
 
-
+        {/* WORKER IMAGE */}
         <div className={"flex items-center justify-center mt-[-100px]"}>
           <img className={"mr-[10%] w-[2050px] h-[650px] static"} src={Worker} alt="worker"></img>
         </div>
@@ -69,20 +86,19 @@ const Landing = () => {
       {/* FOOTER */}
       {/* FACTS SECTION */}
       <footer className="bg-lightergray">
-      <div className="container px-4 mx-auto">
-        <h2 className="mb-4 text-3xl font-bold">Facts About Our Software</h2>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="p-4 bg-white rounded-md shadow-md">
-            <h3 className="mb-2 text-lg font-semibold">Applications Tracked</h3>
-            <p className="text-2xl font-bold whitespace-nowrap"><AnimateNumber n={12000} /><span>+</span></p>
+        <div className="container px-4 mx-auto">
+          <h2 className="mb-4 text-3xl font-bold">Facts About Our Software</h2>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="p-4 bg-white rounded-md shadow-md">
+              <h3 className="mb-2 text-lg font-semibold">Applications Tracked</h3>
+              <p className="text-2xl font-bold whitespace-nowrap"><AnimateNumber n={12000} /><span>+</span></p>
+            </div>
+            <div className="p-4 bg-white rounded-md shadow-md">
+              <h3 className="mb-2 text-lg font-semibold">Weekly Users</h3>
+              <p className="text-2xl font-bold whitespace-nowrap"><AnimateNumber n={1500} /><span>+</span></p>
+            </div>
           </div>
-          <div className="p-4 bg-white rounded-md shadow-md">
-            <h3 className="mb-2 text-lg font-semibold">Weekly Users</h3>
-            <p className="text-2xl font-bold whitespace-nowrap"><AnimateNumber n={1500} /><span>+</span></p>
-          </div>
-  
         </div>
-      </div>
       </footer>
     </div>
   );
