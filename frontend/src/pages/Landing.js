@@ -87,7 +87,7 @@ const Landing = () => {
       {/* FACTS SECTION */}
       <footer className="bg-lightergray">
         <div className="container px-4 mx-auto">
-          <h2 className="mb-4 text-3xl font-bold">Facts About Our Software</h2>
+          <h2 className="mb-4 text-3xl font-bold">Helping Job Seekers Is Our Mission</h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <div className="p-4 bg-white rounded-md shadow-md">
               <h3 className="mb-2 text-lg font-semibold">Applications Tracked</h3>
