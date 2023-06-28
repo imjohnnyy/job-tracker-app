@@ -67,19 +67,19 @@ const Landing = () => {
       </header>
 
       {/* BODY */}
-      <body className="flex items-center justify-between w-4/5 p-12 pb-2 mx-auto">
+      <body className="flex items-center justify-between w-4/5 p-12 pb-2 mx-auto max-lg:flex-col">
         <div className="ml-[10%] mt-[-100px] max-lg:ml-[-10%]">
-          <h1 className={"w-[75%] item-start text-5xl text-left font-bold text-gray mr-12 max-lg:text-4xl max-lg:flex max-lg:text-center max-lg:mr-13 max-lg:w-[145%]"}>Job Application Tracking Made Easy</h1>
-          <p className={"w-auto text-gray text-left text-lg font-semibold mt-10 mr-12"}>
+          <h1 className={"w-[80%] item-start text-5xl text-left font-bold text-gray mr-12 max-lg:text-4xl max-lg:flex max-lg:text-center max-lg:w-[110%] max-lg:mt-[5rem]"}>Job Application Tracking Made Easy</h1>
+          <p className={"w-auto text-gray text-left text-lg font-semibold mt-10 mr-12 max-lg:flex max-lg:text-center max-lg:w-[110%]"}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe molestiae tempore
             suscipit officia ab omnis soluta obcaecati nobis aliquid ullam
-            eos repudiandae quis natus vel, nostrum odio alias! Neque, labore.</p>
-          <button class="bg-gray hover:bg-blue-700 text-white font-bold text-lg py-3 px-5 rounded-full mt-5 mr-16"> Get Started </button>
+            eos repudiandae quis natus vel, nostrum odio alias.</p>
+          <button class="bg-gray hover:bg-blue-700 text-white font-bold text-lg py-3 px-5 rounded-full mt-5 mr-16 max-lg:mr-0 max-lg:ml-8"> Get Started </button>
         </div>
 
         {/* WORKER IMAGE */}
         <div className={"flex items-center justify-center mt-[-100px]"}>
-          <img className={"mr-[10%] w-[2050px] h-[650px] static"} src={Worker} alt="worker"></img>
+          <img className={"mr-[10%] w-[2050px] h-[650px] static max-lg:w-[1550px] max-lg:h-[470px] max-lg:ml-8 max-lg:mt-[3.2rem]"} src={Worker} alt="worker"></img>
         </div>
       </body>
 
