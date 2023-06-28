@@ -25,7 +25,7 @@ const Landing = () => {
   }
 
   return (
-    <div className={"bg-lightergray h-screen"} id="home">
+    <div className={"bg-lightergray"} id="home">
       {/* HEADER */}
       <header className="flex items-center justify-between w-4/5 p-6 mx-auto max-lg:w-[95%]">
         {/* LOGO */}
@@ -79,7 +79,7 @@ const Landing = () => {
 
         {/* WORKER IMAGE */}
         <div className={"flex items-center justify-center mt-[-100px]"}>
-          <img className={"mr-[10%] w-[2050px] h-[650px] static max-lg:w-[1550px] max-lg:h-[470px] max-lg:ml-8 max-lg:mt-[3.2rem]"} src={Worker} alt="worker"></img>
+          <img className={"mr-[10%] w-[2050px] h-[650px] static max-lg:w-[25rem] max-lg:h-[25rem] max-lg:ml-8 max-lg:mt-[3.5rem]"} src={Worker} alt="worker"></img>
         </div>
       </body>
 
