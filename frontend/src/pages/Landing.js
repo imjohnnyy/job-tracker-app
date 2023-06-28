@@ -67,9 +67,9 @@ const Landing = () => {
       </header>
 
       {/* BODY */}
-      <body className="flex items-center justify-between w-4/5 p-12 pb-2 mx-auto ">
-        <div className="ml-[10%] mt-[-100px]">
-          <h1 className={"w-auto item-start text-5xl text-left font-bold text-gray mr-12"}>Job Tracking Made Easy</h1>
+      <body className="flex items-center justify-between w-4/5 p-12 pb-2 mx-auto">
+        <div className="ml-[10%] mt-[-100px] max-lg:ml-[-10%]">
+          <h1 className={"w-[75%] item-start text-5xl text-left font-bold text-gray mr-12 max-lg:text-4xl max-lg:flex max-lg:text-center max-lg:mr-13 max-lg:w-[145%]"}>Job Application Tracking Made Easy</h1>
           <p className={"w-auto text-gray text-left text-lg font-semibold mt-10 mr-12"}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe molestiae tempore
             suscipit officia ab omnis soluta obcaecati nobis aliquid ullam
