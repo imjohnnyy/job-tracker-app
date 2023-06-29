@@ -67,10 +67,10 @@ const Landing = () => {
       </header>
 
       {/* BODY */}
-      <body className="flex items-center justify-between w-4/5 p-12 pb-2 mx-auto max-lg:flex-col">
+      <body className="flex items-center justify-between w-4/5 p-12 pb-2 mx-auto mt-5 max-lg:flex-col">
         <div className="ml-[10%] mt-[-100px] max-lg:ml-[-10%]">
-          <h1 className={"w-[80%] item-start text-5xl text-left font-bold text-gray mr-12 max-lg:text-4xl max-lg:flex max-lg:text-center max-lg:w-[110%] max-lg:mt-[5rem]"}>Job Application Tracking Made Easy</h1>
-          <p className={"w-auto text-gray text-left text-lg font-semibold mt-10 mr-12 max-lg:flex max-lg:text-center max-lg:w-[110%]"}>
+          <h1 className={"w-auto items-start text-5xl text-left font-bold text-gray mr-12 max-lg:text-4xl max-md:flex max-lg:text-center max-lg:w-[110%] max-lg:mt-[5rem]"}>Job Application Tracking Made Easy</h1>
+          <p className={"w-auto text-gray text-left text-lg font-semibold mt-10 mr-12 max-md:flex max-lg:text-center max-lg:w-[110%]"}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe molestiae tempore
             suscipit officia ab omnis soluta obcaecati nobis aliquid ullam
             eos repudiandae quis natus vel, nostrum odio alias.</p>
@@ -85,17 +85,17 @@ const Landing = () => {
 
       {/* FOOTER */}
       {/* FACTS SECTION */}
-      <footer className="bg-lightergray">
+      <footer className="h-[15rem] bg-lightergray max-lg:mb-5 max-lg:h-[19rem]">
         <div className="container px-4 mx-auto">
           <h2 className="mb-4 text-3xl font-bold">Helping Job Seekers Is Our Mission</h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <div className="p-4 bg-white rounded-md shadow-md">
               <h3 className="mb-2 text-lg font-semibold">Applications Tracked</h3>
-              <p className="text-2xl font-bold whitespace-nowrap"><AnimateNumber n={12000} /><span>+</span></p>
+              <p className="text-2xl font-bold"><AnimateNumber n={12000} /><span>+</span></p>
             </div>
             <div className="p-4 bg-white rounded-md shadow-md">
               <h3 className="mb-2 text-lg font-semibold">Weekly Users</h3>
-              <p className="text-2xl font-bold whitespace-nowrap"><AnimateNumber n={1500} /><span>+</span></p>
+              <p className="text-2xl font-bold"><AnimateNumber n={1500} /><span>+</span></p>
             </div>
           </div>
         </div>
