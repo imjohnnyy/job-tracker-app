@@ -19,7 +19,7 @@ const Login = () => {
             <img src={Logo} alt="Logo" className="w-[175px] h-[60px] static" />
         </div>
         
-        <h2 className="mb-4 text-2xl text-gray">Sign in to your account</h2>
+        <h2 className="mb-4 text-2xl font-semibold text-gray">Sign in to your account</h2>
         <div className="mb-4">
           <label htmlFor="email" className="flex items-start font-medium text-gray">
             Email

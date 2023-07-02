@@ -20,7 +20,7 @@ const Register = () => {
             <img src={Logo} alt="Logo" className="w-[175px] h-[60px] static" />
         </div>
         
-        <h2 className="mb-4 text-2xl text-gray">Create your account</h2>
+        <h2 className="mb-4 text-2xl font-semibold text-gray">Create your account</h2>
         <div className="mb-4">
         <label htmlFor="username" className="flex items-start font-medium text-gray">
             Username
