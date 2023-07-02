@@ -4,6 +4,7 @@ import Worker from "../assets/images/landing.svg";
 import { useSpring, animated } from "react-spring";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { useNavigate } from 'react-router-dom';
 
 
 // Utilized the React Spring library to animate the 'facts' numbers
@@ -16,13 +17,18 @@ const AnimateNumber = ({ n }) => {
   return <animated.span>{number.to((n) => n.toFixed(0))}</animated.span>
 }
 
-
 const Landing = () => {
+
   const [isExpandNavbar, setIsExpandNavbar] = useState(false);
   
+  // Navbar toggle function
   const handleNav = () => {
     setIsExpandNavbar(!isExpandNavbar);
   }
+
+  // Navigate to login page
+  const navigate = useNavigate();
+  const handleClick = () => navigate('/login');
 
   return (
     <div className={"bg-lightergray"} id="home">
@@ -74,7 +80,7 @@ const Landing = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe molestiae tempore
             suscipit officia ab omnis soluta obcaecati nobis aliquid ullam
             eos repudiandae quis natus vel, nostrum odio alias.</p>
-          <button class="bg-gray hover:bg-blue-700 text-white font-bold text-lg py-3 px-5 rounded-full mt-5 mr-16 max-lg:mr-0 max-lg:ml-8"> Get Started </button>
+          <button class="bg-gray hover:bg-blue-700 text-white font-bold text-lg py-3 px-5 rounded-full mt-5 mr-16 max-lg:mr-0 max-lg:ml-8" onClick={handleClick}> Get Started </button>
         </div>
 
         {/* WORKER IMAGE */}
