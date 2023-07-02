@@ -20,39 +20,39 @@ const Register = () => {
             <img src={Logo} alt="Logo" className="w-[175px] h-[60px] static" />
         </div>
         
-        <h2 className="mb-4 text-2xl text-gray">Create your JobTrackr account</h2>
+        <h2 className="mb-4 text-2xl text-gray">Create your account</h2>
         <div className="mb-4">
-        <label htmlFor="username" className="flex items-start font-bold text-gray">
+        <label htmlFor="username" className="flex items-start font-medium text-gray">
             Username
         </label>
         <input
             type="text"
             id="username"
-            className="w-full px-3 py-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline"
+            className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline"
             value={username}
             onChange={(e) => setUserName(e.target.value)}
         />
         </div>
         <div className="mb-4">
-          <label htmlFor="email" className="flex items-start font-bold text-gray">
+          <label htmlFor="email" className="flex items-start font-medium text-gray">
             Email
           </label>
           <input
             type="email"
             id="email"
-            className="w-full px-3 py-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline"
+            className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="password" className="flex items-start font-bold text-gray">
+          <label htmlFor="password" className="flex items-start font-medium text-gray">
             Password
           </label>
           <input
             type="password"
             id="password"
-            className="w-full px-3 py-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline"
+            className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -60,10 +60,13 @@ const Register = () => {
         <div className="flex items-center justify-between">
           <button
             type="submit"
-            className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+            className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline"
           >
-            Register
+            Create account
           </button>
+        </div>
+        <div className="mt-4">
+            <p>Have an account? <a href="/login" className="text-blue-500 hover:text-blue-700">Sign in</a></p>
         </div>
       </form>
     </div>
