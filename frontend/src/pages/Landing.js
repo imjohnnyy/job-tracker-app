@@ -26,7 +26,7 @@ const Landing = () => {
     setIsExpandNavbar(!isExpandNavbar);
   }
 
-  // Navigate to login page
+  // Navigate to login page using React Router
   const navigate = useNavigate();
   const handleClick = () => navigate('/login');
 
