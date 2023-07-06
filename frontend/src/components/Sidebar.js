@@ -17,21 +17,21 @@ const Sidebar = () => {
         </div>
 
         {/* Navigation Links */}
-        <nav className="mt-4">
-          <ul className="space-y-6">
+        <nav className="mt-[5rem]">
+          <ul className="space-y-3">
             <li>
-              <a href="#dashboard" className="block py-2 font-semibold rounded-sm text-lightgray hover:text-white hover:bg-slate-500">
-              <DashboardIcon className="mb-1 mr-1"/> Dashboard
+              <a href="#dashboard" className="flex items-center justify-start py-2 text-lg font-semibold rounded-sm text-lightgray hover:text-white hover:bg-slate-500">
+              <DashboardIcon className="my-1 ml-[10px] mr-[8px]" style={{ fontSize: '150%' }} /> Dashboard
               </a>
             </li>
             <li>
-              <a href="#about" className="block py-2 font-semibold rounded-sm text-lightgray hover:text-white hover:bg-slate-500">
-              <PostAddIcon className="mb-1 ml-[-12px] mr-[2px]" style={{ fontSize: '175%' }}/> Add Jobs
+              <a href="#about" className="flex items-center justify-start py-2 text-lg font-semibold rounded-sm text-lightgray hover:text-white hover:bg-slate-500">
+              <PostAddIcon className="my-1 ml-[9px] mr-[5px]" style={{ fontSize: '180%' }} /> Add Jobs
               </a>
             </li>
             <li>
-              <a href="#about" className="block py-2 font-semibold rounded-sm text-lightgray hover:text-white hover:bg-slate-500">
-                <AccountBoxIcon className="mb-1 ml-[-5px] mr-[5px]"/> My Profile
+              <a href="#about" className="flex items-center justify-start py-2 text-lg font-semibold rounded-sm text-lightgray hover:text-white hover:bg-slate-500">
+                <AccountBoxIcon className="my-1 ml-[10px] mr-[8px]" style={{ fontSize: '150%' }}/> My Profile
               </a>
             </li>
           </ul>
