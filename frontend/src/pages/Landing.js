@@ -26,9 +26,10 @@ const Landing = () => {
     setIsExpandNavbar(!isExpandNavbar);
   }
 
-  // Navigate to login page using React Router
+  // Navigate to login and dashboard page using React Router
   const navigate = useNavigate();
   const handleClick = () => navigate('/login');
+  const handleClickDashboard = () => navigate('/Dashboard');
 
   return (
     <div className={"bg-lightergray"} id="home">
@@ -67,7 +68,7 @@ const Landing = () => {
 
         {/* LOGIN BUTTON  (ADD LIGHT/DARK TOGGLE) */}
         <div>
-            <a href="#login" className="px-4 py-1 text-lg font-medium text-white rounded-full cursor-pointer bg-gray hover:bg-blue-700 max-md:hidden"> Login</a>
+            <a href="#login" className="px-4 py-1 text-lg font-medium text-white rounded-full cursor-pointer bg-gray hover:bg-blue-700 max-md:hidden" onClick={handleClickDashboard}> Login</a>
         </div>
 
       </header>
