@@ -28,8 +28,8 @@ const Landing = () => {
 
   // Navigate to login and dashboard page using React Router
   const navigate = useNavigate();
-  const handleClick = () => navigate('/login');
-  const handleClickDashboard = () => navigate('/Dashboard');
+  const handleClickLogin = () => navigate('/login');
+  const handleClickDashboard = () => navigate('/dashboard');
 
   return (
     <div className={"bg-lightergray"} id="home">
@@ -68,7 +68,7 @@ const Landing = () => {
 
         {/* LOGIN BUTTON  (ADD LIGHT/DARK TOGGLE) */}
         <div>
-            <a href="#login" className="px-4 py-1 text-lg font-medium text-white rounded-full cursor-pointer bg-gray hover:bg-blue-700 max-md:hidden" onClick={handleClickDashboard}> Login</a>
+            <a href="#login" className="px-4 py-1 text-lg font-medium text-white rounded-full bg-gray hover:bg-blue-700 max-md:hidden" onClick={handleClickDashboard}> Login</a>
         </div>
 
       </header>
@@ -81,7 +81,7 @@ const Landing = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe molestiae tempore
             suscipit officia ab omnis soluta obcaecati nobis aliquid ullam
             eos repudiandae quis natus vel, nostrum odio alias.</p>
-          <button class="bg-gray hover:bg-blue-700 text-white font-bold text-lg py-3 px-5 rounded-full mt-5 mr-16 max-lg:mr-0 max-lg:ml-8" onClick={handleClick}> Get Started </button>
+          <button class="relative bg-gray hover:bg-blue-700 text-white font-bold text-lg py-3 px-5 rounded-full mt-5 mr-16 max-lg:mr-0 max-lg:ml-8" onClick={handleClickLogin}> Get Started </button>
         </div>
 
         {/* WORKER IMAGE */}
@@ -89,7 +89,7 @@ const Landing = () => {
           <img className={"mr-[10%] w-[2050px] h-[650px] static max-lg:w-[25rem] max-lg:h-[25rem] max-lg:ml-8 max-lg:mt-[3.5rem]"} src={Worker} alt="worker"></img>
         </div>
       </body>
-
+    
       {/* FOOTER */}
       {/* FACTS SECTION */}
       <footer className="h-[15rem] bg-lightergray max-lg:h-[22rem] fixed max-lg:static inset-x-0 bottom-0">
@@ -106,6 +106,7 @@ const Landing = () => {
             </div>
           </div>
         </div>
+        
       </footer>
     </div>
   );
