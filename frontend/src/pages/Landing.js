@@ -92,7 +92,7 @@ const Landing = () => {
 
       {/* FOOTER */}
       {/* FACTS SECTION */}
-      <footer className="h-[15rem] bg-lightergray max-lg:mb-5 max-lg:h-[19rem]">
+      <footer className="h-[15rem] bg-lightergray max-lg:h-[22rem] fixed max-lg:static inset-x-0 bottom-0">
         <div className="container px-4 mx-auto">
           <h2 className="mb-4 text-3xl font-bold">Helping Job Seekers Is Our Mission</h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
