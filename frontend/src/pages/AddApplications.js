@@ -2,21 +2,24 @@ import Sidebar from "../components/Sidebar"
 import ApplicationForm from "../components/ApplicationForm"
 
 const AddApplications = () => {
-
-  return (
-    <div className="flex h-screen bg-lightergray">   
-      {/* Sidebar */}
-      <Sidebar />
-      
-      {/* Right Side Header */}
-      <div className="flex-1 p-0">
-        <h1 className="flex items-start p-8 text-3xl font-bold bg-white ">Add Job Applications</h1>
+    return (
+      <div className="flex h-screen bg-lightergray">
+        {/* Sidebar */}
+        <Sidebar />
+  
+        <div className="flex flex-col flex-1">
+          {/* Right Side Header */}
+          <header className="p-8 bg-white">
+            <h1 className="flex items-start text-3xl font-bold">Add Job Applications</h1>
+          </header>
+  
+          {/* Job Application Form */}
+          <div className="h-64 p-8">
+            <ApplicationForm />
+          </div>
+        </div>
       </div>
-
-      {/* Content */}
-      <ApplicationForm />
-    </div>
-  )
-}
+    );
+  };
 
 export default AddApplications
