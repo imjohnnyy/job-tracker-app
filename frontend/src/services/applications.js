@@ -1,5 +1,7 @@
-// HTTP Requests and API calls e.g. GET, POST, PUT, DELETE job applications from WEB API
+import { ActionCreators } from "../redux/applicationsReducer";
 
+
+// HTTP Requests and API calls e.g. GET, POST, PUT, DELETE job applications from WEB API
 export const GetApplications = async (dispatch) => {
     try {
         // GET all job applications
@@ -9,7 +11,10 @@ export const GetApplications = async (dispatch) => {
             {id: 3, company: "M90", position: "IT Technician", date: "2021-04-23", type:"Part-Time", status: "Rejected"},
             {id: 4, company: "ASB", position: "Software Developer Intern", date: "2022-08-08", type:"Part-Time", status: "Declined"},
             {id: 5, company: "Meta", position: "Graduate Data Engineer", date: "2022-02-19", type:"Full-Time", status: "Accepted"},
-        ]
+        ];
+
+        // Dispatches an action
+        dispatch(ActionCreators.setApplications(applications));
 
     } catch {
         console.log("Error");
