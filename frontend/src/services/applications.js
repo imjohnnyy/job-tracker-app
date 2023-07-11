@@ -1,7 +1,7 @@
 import { ActionCreators } from "../redux/applicationsReducer";
 
-
 // HTTP Requests and API calls e.g. GET, POST, PUT, DELETE job applications from WEB API
+
 export const GetApplications = async (dispatch) => {
     try {
         // GET all job applications
@@ -13,10 +13,20 @@ export const GetApplications = async (dispatch) => {
             {id: 5, company: "Meta", position: "Graduate Data Engineer", date: "2022-02-19", type:"Full-Time", status: "Accepted"},
         ];
 
-        // Dispatches an action
+        // Dispatches an action to set the applications in the Redux store
         dispatch(ActionCreators.setApplications(applications));
 
     } catch {
         console.log("Error");
     }
 };
+
+
+export const NewApplication = async (dispatch, application) => {
+    try {
+        // Dispatches an action to add a new application to the Redux store
+        dispatch(ActionCreators.newApplication({id: 8, description: "New Application", amount: application.amount, date: application.date}));
+    } catch {
+        console.log("Error");
+    }
+}
