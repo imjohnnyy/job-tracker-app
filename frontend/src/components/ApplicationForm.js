@@ -121,7 +121,7 @@ const ApplicationForm = () => {
         {submittedData.map((data, index) => (
           <FormItem key={index} data={data} />
         ))}
-      </div>
+    </div>
   </div>
 
   );
