@@ -46,6 +46,7 @@ const ApplicationForm = () => {
               value={formData.company}
               className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline"
               onChange={handleChange}
+              required
             />
           </div>
 
@@ -57,6 +58,7 @@ const ApplicationForm = () => {
               value={formData.position}
               className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline"
               onChange={handleChange}
+              required
             />
           </div>
         </div>
@@ -70,6 +72,7 @@ const ApplicationForm = () => {
                 value={formData.type}
                 onChange={handleChange}
                 className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline"
+                required
                 >
                 <option value="">Select your job type</option>
                 <option value="Full-Time">Full-Time</option>
@@ -80,19 +83,20 @@ const ApplicationForm = () => {
 
             {/* Job Status Drop-down List */}
             <div className="w-1/2 mb-4">
-            <label htmlFor="company" className="flex items-start mb-2 font-medium text-gray"> Status </label>
-            <select
+              <label htmlFor="company" className="flex items-start mb-2 font-medium text-gray"> Status </label>
+              <select
                 id="status"
                 value={formData.status}
                 onChange={handleChange}
                 className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline"
-            >
+                required
+              >
                 <option value="">Select your job status</option>
                 <option value="Ongoing">Ongoing</option>
                 <option value="Declined">Declined</option>
                 <option value="Rejected">Rejected</option>
                 <option value="Accepted">Accepted</option>
-            </select>
+              </select>
             </div>
         </div>
 
@@ -105,6 +109,7 @@ const ApplicationForm = () => {
             value={formData.date}
             className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline"
             onChange={handleChange}
+            required
           />
         </div>
 
