@@ -1,24 +1,38 @@
 import React, { useEffect, useState } from 'react';
+import { NewApplication } from '../services/applications';
+import { useDispatch } from 'react-redux';
+import FormItem from '../components/FormItem';
 
 // A form for the user to submit their job application details
 const ApplicationForm = () => {
+  const [formData, setFormData] = useState({company: "", position: "", date: "", status: "", type: ""});
+  const [isNewApplication, setIsNewApplication] = useState(true);
+  const [submittedData, setSubmittedData] = useState([]);
+  const dispatch = useDispatch();
 
-  const [selectedStatusOption, setSelectedStatusOption] = useState('');
-  const [selectedTypeOption, setSelectedTypeOption] = useState('');
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
 
-  const handleStatusChange = (e) => {
-    setSelectedStatusOption(e.target.value);
-    console.log(e.target.value);
+    setSubmittedData([...submittedData, formData]);
+    // Reset the form fields
+    setFormData({company: "", position: "", date: "", status: "", type: ""});
+
+    if(isNewApplication) {
+      NewApplication(dispatch, {company: formData.company, position: formData.position, date: formData.date, status: formData.status, type: formData.type});
+    } else {
+
+    }
   };
 
-  const handleTypeChange = (e) => {
-    setSelectedTypeOption(e.target.value);
-    console.log(e.target.value);
+  const handleChange = (e) => {
+    setFormData({...formData, [e.target.id]: e.target.value});
   };
-    
+
+
   return (
-    <div className="flex items-center justify-center bg-lightergray">
-
+    <div className="flex items-center justify-center bg-lightergray" onSubmit={handleSubmit}>
       {/* Form */}
       <form className="w-full max-w-2xl px-6 py-8 rounded-lg shadow-[0_0px_10px_rgba(0,0,0,0.25)] bg-white">
 
@@ -27,9 +41,11 @@ const ApplicationForm = () => {
           <div className="w-1/2 pr-4 mb-4 ">
             <label htmlFor="company" className="flex items-start mb-2 font-medium text-gray"> Company </label>
             <input
-              type="company"
+              type="text"
               id="company"
+              value={formData.company}
               className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline"
+              onChange={handleChange}
             />
           </div>
 
@@ -38,7 +54,9 @@ const ApplicationForm = () => {
             <input
               type="position"
               id="position"
+              value={formData.position}
               className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline"
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -49,8 +67,8 @@ const ApplicationForm = () => {
                 <label htmlFor="type" className="flex items-start mb-2 font-medium text-gray"> Job Type </label>
                 <select
                 id="type"
-                value={selectedTypeOption}
-                onChange={handleTypeChange}
+                value={formData.type}
+                onChange={handleChange}
                 className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline"
                 >
                 <option value="">Select your job type</option>
@@ -65,8 +83,8 @@ const ApplicationForm = () => {
             <label htmlFor="company" className="flex items-start mb-2 font-medium text-gray"> Status </label>
             <select
                 id="status"
-                value={selectedStatusOption}
-                onChange={handleStatusChange}
+                value={formData.status}
+                onChange={handleChange}
                 className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline"
             >
                 <option value="">Select your job status</option>
@@ -84,7 +102,9 @@ const ApplicationForm = () => {
           <input
             type="date"
             id="date"
+            value={formData.date}
             className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline"
+            onChange={handleChange}
           />
         </div>
 
@@ -95,7 +115,15 @@ const ApplicationForm = () => {
             Add Job Application
         </button>
     </form>
+
+    {/* Rendering the Form Item(s) */}
+    <div className="flex flex-wrap justify-center">
+        {submittedData.map((data, index) => (
+          <FormItem key={index} data={data} />
+        ))}
+      </div>
   </div>
+
   );
 }
 
