@@ -9,9 +9,8 @@ const AddApplications = () => {
   
         <div className="flex flex-col flex-1">
           {/* Right Side Header */}
-          <header className="relative p-8 bg-white">
+          <header className="relative p-8 bg-white shadow-md">
             <h1 className="flex items-start text-3xl font-bold">Add Job Applications</h1>
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-gray"></div>
           </header>
   
           {/* Job Application Form */}
