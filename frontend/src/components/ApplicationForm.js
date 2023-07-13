@@ -77,6 +77,7 @@ const ApplicationForm = () => {
               required
             />
           </div>
+          
         </div>
 
         {/* Job Type Drop-down List */}
