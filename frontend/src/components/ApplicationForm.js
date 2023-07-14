@@ -4,18 +4,30 @@ import { useDispatch } from 'react-redux';
 import FormItem from '../components/FormItem';
 
 // A form for the user to submit their job application details
-const ApplicationForm = () => {
+const ApplicationForm = ({application, setIsEditing}) => {
   const [formData, setFormData] = useState({company: "", position: "", date: "", status: "", type: "", city: ""});
   const [isNewApplication, setIsNewApplication] = useState(true);
   const [submittedData, setSubmittedData] = useState([]);
   const dispatch = useDispatch();
 
-  
+
+  // Every time the application prop changes, the form is updated
+  useEffect(() => {
+    if(application !== undefined) {
+      setIsNewApplication(false);
+      setFormData({company: application.company, position: application.position,
+             date: application.date, status: application.status, type: application.type, city: application.city});
+    } else {
+      setIsNewApplication(true);
+    }
+  }, [application]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
 
     setSubmittedData([...submittedData, formData]);
+
     // Reset the form fields
     setFormData({company: "", position: "", date: "", status: "", type: "", city: ""});
 
@@ -23,7 +35,7 @@ const ApplicationForm = () => {
       NewApplication(dispatch, {company: formData.company, position: formData.position, 
         date: formData.date, status: formData.status, type: formData.type, city: formData.city});
     } else {
-
+      setIsEditing(false);
     }
   };
 
