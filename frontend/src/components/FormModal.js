@@ -1,11 +1,16 @@
 // This is the FormModal component where the user can edit the form item when they press on the 'Edit' button.
+import { EditApplication } from '../services/applications';
+import { useDispatch } from 'react-redux';
 
-const FormModal = ({setIsEditing}) => {
+
+const FormModal = ({setIsEditing, application, formData, handleChange}) => {
    
+  const dispatch = useDispatch();
+
   const handleSave = () => {
-  // Perform save action here with the updated formData
-  // console.log(formData);
-    closeModal();
+       EditApplication(dispatch, {id: application.id, company: formData.company, position: formData.position, 
+    date: formData.date, status: formData.status, type: formData.type, city: formData.city});
+       closeModal();
   };
 
 
@@ -26,8 +31,9 @@ const FormModal = ({setIsEditing}) => {
             <input
               type="text"
               id="company"
+              value={formData.company}
+              onChange={handleChange}
               className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
-              required
             />
           </div>
 
@@ -37,8 +43,9 @@ const FormModal = ({setIsEditing}) => {
             <input
               type="position"
               id="position"
+              value={formData.position}
+              onChange={handleChange}
               className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
-              required
             />
           </div>
 
@@ -48,8 +55,9 @@ const FormModal = ({setIsEditing}) => {
             <input
               type="city"
               id="city"
+              value={formData.city}
+              onChange={handleChange}
               className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
-              required
             />
           </div>
 
@@ -58,7 +66,8 @@ const FormModal = ({setIsEditing}) => {
                 <select
                 id="type"
                 className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
-                required
+                value={formData.type}
+                onChange={handleChange}
                 >
                 <option value="">Select job type</option>
                 <option value="Full-Time">Full-Time</option>
@@ -69,11 +78,12 @@ const FormModal = ({setIsEditing}) => {
 
             {/* Job Status Drop-down List */}
             <div className="w-1/2 pr-4 mb-4">
-              <label htmlFor="company" className="flex items-start mb-2 font-medium text-gray"> Status </label>
+              <label htmlFor="status" className="flex items-start mb-2 font-medium text-gray"> Status </label>
               <select
                 id="status"
                 className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
-                required
+                value={formData.status}
+                onChange={handleChange}
               >
                 <option value="">Select job status</option>
                 <option value="Ongoing">Ongoing</option>
@@ -90,7 +100,8 @@ const FormModal = ({setIsEditing}) => {
                 type="date"
                 id="date"
                 className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
-                required
+                value={formData.date}
+                onChange={handleChange}
               />
             </div>
         </div>

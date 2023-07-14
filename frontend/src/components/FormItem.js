@@ -5,12 +5,12 @@ import { useDispatch } from 'react-redux';
 
 // Note: This form item needs to be a fixed size upon rendering
 
-const FormItem = ({ data }) => {
+const FormItem = ({ data, handleChange }) => {
   const [isEditing, setIsEditing] = useState(false);
   const dispatch = useDispatch();
 
   const toggleModal = () => {
-      setIsEditing(!isEditing);
+    setIsEditing(!isEditing);
   };
 
   const handleDelete = () => {
@@ -21,7 +21,7 @@ const FormItem = ({ data }) => {
   return isEditing ? (
     // Modal
     // If isEditing state is true then Modal is displayed, otherwise Form Item is displayed
-      <FormModal setIsEditing={setIsEditing} />
+      <FormModal setIsEditing={setIsEditing} formData={data} />
   ) : (
     // Form Item
     // If isEditing state is false then Form Item is displayed
@@ -66,7 +66,7 @@ const FormItem = ({ data }) => {
       {/* Delete Button */}
       <button
         type="button"
-        className="px-4 py-2 ml-auto font-bold text-white bg-red-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+        className="px-4 py-2 ml-auto font-bold text-white bg-red-500 rounded hover:bg-red-700 focus:outline-none focus:shadow-outline"
         onClick={handleDelete}
       >
         Delete

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { EditApplication, NewApplication } from '../services/applications';
+import { NewApplication } from '../services/applications';
 import { useDispatch } from 'react-redux';
-import FormItem from '../components/FormItem';
+
 
 // A form for the user to submit their job application details
 const ApplicationForm = ({application, setIsEditing}) => {
@@ -22,6 +22,7 @@ const ApplicationForm = ({application, setIsEditing}) => {
     }
   }, [application]);
 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
@@ -31,12 +32,11 @@ const ApplicationForm = ({application, setIsEditing}) => {
     // Reset the form fields
     setFormData({company: "", position: "", date: "", status: "", type: "", city: ""});
 
-    if(isNewApplication) {
-      NewApplication(dispatch, {company: formData.company, position: formData.position, 
-        date: formData.date, status: formData.status, type: formData.type, city: formData.city});
+    if (isNewApplication) {
+        NewApplication(dispatch, {company: formData.company, position: formData.position, 
+          date: formData.date, status: formData.status, type: formData.type, city: formData.city});
     } else {
-      EditApplication(dispatch, {id: application.id, company: formData.company, position: formData.position, 
-        date: formData.date, status: formData.status, type: formData.type, city: formData.city});
+  
       setIsEditing(false);
     }
   };
@@ -114,7 +114,7 @@ const ApplicationForm = ({application, setIsEditing}) => {
 
             {/* Job Status Drop-down List */}
             <div className="w-1/3 pr-4 mb-4">
-              <label htmlFor="company" className="flex items-start mb-2 font-medium text-gray"> Status </label>
+              <label htmlFor="status" className="flex items-start mb-2 font-medium text-gray"> Status </label>
               <select
                 id="status"
                 value={formData.status}

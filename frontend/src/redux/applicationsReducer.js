@@ -30,7 +30,7 @@ export default function ApplicationsReducer(state = initialState, action) {
             return {...state, applications: [...state.applications.filter(application => application.id !== action.payload)]}
         case ActionTypes.EDIT_APPLICATION:
             // Return new state based the EDIT_APPLICATION action type
-            return {...state, applications: [...state.applications.map(application => application.id === action.payload.id ? action.payload : application)]}
+            return {...state, applications: [...state.applications.map(application => application.id === action.payload.id ? application = action.payload : application)]}
         default:
             return state // Return the current state if no action type matches
     } 
