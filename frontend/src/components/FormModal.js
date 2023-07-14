@@ -30,7 +30,7 @@ const FormModal = ({setIsEditing}) => {
           </button>
           <button
             type="button"
-            className="px-4 py-2 ml-2 font-bold text-white bg-gray-500 rounded hover:bg-gray-700 focus:outline-none focus:shadow-outline"
+            className="px-4 py-2 ml-2 font-bold bg-gray-500 border-2 rounded border-lightgray text-gray hover:bg-gray-700 focus:outline-none focus:shadow-outline"
             onClick={closeModal}
           >
             Cancel

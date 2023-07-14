@@ -140,12 +140,6 @@ const ApplicationForm = () => {
 
     </form>
 
-    {/* Rendering the Form Item(s) */}
-    <div className="flex flex-wrap justify-center">
-        {submittedData.map((data, index) => (
-          <FormItem key={index} data={data} />
-        ))}
-    </div>
   </div>
 
   );

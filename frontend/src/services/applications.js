@@ -25,7 +25,8 @@ export const GetApplications = async (dispatch) => {
 export const NewApplication = async (dispatch, application) => {
     try {
         // Dispatches an action to add a new application to the Redux store
-        dispatch(ActionCreators.newApplication({id: 8, description: "New Application", amount: application.amount, date: application.date}));
+        dispatch(ActionCreators.newApplication({id: 8, company: application.company, position: application.position, 
+            city: application.city, date: application.date, type: application.type, status: application.status}));
     } catch {
         console.log("Error");
     }

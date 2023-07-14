@@ -1,5 +1,6 @@
 import Sidebar from "../components/Sidebar"
 import ApplicationForm from "../components/ApplicationForm"
+import ApplicationList from "../components/ApplicationList";
 
 const AddApplications = () => {
     return (
@@ -16,6 +17,7 @@ const AddApplications = () => {
           {/* Job Application Form */}
           <div className="h-64 p-8">
             <ApplicationForm />
+            <ApplicationList />
           </div>
         </div>
       </div>
