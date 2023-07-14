@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NewApplication } from '../services/applications';
+import { EditApplication, NewApplication } from '../services/applications';
 import { useDispatch } from 'react-redux';
 import FormItem from '../components/FormItem';
 
@@ -35,6 +35,8 @@ const ApplicationForm = ({application, setIsEditing}) => {
       NewApplication(dispatch, {company: formData.company, position: formData.position, 
         date: formData.date, status: formData.status, type: formData.type, city: formData.city});
     } else {
+      EditApplication(dispatch, {id: application.id, company: formData.company, position: formData.position, 
+        date: formData.date, status: formData.status, type: formData.type, city: formData.city});
       setIsEditing(false);
     }
   };

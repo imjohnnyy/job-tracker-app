@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 import FormModal from "../components/FormModal";
+import { DeleteApplication } from "../services/applications";
+import { useDispatch } from 'react-redux';
+
 // Note: This form item needs to be a fixed size upon rendering
 
 const FormItem = ({ data }) => {
   const [isEditing, setIsEditing] = useState(false);
+  const dispatch = useDispatch();
 
   const toggleModal = () => {
       setIsEditing(!isEditing);
-    };
+  };
+
+  const handleDelete = () => {
+    DeleteApplication(dispatch, data);
+  };
 
 
   return isEditing ? (
@@ -49,10 +57,19 @@ const FormItem = ({ data }) => {
       {/* Edit Button */}
       <button
         type="button"
-        className="px-4 py-2 ml-auto font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+        className="px-4 py-2 ml-auto mr-6 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline"
         onClick={toggleModal}
       >
         Edit
+      </button>
+
+      {/* Delete Button */}
+      <button
+        type="button"
+        className="px-4 py-2 ml-auto font-bold text-white bg-red-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+        onClick={handleDelete}
+      >
+        Delete
       </button>
     </div>
   );

@@ -31,3 +31,24 @@ export const NewApplication = async (dispatch, application) => {
         console.log("Error");
     }
 }
+
+
+export const DeleteApplication = async (dispatch, application) => {
+    try {
+        // Dispatches an action to delete an application from the Redux store
+        dispatch(ActionCreators.deleteApplication(application.id));
+    } catch {
+        console.log("Error");
+    }
+}   
+
+export const EditApplication = async (dispatch, application) => {
+    try {
+        // Dispatches an action to edit an application from the Redux store
+        dispatch(ActionCreators.editApplication({id: application.id, company: application.company, position: application.position, 
+            city: application.city, date: application.date, type: application.type, status: application.status})); 
+    } catch {
+        console.log("Error");
+    }
+}   
+
