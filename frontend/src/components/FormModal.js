@@ -1,15 +1,19 @@
 // This is the FormModal component where the user can edit the form item when they press on the 'Edit' button.
 import { EditApplication } from '../services/applications';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 
-const FormModal = ({setIsEditing, application, formData, handleChange}) => {
-   
+const FormModal = ({setIsEditing, application, formData}) => {
+
+  const [useFormData, setUseFormData] = useState(formData);
+
   const dispatch = useDispatch();
 
+
   const handleSave = () => {
-       EditApplication(dispatch, {id: application.id, company: formData.company, position: formData.position, 
-    date: formData.date, status: formData.status, type: formData.type, city: formData.city});
+       EditApplication(dispatch, {id: useFormData.id, company: useFormData.company, position: useFormData.position, 
+             date: useFormData.date, status: useFormData.status, type: useFormData.type, city: useFormData.city});
        closeModal();
   };
 
@@ -17,6 +21,16 @@ const FormModal = ({setIsEditing, application, formData, handleChange}) => {
   const closeModal = () => {
     setIsEditing(false);
   };
+
+
+  const handleChangeText = (e) => {
+    setUseFormData((prevFormData) => ({
+      ...prevFormData,
+      [e.target.id]: e.target.value,
+    }));
+  };
+  
+
     
   return (
     <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-black bg-opacity-50">
@@ -31,8 +45,8 @@ const FormModal = ({setIsEditing, application, formData, handleChange}) => {
             <input
               type="text"
               id="company"
-              value={formData.company}
-              onChange={handleChange}
+              value={useFormData.company}
+              onChange={handleChangeText}
               className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
             />
           </div>
@@ -43,8 +57,8 @@ const FormModal = ({setIsEditing, application, formData, handleChange}) => {
             <input
               type="position"
               id="position"
-              value={formData.position}
-              onChange={handleChange}
+              value={useFormData.position}
+              onChange={handleChangeText}
               className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
             />
           </div>
@@ -55,8 +69,8 @@ const FormModal = ({setIsEditing, application, formData, handleChange}) => {
             <input
               type="city"
               id="city"
-              value={formData.city}
-              onChange={handleChange}
+              value={useFormData.city}
+              onChange={handleChangeText}
               className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
             />
           </div>
@@ -66,8 +80,8 @@ const FormModal = ({setIsEditing, application, formData, handleChange}) => {
                 <select
                 id="type"
                 className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
-                value={formData.type}
-                onChange={handleChange}
+                value={useFormData.type}
+                onChange={handleChangeText}
                 >
                 <option value="">Select job type</option>
                 <option value="Full-Time">Full-Time</option>
@@ -82,8 +96,8 @@ const FormModal = ({setIsEditing, application, formData, handleChange}) => {
               <select
                 id="status"
                 className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
-                value={formData.status}
-                onChange={handleChange}
+                value={useFormData.status}
+                onChange={handleChangeText}
               >
                 <option value="">Select job status</option>
                 <option value="Ongoing">Ongoing</option>
@@ -100,8 +114,8 @@ const FormModal = ({setIsEditing, application, formData, handleChange}) => {
                 type="date"
                 id="date"
                 className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
-                value={formData.date}
-                onChange={handleChange}
+                value={useFormData.date}
+                onChange={handleChangeText}
               />
             </div>
         </div>

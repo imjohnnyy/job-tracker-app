@@ -45,7 +45,7 @@ export const DeleteApplication = async (dispatch, application) => {
 export const EditApplication = async (dispatch, application) => {
     try {
         // Dispatches an action to edit an application from the Redux store
-        dispatch(ActionCreators.editApplication(application.id)); 
+        dispatch(ActionCreators.editApplication(application)); 
     } catch {
         console.log("Error");
     }

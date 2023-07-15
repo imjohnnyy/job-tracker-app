@@ -27,7 +27,7 @@ const FormItem = ({ data, handleChange }) => {
     // If isEditing state is false then Form Item is displayed
     <div className="p-6 mt-8 mr-6 bg-white rounded-lg shadow-[0_0px_10px_rgba(0,0,0,0.25)] w-full max-w-lg">
       <h3 className="mt-[-1rem] mb-2 text-xl font-bold">{data.company}</h3>
-      <div class="grid grid-cols-2 items-start">
+      <div className="grid items-start grid-cols-2">
         <div className="flex flex-col items-start">
           <p className="whitespace-nowrap">
             <strong>Position: </strong>
