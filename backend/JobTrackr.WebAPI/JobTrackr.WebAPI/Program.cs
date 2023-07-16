@@ -1,3 +1,4 @@
+using Applications.Core;
 using JobTrackr.DB;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,6 +13,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DB_CONNECTION_STRING"));
 });
+
+// Add IApplicationsService as a transient service
+builder.Services.AddTransient<IApplicationsServices, ApplicationsServices>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

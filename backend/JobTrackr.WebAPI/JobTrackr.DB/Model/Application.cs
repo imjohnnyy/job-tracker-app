@@ -9,9 +9,9 @@ namespace JobTrackr.DB.Model
         [Key]
         public int Id { get; set; }
         public string Company { get; set; }
-        public string City { get; set; }
 
-        public string Country { get; set; }
+        public string Position { get; set; }
+        public string City { get; set; }
 
         public DateTime Date { get; set; }
 

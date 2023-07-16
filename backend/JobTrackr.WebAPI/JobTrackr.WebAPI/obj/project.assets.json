@@ -1231,6 +1231,19 @@
           }
         }
       },
+      "Applications.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "JobTrackr.DB": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Applications.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Applications.Core.dll": {}
+        }
+      },
       "JobTrackr.DB/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3690,6 +3703,11 @@
         "version.txt"
       ]
     },
+    "Applications.Core/1.0.0": {
+      "type": "project",
+      "path": "../Applications.Core/Applications.Core.csproj",
+      "msbuildProject": "../Applications.Core/Applications.Core.csproj"
+    },
     "JobTrackr.DB/1.0.0": {
       "type": "project",
       "path": "../JobTrackr.DB/JobTrackr.DB.csproj",
@@ -3698,6 +3716,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Applications.Core >= 1.0.0",
       "JobTrackr.DB >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.9",
       "Swashbuckle.AspNetCore >= 6.2.3"
@@ -3730,6 +3749,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\Applications.Core\\Applications.Core.csproj": {
+              "projectPath": "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\Applications.Core\\Applications.Core.csproj"
+            },
             "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\JobTrackr.DB\\JobTrackr.DB.csproj": {
               "projectPath": "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\JobTrackr.DB\\JobTrackr.DB.csproj"
             }

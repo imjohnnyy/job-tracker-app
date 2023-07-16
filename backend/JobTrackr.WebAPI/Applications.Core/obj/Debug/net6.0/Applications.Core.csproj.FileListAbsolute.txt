@@ -1,0 +1,15 @@
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\Applications.Core\bin\Debug\net6.0\Applications.Core.deps.json
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\Applications.Core\bin\Debug\net6.0\Applications.Core.dll
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\Applications.Core\bin\Debug\net6.0\Applications.Core.pdb
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\Applications.Core\bin\Debug\net6.0\JobTrackr.DB.dll
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\Applications.Core\bin\Debug\net6.0\JobTrackr.DB.pdb
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\Applications.Core\obj\Debug\net6.0\Applications.Core.csproj.AssemblyReference.cache
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\Applications.Core\obj\Debug\net6.0\Applications.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\Applications.Core\obj\Debug\net6.0\Applications.Core.AssemblyInfoInputs.cache
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\Applications.Core\obj\Debug\net6.0\Applications.Core.AssemblyInfo.cs
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\Applications.Core\obj\Debug\net6.0\Applications.Core.csproj.CoreCompileInputs.cache
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\Applications.Core\obj\Debug\net6.0\Applications.Core.csproj.CopyComplete
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\Applications.Core\obj\Debug\net6.0\Applications.Core.dll
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\Applications.Core\obj\Debug\net6.0\refint\Applications.Core.dll
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\Applications.Core\obj\Debug\net6.0\Applications.Core.pdb
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\Applications.Core\obj\Debug\net6.0\ref\Applications.Core.dll
