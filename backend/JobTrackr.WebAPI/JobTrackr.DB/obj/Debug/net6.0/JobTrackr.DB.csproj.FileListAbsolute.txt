@@ -1,0 +1,14 @@
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\JobTrackr.DB\bin\Debug\net6.0\JobTrackr.DB.deps.json
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\JobTrackr.DB\bin\Debug\net6.0\JobTrackr.DB.runtimeconfig.json
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\JobTrackr.DB\bin\Debug\net6.0\JobTrackr.DB.dll
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\JobTrackr.DB\bin\Debug\net6.0\JobTrackr.DB.pdb
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\JobTrackr.DB\obj\Debug\net6.0\JobTrackr.DB.csproj.AssemblyReference.cache
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\JobTrackr.DB\obj\Debug\net6.0\JobTrackr.DB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\JobTrackr.DB\obj\Debug\net6.0\JobTrackr.DB.AssemblyInfoInputs.cache
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\JobTrackr.DB\obj\Debug\net6.0\JobTrackr.DB.AssemblyInfo.cs
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\JobTrackr.DB\obj\Debug\net6.0\JobTrackr.DB.csproj.CoreCompileInputs.cache
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\JobTrackr.DB\obj\Debug\net6.0\JobTrackr.DB.dll
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\JobTrackr.DB\obj\Debug\net6.0\refint\JobTrackr.DB.dll
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\JobTrackr.DB\obj\Debug\net6.0\JobTrackr.DB.pdb
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\JobTrackr.DB\obj\Debug\net6.0\JobTrackr.DB.genruntimeconfig.cache
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\JobTrackr.DB\obj\Debug\net6.0\ref\JobTrackr.DB.dll

@@ -2,7 +2,7 @@
 
 // This file defines the Application model for tracking job applications.
 
-namespace JobTrackr.DB
+namespace JobTrackr.DB.Model
 {
     public class Application
     {
