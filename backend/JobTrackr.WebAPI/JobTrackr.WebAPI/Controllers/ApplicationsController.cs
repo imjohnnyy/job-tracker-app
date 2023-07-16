@@ -1,4 +1,5 @@
 using Applications.Core;
+using JobTrackr.DB.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JobTrackr.WebAPI.Controllers
@@ -14,12 +15,42 @@ namespace JobTrackr.WebAPI.Controllers
             _applicationsServices = applicationsServices;
         }
 
+        // Retrieves all job applications
         [HttpGet]
         public IActionResult GetApplications()
         {
             return Ok(_applicationsServices.GetApplications());
         }
 
+        // Retrieves a specific job application
+        [HttpGet("{id}", Name = "GetApplication")]
+        public IActionResult GetApplication(int id)
+        {
+            return Ok(_applicationsServices.GetApplication(id));
+        }
+
+        // Creates a new job application
+        [HttpPost]
+        public IActionResult CreateApplication(Application application)
+        {
+            var newApplication = _applicationsServices.CreateApplication(application);
+            return CreatedAtRoute("GetApplication", new { newApplication.Id }, newApplication);
+        }
+
+        // Deletes an job application
+        [HttpDelete]
+        public IActionResult DeleteApplication(Application application)
+        {
+            _applicationsServices.DeleteApplication(application);
+            return Ok();
+        }
+
+        // Updates an existing job application
+        [HttpPut]
+        public IActionResult EditApplication(Application application)
+        {
+            return Ok(_applicationsServices.EditApplication(application));
+        }
 
     }
 }
