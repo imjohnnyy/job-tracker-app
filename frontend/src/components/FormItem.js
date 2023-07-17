@@ -39,7 +39,7 @@ const FormItem = ({ data, handleChange }) => {
           </p>
           <p>
             <strong>Status: </strong>
-            {data.status}
+            {data.jobStatus}
           </p>
         </div>
         <div className="flex flex-col items-end ml-[42%]">
@@ -49,7 +49,7 @@ const FormItem = ({ data, handleChange }) => {
           </p>
           <p className="mr-auto">
             <strong>Type: </strong>
-            {data.type}
+            {data.jobType}
           </p>
         </div>
       </div>

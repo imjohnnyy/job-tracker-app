@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 
 // A form for the user to submit their job application details
 const ApplicationForm = ({application, setIsEditing}) => {
-  const [formData, setFormData] = useState({company: "", position: "", date: "", status: "", type: "", city: ""});
+  const [formData, setFormData] = useState({company: "", position: "", date: "", jobStatus: "", jobType: "", city: ""});
   const [isNewApplication, setIsNewApplication] = useState(true);
   const [submittedData, setSubmittedData] = useState([]);
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const ApplicationForm = ({application, setIsEditing}) => {
     if(application !== undefined) {
       setIsNewApplication(false);
       setFormData({company: application.company, position: application.position,
-             date: application.date, status: application.status, type: application.type, city: application.city});
+             date: application.date, jobStatus: application.jobStatus, jobType: application.jobType, city: application.city});
     } else {
       setIsNewApplication(true);
     }
@@ -30,11 +30,11 @@ const ApplicationForm = ({application, setIsEditing}) => {
     setSubmittedData([...submittedData, formData]);
 
     // Reset the form fields
-    setFormData({company: "", position: "", date: "", status: "", type: "", city: ""});
+    setFormData({company: "", position: "", date: "", jobStatus: "", jobType: "", city: ""});
 
     if (isNewApplication) {
         NewApplication(dispatch, {company: formData.company, position: formData.position, 
-          date: formData.date, status: formData.status, type: formData.type, city: formData.city});
+          date: formData.date, jobStatus: formData.jobStatus, jobType: formData.jobType, city: formData.city});
     } else {
   
       setIsEditing(false);
@@ -70,7 +70,7 @@ const ApplicationForm = ({application, setIsEditing}) => {
           <div className="w-1/3 pr-4 mb-4">
             <label htmlFor="position" className="flex items-start mb-2 font-medium text-gray"> Position </label>
             <input
-              type="position"
+              type="text"
               id="position"
               value={formData.position}
               className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
@@ -83,7 +83,7 @@ const ApplicationForm = ({application, setIsEditing}) => {
           <div className="w-1/3 mb-4">
             <label htmlFor="city" className="flex items-start mb-2 font-medium text-gray"> City </label>
             <input
-              type="city"
+              type="text"
               id="city"
               value={formData.city}
               className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
@@ -97,11 +97,11 @@ const ApplicationForm = ({application, setIsEditing}) => {
         {/* Job Type Drop-down List */}
         <div className="flex">
             <div className="w-1/3 pr-4 mb-4">
-                <label htmlFor="type" className="flex items-start mb-2 font-medium text-gray"> Job Type </label>
+                <label htmlFor="jobType" className="flex items-start mb-2 font-medium text-gray"> Job Type </label>
                 <select
-                id="type"
-                type="type"
-                value={formData.type}
+                type="text"
+                id="jobType"
+                value={formData.jobType}
                 onChange={handleChange}
                 className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
                 required
@@ -115,11 +115,11 @@ const ApplicationForm = ({application, setIsEditing}) => {
 
             {/* Job Status Drop-down List */}
             <div className="w-1/3 pr-4 mb-4">
-              <label htmlFor="status" className="flex items-start mb-2 font-medium text-gray"> Status </label>
+              <label htmlFor="jobStatus" className="flex items-start mb-2 font-medium text-gray"> Status </label>
               <select
-                id="status"
-                type="status"
-                value={formData.status}
+                id="jobStatus"
+                type="text"
+                value={formData.jobStatus}
                 onChange={handleChange}
                 className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
                 required

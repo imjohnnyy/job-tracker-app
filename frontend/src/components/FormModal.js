@@ -13,7 +13,7 @@ const FormModal = ({setIsEditing, application, formData}) => {
 
   const handleSave = () => {
        EditApplication(dispatch, {id: useFormData.id, company: useFormData.company, position: useFormData.position, 
-             date: useFormData.date, status: useFormData.status, type: useFormData.type, city: useFormData.city});
+             date: useFormData.date, jobStatus: useFormData.jobStatus, jobType: useFormData.jobType, city: useFormData.city});
        closeModal();
   };
 
@@ -76,11 +76,12 @@ const FormModal = ({setIsEditing, application, formData}) => {
           </div>
 
           <div className="w-1/2 mb-4">
-                <label htmlFor="type" className="flex items-start mb-2 font-medium text-gray"> Job Type </label>
+                <label htmlFor="jobType" className="flex items-start mb-2 font-medium text-gray"> Job Type </label>
                 <select
-                id="type"
+                id="jobType"
+                type="jobType"
                 className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
-                value={useFormData.type}
+                value={useFormData.jobType}
                 onChange={handleChangeText}
                 >
                 <option value="">Select job type</option>
@@ -92,11 +93,11 @@ const FormModal = ({setIsEditing, application, formData}) => {
 
             {/* Job Status Drop-down List */}
             <div className="w-1/2 pr-4 mb-4">
-              <label htmlFor="status" className="flex items-start mb-2 font-medium text-gray"> Status </label>
+              <label htmlFor="jobStatus" className="flex items-start mb-2 font-medium text-gray"> Status </label>
               <select
-                id="status"
+                id="jobStatus"
                 className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
-                value={useFormData.status}
+                value={useFormData.jobStatus}
                 onChange={handleChangeText}
               >
                 <option value="">Select job status</option>
