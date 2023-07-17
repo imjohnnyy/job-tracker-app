@@ -40,7 +40,7 @@ const Landing = () => {
           <img src={Logo} alt="Logo" className="w-[175px] h-[60px] static" />
         </div>
 
-        {/* NAVIGATION LINKS */}
+        {/* Navigation Links */}
         <nav>
           <ul className="flex space-x-10 max-md:hidden">
             <li>
@@ -66,14 +66,14 @@ const Landing = () => {
           </ul>
         </div>
 
-        {/* LOGIN BUTTON  (ADD LIGHT/DARK TOGGLE) */}
+        {/* Login Button */}
         <div>
             <a href="#login" className="px-4 py-1 text-lg font-medium text-white rounded-full bg-gray hover:bg-blue-700 max-md:hidden" onClick={handleClickDashboard}> Login</a>
         </div>
 
       </header>
 
-      {/* BODY */}
+      {/* Body */}
       <body className="flex items-center justify-between w-4/5 p-12 pb-2 mx-auto mt-5 max-lg:flex-col">
         <div className="ml-[10%] mt-[-100px] max-lg:ml-[-10%]">
           <h1 className={"w-auto items-start text-5xl text-left font-bold text-gray mr-12 max-lg:text-4xl max-md:flex max-lg:text-center max-lg:w-[110%] max-lg:mt-[5rem]"}>Job Application Tracking Made Easy</h1>
@@ -84,14 +84,14 @@ const Landing = () => {
           <button class="relative bg-gray hover:bg-blue-700 text-white font-bold text-lg py-3 px-5 rounded-full mt-5 mr-16 max-lg:mr-0 max-lg:ml-8" onClick={handleClickLogin}> Get Started </button>
         </div>
 
-        {/* WORKER IMAGE */}
+        {/* Worker Image */}
         <div className={"flex items-center justify-center mt-[-100px]"}>
           <img className={"mr-[10%] w-[2050px] h-[650px] static max-lg:w-[25rem] max-lg:h-[25rem] max-lg:ml-8 max-lg:mt-[3.5rem]"} src={Worker} alt="worker"></img>
         </div>
       </body>
     
-      {/* FOOTER */}
-      {/* FACTS SECTION */}
+      {/* Footer */}
+      {/* Facts Section */}
       <footer className="h-[15rem] bg-lightergray max-lg:h-[22rem] max-lg:static inset-x-0 bottom-0">
         <div className="container px-4 mx-auto">
           <h2 className="mb-4 text-3xl font-bold">Helping Job Seekers Is Our Mission</h2>
