@@ -17,6 +17,14 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Add IApplicationsService as a transient service
 builder.Services.AddTransient<IApplicationsServices, ApplicationsServices>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("ApplicationsPolicy", builder =>
+    {
+        builder.WithOrigins("*").AllowAnyHeader().AllowAnyMethod();
+    });
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -31,6 +39,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("ApplicationsPolicy");
 
 app.UseAuthorization();
 
