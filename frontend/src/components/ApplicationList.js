@@ -13,7 +13,7 @@ const ApplicationList = () => {
 
   useEffect(() => {
       GetApplications(dispatch);
-  }, []);
+  }, [applications]);
 
 
   // Renders the list of applications

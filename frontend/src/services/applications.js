@@ -28,7 +28,7 @@ export const NewApplication = async (dispatch, application) => {
         const { data } = await axiosInstance.post("", application);
 
         // Dispatches an action to add a new application to the Redux store
-        dispatch(ActionCreators.newApplication({ data }));
+        dispatch(ActionCreators.newApplication( { data } ));
     } catch {
         console.log("Error");
     }
@@ -38,7 +38,7 @@ export const NewApplication = async (dispatch, application) => {
 export const DeleteApplication = async (dispatch, application) => {
     try {
         // DELETE an job application from our Web API (API call)
-         await axiosInstance.delete("", application);
+         await axiosInstance.delete("", { data: {...application} });
 
         // Dispatches an action to delete an application from the Redux store
         dispatch(ActionCreators.deleteApplication(application));
