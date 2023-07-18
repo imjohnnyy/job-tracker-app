@@ -1,5 +1,6 @@
 using Applications.Core;
 using JobTrackr.DB;
+using Microsoft.AspNet.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -16,6 +17,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // Add IApplicationsService as a transient service
 builder.Services.AddTransient<IApplicationsServices, ApplicationsServices>();
+
+// Add IUserService as a transient service
+builder.Services.AddTransient<IUserService, UserService>();
+
+// Add IPasswordHasher as a transient service
+builder.Services.AddTransient<IPasswordHasher, PasswordHasher>();
 
 builder.Services.AddCors(options =>
 {

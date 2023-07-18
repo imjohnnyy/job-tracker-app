@@ -89,3 +89,4 @@ C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\JobTrackr.WebAPI\bin\Deb
 C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\JobTrackr.WebAPI\bin\Debug\net6.0\JobTrackr.DB.pdb
 C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\JobTrackr.WebAPI\bin\Debug\net6.0\Applications.Core.dll
 C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\JobTrackr.WebAPI\bin\Debug\net6.0\Applications.Core.pdb
+C:\Users\ldong\job-tracker-app\backend\JobTrackr.WebAPI\JobTrackr.WebAPI\bin\Debug\net6.0\Microsoft.AspNet.Identity.Core.dll
