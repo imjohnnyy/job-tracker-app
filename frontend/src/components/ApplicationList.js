@@ -9,7 +9,7 @@ const ApplicationList = () => {
   const dispatch = useDispatch();
 
   // Retrieves data from Redux store, allowing us to utilize it for rendering purposes
-  const applications = useSelector(state => state.applicationsReducer.applications);
+  const applications = useSelector(state => state.applicationsSlice.applications);
 
   useEffect(() => {
       GetApplications(dispatch);

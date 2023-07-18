@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import applicationsReducer from "./applicationsReducer";
+import applicationsSlice from "./applicationsSlice";
 
 export default configureStore({
   reducer: {
-    applicationsReducer: applicationsReducer,
+    applicationsSlice: applicationsSlice,
   },
 });

@@ -1,4 +1,4 @@
-import { ActionCreators } from "../redux/applicationsReducer";
+import { setApplications, newApplication, editApplication, deleteApplication } from "../redux/applicationsSlice";
 import axios from "axios";
 
 
@@ -14,7 +14,7 @@ export const GetApplications = async (dispatch) => {
         const { data } = await axiosInstance.get();
         
         // Dispatches an action to set the applications in the Redux store
-        dispatch(ActionCreators.setApplications(data));
+        dispatch(setApplications(data));
 
     } catch {
         console.log("Error");
@@ -28,7 +28,7 @@ export const NewApplication = async (dispatch, application) => {
         const { data } = await axiosInstance.post("", application);
 
         // Dispatches an action to add a new application to the Redux store
-        dispatch(ActionCreators.newApplication( { data } ));
+        dispatch(newApplication( { data } ));
     } catch {
         console.log("Error");
     }
@@ -41,7 +41,7 @@ export const DeleteApplication = async (dispatch, application) => {
          await axiosInstance.delete("", { data: {...application} });
 
         // Dispatches an action to delete an application from the Redux store
-        dispatch(ActionCreators.deleteApplication(application));
+        dispatch(deleteApplication(application));
     } catch {
         console.log("Error");
     }
@@ -53,7 +53,7 @@ export const EditApplication = async (dispatch, application) => {
         await axiosInstance.put("", application);
 
         // Dispatches an action to edit an application from the Redux store
-        dispatch(ActionCreators.editApplication(application)); 
+        dispatch(editApplication(application)); 
     } catch {
         console.log("Error");
     }
