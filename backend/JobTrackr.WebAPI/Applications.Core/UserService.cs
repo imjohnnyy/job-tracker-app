@@ -23,9 +23,25 @@ namespace Applications.Core
             _passwordHasher = passwordHasher;
         }
 
+        public async Task<AuthenticatedUser> SignIn(User user)
+        {
+            var dbUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Username == user.Username);
+
+            if (dbUser == null || _passwordHasher.VerifyHashedPassword(dbUser.Password, user.Password) == PasswordVerificationResult.Failed)
+            {
+                throw new InvalidCredentialsException("Invalid username or password!");
+            }
+
+            return new AuthenticatedUser
+            {
+                Username = user.Username,
+                Token = "temp Token"
+            };
+        }
+
         public async Task<AuthenticatedUser> SignUp(User user)
         {
-            var verifyUser = await _dbContext.Users.FirstOrDefaultAsync(user => user.Username.Equals(user.Username));
+            var verifyUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Username.Equals(user.Username));
 
             if (verifyUser != null)
             {

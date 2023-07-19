@@ -30,5 +30,19 @@ namespace JobTrackr.WebAPI.Controllers
                 return StatusCode(409, ex.Message);
             }
         }
+
+        [HttpPost("signin")]
+        public async Task<IActionResult> SignIn(User user)
+        {
+            try
+            {
+                var result = await _userService.SignIn(user);  
+                return Ok(result);
+            } 
+            catch (InvalidCredentialsException ex)
+            {
+                return StatusCode(401, ex.Message);
+            }
+        }
     }
 }
