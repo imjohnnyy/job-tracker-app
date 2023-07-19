@@ -1,5 +1,6 @@
 ﻿using Applications.Core.DTO;
 using Applications.Core.UserExceptions;
+using Applications.Core.Utilities;
 using JobTrackr.DB;
 using JobTrackr.DB.Model;
 using Microsoft.AspNet.Identity;
@@ -35,7 +36,7 @@ namespace Applications.Core
             return new AuthenticatedUser
             {
                 Username = user.Username,
-                Token = "temp Token"
+                Token = JWTGenerator.GenerateUserToken(user.Username),
             };
         }
 
@@ -55,7 +56,7 @@ namespace Applications.Core
             return new AuthenticatedUser
             {
                 Username = user.Username,
-                Token = "temp token"
+                Token = JWTGenerator.GenerateUserToken(user.Username),
             };
         }
     }

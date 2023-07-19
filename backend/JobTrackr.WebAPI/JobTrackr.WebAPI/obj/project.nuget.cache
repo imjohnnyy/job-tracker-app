@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xEG8fXMObgAy7uI4dTlY2L0JAmXDmUa2z5JD4iKqIYCQETadPurBedG3YT9zyaSi1XRXdrzm57Xqoq8zsi12/w==",
+  "dgSpecHash": "D2v4S9oxS52Uci3lSXjKwiPkXfeFjc/e0AWVDvmKpUfM6Pdgwrl6juqJWQe3hj5ZpKt+6eX89Fo/dx9BJXPunQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\JobTrackr.WebAPI\\JobTrackr.WebAPI.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\ldong\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\ldong\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ldong\\.nuget\\packages\\microsoft.aspnet.identity.core\\2.2.4\\microsoft.aspnet.identity.core.2.2.4.nupkg.sha512",
+    "C:\\Users\\ldong\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.20\\microsoft.aspnetcore.authentication.jwtbearer.6.0.20.nupkg.sha512",
     "C:\\Users\\ldong\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\ldong\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\ldong\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.2\\microsoft.data.sqlclient.5.0.2.nupkg.sha512",

@@ -10,6 +10,7 @@
         "dependencies": {
           "Applications.Core": "1.0.0",
           "JobTrackr.DB": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.20",
           "Microsoft.EntityFrameworkCore.Design": "7.0.9",
           "Swashbuckle.AspNetCore": "6.2.3"
         },
@@ -64,6 +65,17 @@
           "lib/net45/Microsoft.AspNet.Identity.Core.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "2.2.4.50621"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.20": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.21.0"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "assemblyVersion": "6.0.20.0",
+            "fileVersion": "6.0.2023.32106"
           }
         }
       },
@@ -803,6 +815,13 @@
       "sha512": "sha512-s3u/o3iG5h0z7Ggukwo4soPwogD56ZrYbolGxTfw41zkuG6jAXUJT/V3EThqHJXGuCNvWSdSnnwAhPfT9Sn36g==",
       "path": "microsoft.aspnet.identity.core/2.2.4",
       "hashPath": "microsoft.aspnet.identity.core.2.2.4.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.20": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+h9mLcUvoCafhAInfALHd2H1oelu3F31GbY83dEkJzqCKdP34x6hSvB5uj9wF/JowLosD6+ZMcPlU+nogka+mg==",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/6.0.20",
+      "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.6.0.20.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "type": "package",

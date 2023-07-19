@@ -1,6 +1,7 @@
 ﻿using Applications.Core;
 using Applications.Core.UserExceptions;
 using JobTrackr.DB.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JobTrackr.WebAPI.Controllers

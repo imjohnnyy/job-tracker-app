@@ -2,7 +2,11 @@ using Applications.Core;
 using JobTrackr.DB;
 using Microsoft.AspNet.Identity;
 using Microsoft.EntityFrameworkCore;
+
 using System;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +36,27 @@ builder.Services.AddCors(options =>
     });
 });
 
+var secret = Environment.GetEnvironmentVariable("JWT_SECRET");
+var issuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
+
+
+// Configure JWT bearer authentication
+builder.Services.AddAuthentication(opts =>
+{
+    opts.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    opts.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+    .AddJwtBearer(opts =>
+    {
+        opts.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = issuer,
+            ValidateAudience = false,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secret))
+        };
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -48,6 +73,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors("ApplicationsPolicy");
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

@@ -1,9 +1,11 @@
 using Applications.Core;
 using JobTrackr.DB.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JobTrackr.WebAPI.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class ApplicationsController : ControllerBase
