@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "N8vSZXpUvu/64hZqqYU8ZjQqCTCx0Vj6PrM/1F13kf80erP673FkJ1w9aAa1MA644b4PcBtDpEwHgQVbo32l5Q==",
+  "dgSpecHash": "Qzcgx82ptSDuysEHUN5AZpG11UpG1DlTVSkxIuj2N7Iuqrv/YKJb3tapyhp5GWPtxRozSYI0dyBQsuSyYNp8cw==",
   "success": true,
   "projectFilePath": "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\Applications.Core\\Applications.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ldong\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\ldong\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\ldong\\.nuget\\packages\\microsoft.aspnet.identity.core\\2.2.4\\microsoft.aspnet.identity.core.2.2.4.nupkg.sha512",
+    "C:\\Users\\ldong\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\ldong\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\ldong\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\ldong\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\ldong\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.2\\microsoft.data.sqlclient.5.0.2.nupkg.sha512",

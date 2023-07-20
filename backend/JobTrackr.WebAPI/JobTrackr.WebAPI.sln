@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobTrackr.WebAPI", "JobTrac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobTrackr.DB", "JobTrackr.DB\JobTrackr.DB.csproj", "{412D0767-8E9C-46A3-84AA-5AA010890EA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Applications.Core", "Applications.Core\Applications.Core.csproj", "{DDC1D699-4B18-471A-A4A5-CA586E3C17C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Applications.Core", "Applications.Core\Applications.Core.csproj", "{DDC1D699-4B18-471A-A4A5-CA586E3C17C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

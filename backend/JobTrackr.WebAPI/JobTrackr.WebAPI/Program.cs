@@ -28,6 +28,11 @@ builder.Services.AddTransient<IUserService, UserService>();
 // Add IPasswordHasher as a transient service
 builder.Services.AddTransient<IPasswordHasher, PasswordHasher>();
 
+
+builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
+
+
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("ApplicationsPolicy", builder =>
@@ -59,7 +64,11 @@ builder.Services.AddAuthentication(opts =>
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+builder.Services.AddSwaggerGen(options =>
+{
+    options.CustomSchemaIds(type => type.ToString());
+});
 
 var app = builder.Build();
 

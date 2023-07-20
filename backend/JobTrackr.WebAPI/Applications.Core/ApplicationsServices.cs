@@ -1,50 +1,62 @@
-﻿using JobTrackr.DB;
-using JobTrackr.DB.Model;
+﻿using Applications.Core.DTO;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace Applications.Core
 {
     public class ApplicationsServices : IApplicationsServices
     {
-        private AppDbContext _dbContext;
+        private readonly JobTrackr.DB.AppDbContext _dbContext;
+        private readonly JobTrackr.DB.Model.User _user;
 
 
-        public ApplicationsServices(AppDbContext dbContext)
+        public ApplicationsServices(JobTrackr.DB.AppDbContext dbContext, IHttpContextAccessor httpContextAccessor)
         {
             _dbContext = dbContext;
+            _user = _dbContext.Users
+                 .First(u => u.Username == httpContextAccessor.HttpContext.User.Identity.Name);
+
         }
 
         // Retrieves a specific job application by ID from the database
-        public Application GetApplication(int id)
-        {
-            return _dbContext.Applications.First(a => a.Id == id);
-        }
+        public Application GetApplication(int id) =>
+            _dbContext.Applications.Where(a => a.User.Id == _user.Id && a.Id == id)
+                .Select(a => (Application)a)
+                .First();
+
+
+
 
         // Retrieves a list of job applications from the database
-        public List<Application> GetApplications()
-        {
-            return _dbContext.Applications.ToList();
-        }
+        public List<Application> GetApplications() =>
+            _dbContext.Applications.Where(a => a.User.Id == _user.Id)
+                .Select(a => (Application)a)
+                .ToList();
+
 
         // Creates a new job application in the database
-        public Application CreateApplication(Application application)
+        public Application CreateApplication(JobTrackr.DB.Model.Application application)
         {
+            application.User = _user;
             _dbContext.Add(application);
             _dbContext.SaveChanges();
 
-            return application;
+            return (Application)application;
         }
 
         // Deletes a job application from the database
         public void DeleteApplication(Application application)
         {
-            _dbContext.Applications.Remove(application);
+            var dbApplication = _dbContext.Applications.First(a => a.User.Id == _user.Id && a.Id == application.Id);
+            _dbContext.Applications.Remove(dbApplication);
             _dbContext.SaveChanges();
         }
 
         // Updates an existing job application in the database
         public Application EditApplication(Application application)
         {
-            var dbApplication = _dbContext.Applications.First(a => a.Id == application.Id);
+            var dbApplication = _dbContext.Applications.First(a => a.User.Id == _user.Id && a.Id == application.Id);
 
             // Update the properties of the existing application with the new values
             dbApplication.Company = application.Company;
@@ -56,7 +68,7 @@ namespace Applications.Core
 
             _dbContext.SaveChanges();
 
-            return dbApplication;
+            return application;
         }
 
 

@@ -1,4 +1,5 @@
-﻿using JobTrackr.DB.Model;
+﻿
+using JobTrackr.DB.Model;
 using Microsoft.EntityFrameworkCore;
 
 

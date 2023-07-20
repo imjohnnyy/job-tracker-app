@@ -11,5 +11,6 @@ namespace JobTrackr.DB.Model
 
         public string Email { get; set; }
 
+
     }
 }

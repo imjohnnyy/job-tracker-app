@@ -1,5 +1,5 @@
 using Applications.Core;
-using JobTrackr.DB.Model;
+using Applications.Core.DTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,7 +33,7 @@ namespace JobTrackr.WebAPI.Controllers
 
         // Creates a new job application
         [HttpPost]
-        public IActionResult CreateApplication(Application application)
+        public IActionResult CreateApplication(JobTrackr.DB.Model.Application application)
         {
             var newApplication = _applicationsServices.CreateApplication(application);
             return CreatedAtRoute("GetApplication", new { newApplication.Id }, newApplication);
