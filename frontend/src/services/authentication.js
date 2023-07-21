@@ -3,7 +3,7 @@ import { userAuthenticated } from "../redux/authenticationSlice";
 
 
 const axiosInstance = axios.create({
-    baseURL: `${process.env.REACT_APP_BASE_URL}/Authenication`,
+    baseURL: `${process.env.REACT_APP_BASE_URL}/Authentication`,
 });
 
 

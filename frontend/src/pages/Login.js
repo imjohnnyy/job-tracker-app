@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import Logo from "../assets/images/logo.svg";
-
+import { SignIn } from '../services/authentication';
+import { useDispatch } from 'react-redux';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
-    // Need to add Submit form logic
+    e.preventDefault();
+    SignIn(dispatch, { email, password });
   };
+
 
   return (
     <div className="flex items-center justify-center h-screen bg-lightergray">
