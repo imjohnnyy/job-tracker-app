@@ -4,13 +4,14 @@ import { SignIn } from '../services/authentication';
 import { useDispatch } from 'react-redux';
 
 const Login = () => {
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    SignIn(dispatch, { email, password });
+    SignIn(dispatch, { username, email, password });
   };
 
 
@@ -25,15 +26,15 @@ const Login = () => {
         
         <h2 className="mb-6 text-2xl font-semibold text-gray">Sign in to your account</h2>
         <div className="mb-4">
-          <label htmlFor="email" className="flex items-start mb-2 font-medium text-gray">
-            Email
+          <label htmlFor="username" className="flex items-start mb-2 font-medium text-gray">
+            Username
           </label>
           <input
-            type="email"
-            id="email"
+            type="username"
+            id="username"
             className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         <div className="mb-4">

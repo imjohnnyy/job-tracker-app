@@ -26,10 +26,10 @@ const Landing = () => {
     setIsExpandNavbar(!isExpandNavbar);
   }
 
-  // Navigate to login and dashboard page using React Router
+  // Navigate to login and register page using React Router
   const navigate = useNavigate();
   const handleClickLogin = () => navigate('/login');
-  const handleClickDashboard = () => navigate('/dashboard');
+  const handleClickRegister = () => navigate('/register');
 
   return (
     <div className={"bg-lightergray"} id="home">
@@ -68,7 +68,7 @@ const Landing = () => {
 
         {/* Login Button */}
         <div>
-            <a href="#login" className="px-4 py-1 text-lg font-medium text-white rounded-full bg-gray hover:bg-blue-700 max-md:hidden" onClick={handleClickDashboard}> Login</a>
+            <a href="#login" className="px-4 py-1 text-lg font-medium text-white rounded-full bg-gray hover:bg-blue-700 max-md:hidden" onClick={handleClickLogin}> Login</a>
         </div>
 
       </header>
@@ -81,7 +81,7 @@ const Landing = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe molestiae tempore
             suscipit officia ab omnis soluta obcaecati nobis aliquid ullam
             eos repudiandae quis natus vel, nostrum odio alias.</p>
-          <button class="relative bg-gray hover:bg-blue-700 text-white font-bold text-lg py-3 px-5 rounded-full mt-5 mr-16 max-lg:mr-0 max-lg:ml-8" onClick={handleClickLogin}> Get Started </button>
+          <button class="relative bg-gray hover:bg-blue-700 text-white font-bold text-lg py-3 px-5 rounded-full mt-5 mr-16 max-lg:mr-0 max-lg:ml-8" onClick={handleClickRegister}> Get Started </button>
         </div>
 
         {/* Worker Image */}

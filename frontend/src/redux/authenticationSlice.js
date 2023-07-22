@@ -13,20 +13,27 @@ export const authenticationSlice = createSlice({
         userAuthenticated: (state, action) => {
             sessionStorage.setItem('token', action.payload.token);
             return {
-                ...state, ...{
+                ...state,
+                ...{
                     token: action.payload.token,
                     isLoggedIn: true,
                 }
             }
         },
-        // When the user logs out, the token is removed from the session storage.
-        logOut: () => {
-            sessionStorage.clear();
-        }
-
+        // When the user logs out, the token is removed from the session storage and the login status is set to false.
+        userLoggedOut: (state) => {
+            sessionStorage.removeItem('token'); 
+            return {
+              ...state,
+              ...{
+                token: '',
+                isLoggedIn: false,
+              }
+            };
+        },
     }
 });
 
-export const { userAuthenticated, logOut } = authenticationSlice.actions;
+export const { userAuthenticated, userLoggedOut } = authenticationSlice.actions;
 
 export default authenticationSlice.reducer;
