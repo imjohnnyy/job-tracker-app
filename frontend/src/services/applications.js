@@ -1,10 +1,16 @@
 import { setApplications, newApplication, editApplication, deleteApplication } from "../redux/applicationsSlice";
-import axios from "axios";
+import axios from 'axios';
 
 
-const axiosInstance = axios.create({
+const axiosInstance = axios.create({    
     baseURL: `${process.env.REACT_APP_BASE_URL}/Applications`,
+})
+
+axiosInstance.interceptors.request.use((config) => {
+    config.headers = { authorization: 'Bearer ' + sessionStorage.getItem('token') };
+    return config;
 });
+
 
 // HTTP Requests and API calls e.g. GET, POST, PUT, DELETE job applications from WEB API
 
@@ -17,23 +23,33 @@ export const GetApplications = async (dispatch) => {
         dispatch(setApplications(data));
 
     } catch {
-        console.log("Error");
+        console.log("Error: Could not retrieve job applications");
     }
 };
 
 
-export const NewApplication = async (dispatch, application) => {
+export const NewApplication = async (dispatch, application, user) => {
     try {
-        // POST an new job application to our Web API (API call)
-        const { data } = await axiosInstance.post("", application);
+        const newApplicationData = {
+            ...application,
+            user: {
+                id: user.id,
+                username: user.username,
+                password: user.password, 
+                email: user.email, 
+            },
+        };
+
+        // POST a new job application to our Web API (API call)
+        const { data } = await axiosInstance.post("", newApplicationData);
 
         // Dispatches an action to add a new application to the Redux store
-        dispatch(newApplication( { data } ));
-    } catch {
-        console.log("Error");
+        console.log("The data is:" + data);
+        dispatch(newApplication({ data }));
+    } catch (error) {
+        console.log("Error: Could not add the job application", error);
     }
-}
-
+};
 
 export const DeleteApplication = async (dispatch, application) => {
     try {
@@ -43,7 +59,7 @@ export const DeleteApplication = async (dispatch, application) => {
         // Dispatches an action to delete an application from the Redux store
         dispatch(deleteApplication(application));
     } catch {
-        console.log("Error");
+        console.log("Error: Could not delete the job application");
     }
 }   
 
@@ -55,7 +71,7 @@ export const EditApplication = async (dispatch, application) => {
         // Dispatches an action to edit an application from the Redux store
         dispatch(editApplication(application)); 
     } catch {
-        console.log("Error");
+        console.log("Error: Could not edit the job application");
     }
 }   
 

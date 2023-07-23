@@ -11,7 +11,7 @@ const Sidebar = () => {
   // Navigation using React Router
   const navigate = useNavigate();
   const handleClickAddApplications = () => navigate('/add-applications');
-  const handleClickDashboard = () => navigate('/dashboard');
+  const handleClickDashboard = () => navigate('/');
 
   return (
     <div className="flex flex-col w-64 px-8 py-4 bg-gray">

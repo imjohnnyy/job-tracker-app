@@ -15,7 +15,7 @@ export const SignUp = async (dispatch, userCredentials) => {
         // If the request is successful, dispatch the userAuthenticated action with the returned data
         dispatch(userAuthenticated(data));
     } catch {
-        console.log("Error");
+        console.log("Error: User already exists");
     }
 };
 
@@ -27,6 +27,6 @@ export const SignIn = async (dispatch, userCredentials) => {
         // If the request is successful, dispatch the userAuthenticated action with the returned data
         dispatch(userAuthenticated(data));
     } catch {
-        console.log("Error");
+        console.log("Error: Incorrect username or password");
     }
 };

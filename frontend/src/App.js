@@ -33,20 +33,6 @@ function App() {
       </Routes>
     </BrowserRouter>
 
-    {/* <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/register" element={isLoggedIn ? <Navigate to="/dashboard" /> : <Register />} />
-        <Route path="/login" element={isLoggedIn ? <Navigate to="/dashboard" /> : <Login />} />
-        <Route path="/dashboard" element={isLoggedIn ? <Dashboard /> : <Landing />} />
-        <Route path="/add-applications" element={isLoggedIn ? <AddApplications /> : <Login />} />
-
-        {/* Add Error 404 Page */}
-        {/* <Route path="*" element={<h2>Error 404: This page cannot be found!</h2>} />
-      </Routes> */}
-    {/* </BrowserRouter> */}
-
-
     </div>
   );
 }

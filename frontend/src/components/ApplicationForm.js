@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { NewApplication } from '../services/applications';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 // A form for the user to submit their job application details
-const ApplicationForm = ({application, setIsEditing}) => {
+const ApplicationForm = ({application, setIsEditing, }) => {
   const [formData, setFormData] = useState({company: "", position: "", date: "", jobStatus: "", jobType: "", city: ""});
   const [isNewApplication, setIsNewApplication] = useState(true);
   const [submittedData, setSubmittedData] = useState([]);
   const dispatch = useDispatch();
 
+  const user = useSelector((state) => state.userSlice.userData);
 
   // Every time the application prop changes, the form is updated
   useEffect(() => {
@@ -34,7 +35,7 @@ const ApplicationForm = ({application, setIsEditing}) => {
 
     if (isNewApplication) {
         NewApplication(dispatch, {company: formData.company, position: formData.position, 
-          date: formData.date, jobStatus: formData.jobStatus, jobType: formData.jobType, city: formData.city});
+          date: formData.date, jobStatus: formData.jobStatus, jobType: formData.jobType, city: formData.city}, {id: 0, username: user.username, password: user.password, email: user.email});
     } else {
   
       setIsEditing(false);

@@ -5,7 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JobTrackr.WebAPI.Controllers
 {
-    [Authorize]
+    // This [Authorize] attribute only allow valid users who are authenticated (with a JWT token)
+    // to access these actions below. Otherwise, the will receive a 401 status code (Unauthorized).
+    [Authorize] 
     [ApiController]
     [Route("[controller]")]
     public class ApplicationsController : ControllerBase

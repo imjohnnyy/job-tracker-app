@@ -16,7 +16,7 @@ const ApplicationList = () => {
   }, [applications]);
 
 
-  // Renders the list of applications
+  // Renders the list of job applications
   return (
     <div className="flex flex-wrap justify-center">
       {applications.map((e) => (
