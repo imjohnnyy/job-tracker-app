@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 
 // Note: This form item needs to be a fixed size upon rendering
 
-const FormItem = ({ data, handleChange }) => {
+const FormItem = ({ data }) => {
   const [isEditing, setIsEditing] = useState(false);
   const dispatch = useDispatch();
 
@@ -17,6 +17,14 @@ const FormItem = ({ data, handleChange }) => {
     DeleteApplication(dispatch, data);
   };
 
+  // Converts DateTime String to YYYY-MM-DD format
+  const formatDate = (dateTimeString) => {
+    const dateObject = new Date(dateTimeString);
+    const year = dateObject.getFullYear();
+    const month = String(dateObject.getMonth() + 1).padStart(2, '0');
+    const day = String(dateObject.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
 
   return isEditing ? (
     // Modal
@@ -45,7 +53,7 @@ const FormItem = ({ data, handleChange }) => {
         <div className="flex flex-col items-end ml-[42%]">
           <p className="mr-auto">
             <strong>Date: </strong>
-            {data.date}
+            {formatDate(data.date)}
           </p>
           <p className="mr-auto">
             <strong>Type: </strong>
