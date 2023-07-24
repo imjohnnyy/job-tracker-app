@@ -2,8 +2,6 @@ import { useState } from 'react'
 import Logo from "../assets/images/logo.svg";
 import Worker from "../assets/images/landing.svg";
 import { useSpring, animated } from "react-spring";
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -19,13 +17,6 @@ const AnimateNumber = ({ n }) => {
 
 const Landing = () => {
 
-  const [isExpandNavbar, setIsExpandNavbar] = useState(false);
-  
-  // Navbar toggle function
-  const handleNav = () => {
-    setIsExpandNavbar(!isExpandNavbar);
-  }
-
   // Navigate to login and register page using React Router
   const navigate = useNavigate();
   const handleClickLogin = () => navigate('/login');
@@ -33,6 +24,7 @@ const Landing = () => {
 
   return (
     <div className={"bg-lightergray"} id="home">
+
       {/* HEADER */}
       <header className="flex items-center justify-between w-4/5 p-6 mx-auto max-lg:w-[95%]">
         {/* LOGO */}
@@ -40,37 +32,10 @@ const Landing = () => {
           <img src={Logo} alt="Logo" className="w-[175px] h-[60px] static" />
         </div>
 
-        {/* Navigation Links */}
-        <nav>
-          <ul className="flex space-x-10 max-md:hidden">
-            <li>
-              <a href="#home" className="text-lg font-medium text-gray hover:text-sky-500"> Home </a>
-            </li>
-            <li>
-              <a href="#about" className="text-lg font-medium text-gray hover:text-sky-500"> About </a>
-            </li>
-            <li>
-              <a href="#contact" className="text-lg font-medium text-gray hover:text-sky-500"> Contact </a>
-            </li>
-          </ul>
-        </nav>
-
-        {/*  Navigation option for smaller devices (Hamburger menu navbar) */}
-        <div className="block px-4 py-3 mx-2 md:hidden max-lg:mx-0 max-lg:px-0 max-md:ml-[50%]" onClick={handleNav}>
-          <MenuIcon style={{fontSize: 35}} />
-          <ul className={isExpandNavbar ? 'fixed left-0 top-0 w-[100%] h-full bg-white ease-in-out duration-500 flex flex-col items-center justify-center text-2xl text-gray font-semibold' : 'ease-in-out duration-500 fixed left-[-100%]'}>
-            <div className={"flex ml-auto mr-12 mb-20 mt-[-120px]"}><CloseIcon style={{fontSize: 35}} /></div>
-            <li className={"py-5"}><a href="home" className={"hover:text-sky-500"}>Home</a></li>
-            <li className={"py-5"}><a href="#about" className={"hover:text-sky-500"}>About</a></li>
-            <li className={"py-5"}><a href="#contact" className={"hover:text-sky-500"}>Contact</a></li>
-          </ul>
-        </div>
-
         {/* Login Button */}
         <div>
-            <a href="#login" className="px-4 py-1 text-lg font-medium text-white rounded-full bg-gray hover:bg-blue-700 max-md:hidden" onClick={handleClickLogin}> Login</a>
+            <a href="#login" className="px-4 py-1 text-lg font-medium text-white rounded-full bg-gray hover:bg-blue-700" onClick={handleClickLogin}> Login</a>
         </div>
-
       </header>
 
       {/* Body */}

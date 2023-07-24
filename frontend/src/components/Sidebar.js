@@ -14,7 +14,7 @@ const Sidebar = () => {
   const handleClickDashboard = () => navigate('/');
 
   return (
-    <div className="flex flex-col w-64 px-8 py-4 bg-gray">
+    <div className="flex flex-col w-64 px-8 py-4 bg-gray max-md:hidden">
 
       {/* Logo */}
       <div className="flex justify-between">
