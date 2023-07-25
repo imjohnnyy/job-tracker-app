@@ -18,7 +18,7 @@ const AddApplications = () => {
     const navigate = useNavigate();
 
   return (
-    <div className="flex h-screen bg-lightergray">
+    <div class="flex bg-lightergray min-h-[150vh]">
       {/* Sidebar */}
       <Sidebar />
 
