@@ -29,9 +29,9 @@ const AddApplications = () => {
 
           {/* Header Title */}
           <div className="flex items-start text-3xl font-bold">
-              <h1 className="max-md:items-center max-md:justify-center max-md:ml-8">
-                My Job Applications
-              </h1>
+            <h1 className="max-md:items-center max-md:justify-center max-md:ml-8">
+              My Job Applications
+            </h1>
           </div>
 
           {/* Sign Out button and Logo */}

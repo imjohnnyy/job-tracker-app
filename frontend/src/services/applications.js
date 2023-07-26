@@ -6,6 +6,7 @@ const axiosInstance = axios.create({
     baseURL: `${process.env.REACT_APP_BASE_URL}/Applications`,
 })
 
+// Appends the JWT token to the Authorization header of the HTTP request such that we can access the endpoint in the Web API
 axiosInstance.interceptors.request.use((config) => {
     config.headers = { authorization: 'Bearer ' + sessionStorage.getItem('token') };
     return config;

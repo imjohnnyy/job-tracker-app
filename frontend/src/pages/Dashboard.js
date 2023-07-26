@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Sidebar from "../components/Sidebar"
 import { useDispatch } from "react-redux"
 import { userLoggedOut } from "../redux/authenticationSlice"
@@ -9,7 +8,7 @@ import HamburgerNav from "../components/HamburgerNavbar";
 
 
 const Dashboard = () => {
-
+  
   const dispatch = useDispatch()
 
   const handleLogOut = () => {
@@ -49,7 +48,6 @@ const Dashboard = () => {
             <h1 className="max-md:items-center max-md:justify-center max-md:ml-8">
               Dashboard
             </h1>
-            
           </div>
 
           {/* Sign Out button and Logo */}
@@ -62,10 +60,8 @@ const Dashboard = () => {
         <div className="p-8 mx-auto w-96 h-96">
           <Pie data={data} />
         </div>
-
       </div>
-
-
+      
     </div>
   )
 }
