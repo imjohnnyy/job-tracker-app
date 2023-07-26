@@ -29,6 +29,9 @@ module.exports = {
       'max-lg': {'max': '1023px'},
       // => @media (max-width: 1023px) { ... }
 
+      'max-mdd': {'max': '889px'},
+      // => @media (max-width: 689px) { ... }
+
       'max-md': {'max': '767px'},
       // => @media (max-width: 767px) { ... }
 
@@ -44,6 +47,9 @@ module.exports = {
 
       'lg': {'min': '1023px'},
       // => @media (min-width: 1023px) { ... }
+
+      'large': {'min': '790px'},
+      // => @media (min-width: 790px) { ... }
 
       'md': {'min': '767px'},
       // => @media (min-width: 767px) { ... }

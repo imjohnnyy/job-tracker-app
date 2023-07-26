@@ -55,7 +55,7 @@ const ApplicationForm = ({application, setIsEditing, }) => {
 {/* Form Labels and Inputs*/}
 <div class="flex flex-col md:flex-row md:space-x-4">
   {/* Company Input */}
-  <div class="w-full md:w-1/3 pr-4 mb-4 md:mb-0">
+  <div class="w-full md:w-1/3 pr-4 mb-4 md:mb-0 max-md:pr-0">
     <label htmlFor="company" class="flex items-start mb-2 font-medium text-gray"> Company </label>
     <input
       type="text"
@@ -68,7 +68,7 @@ const ApplicationForm = ({application, setIsEditing, }) => {
   </div>
 
   {/* Job Position Input */}
-  <div class="w-full md:w-1/3 pr-4 mb-4 md:mb-0">
+  <div class="w-full md:w-1/3 pr-4 mb-4 md:mb-0 max-md:pr-0">
     <label htmlFor="position" class="flex items-start mb-2 font-medium text-gray"> Position </label>
     <input
       type="text"
@@ -96,7 +96,7 @@ const ApplicationForm = ({application, setIsEditing, }) => {
 
 {/* Job Type Drop-down List */}
 <div class="flex flex-col md:flex-row md:space-x-4">
-  <div class="w-full md:w-1/3 pr-4 mb-4 md:mb-0">
+  <div class="w-full md:w-1/3 pr-4 mb-4 md:mb-0 max-md:pr-0">
     <label htmlFor="jobType" class="flex items-start mb-2 font-medium text-gray"> Job Type </label>
     <select
       id="jobType"
@@ -114,7 +114,7 @@ const ApplicationForm = ({application, setIsEditing, }) => {
   </div>
 
   {/* Job Status Drop-down List */}
-  <div class="w-full md:w-1/3 pr-4 mb-4 md:mb-0">
+  <div class="w-full md:w-1/3 pr-4 mb-4 md:mb-0 max-md:pr-0">
     <label htmlFor="jobStatus" class="flex items-start mb-2 font-medium text-gray"> Status </label>
     <select
       id="jobStatus"
