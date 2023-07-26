@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux"
 import { userLoggedOut } from "../redux/authenticationSlice"
 import { Pie } from 'react-chartjs-2';
 import 'chart.js/auto';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const Dashboard = () => {
   const dispatch = useDispatch()
@@ -33,14 +34,18 @@ const Dashboard = () => {
       
       {/* Right Side Header */}
       <div className="flex-1 p-0">
-        <h1 className="flex items-start p-8 text-3xl font-bold bg-white shadow-md">Dashboard</h1>
-        <button className="flex items-end p-8 text-3xl font-bold bg-white shadow-md" onClick={handleLogOut}>Sign out</button>
+        <div className="flex items-center justify-between">
+          <h1 className="flex items-start p-8 text-3xl font-bold bg-white shadow-md">Dashboard</h1>
+          <p className="block px-4 py-3 cursor-pointer" onClick={handleLogOut}>
+            <LogoutIcon style={{ fontSize: 25 }} /> Sign Out
+          </p>
+        </div>
       </div>
 
       {/* Content */}
-      <div class="max-w-[45rem] h-[45rem] mx-auto text-center">
+      {/* <div class="max-w-[45rem] h-[45rem] mx-auto text-center">
         <Pie data={data} />
-      </div>
+      </div>  */}
     </div>
   )
 }
