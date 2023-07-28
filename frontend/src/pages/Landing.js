@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Logo from "../assets/images/logo.svg";
 import Worker from "../assets/images/landing.svg";
 import { useSpring, animated } from "react-spring";

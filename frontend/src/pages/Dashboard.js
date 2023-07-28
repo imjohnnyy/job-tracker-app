@@ -50,10 +50,10 @@ const Dashboard = () => {
     datasets: [{
       data: pie.data,
       backgroundColor: [
-        '#FCF55F', // Yellow for Ongoing status
-        '#4F7942', // Green for Accepted status
-        '#EE4B2B', // Red for Rejected status
-        '#0096FF', // Blue for Declined status
+        '#FCF55F', // Yellow 
+        '#4F7942', // Green 
+        '#EE4B2B', // Red 
+        '#0096FF', // Blue 
       ]
     }]
   };
@@ -84,8 +84,11 @@ const Dashboard = () => {
         </header>
 
         {/* Pie Chart */}
-        <div className="p-8 mx-auto w-96 h-96">
-          <Pie data={data} />
+        <div className="p-4 mx-auto my-auto bg-white rounded-lg shadow-md">
+          <h1 className="flex ml-2 text-2xl font-bold item-start">Activity</h1>
+          <div className="p-8 mx-auto w-96 h-96">
+            <Pie data={data} />
+          </div>
         </div>
       </div>
       
