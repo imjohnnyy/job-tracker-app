@@ -1,5 +1,7 @@
+import { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { getApplicationsPerCategory } from "../services/statistics";
 import { userLoggedOut } from "../redux/authenticationSlice"
 import { Pie } from 'react-chartjs-2';
 import 'chart.js/auto';
@@ -8,20 +10,45 @@ import HamburgerNav from "../components/HamburgerNavbar";
 
 
 const Dashboard = () => {
-  
+
+  // Dispatch function from Redux to trigger 'getApplicationsPerCategory' action
   const dispatch = useDispatch()
+  
+  const applicationsPerCategory = useSelector((state) => state.statisticsSlice.applicationsPerCategory);
+
+  const [pie, setPie] = useState({
+    labels: [],
+    data: [],
+  });
+
+  // Updates the 'pie' state when 'applicationsPerCategory' changes
+  useEffect(() => {
+    const categories = Object.keys(applicationsPerCategory);
+    const counts = Object.values(applicationsPerCategory);
+    
+     // Update the 'pie' state with the extracted data
+    setPie({
+      labels: categories,
+      data: counts,
+    });
+
+  }, [applicationsPerCategory]);
+
+  // Fetches the 'applicationsPerCategory' data from Redux store when the component mounts
+  useEffect(() => {
+    getApplicationsPerCategory(dispatch);
+  }, []);
 
   const handleLogOut = () => {
     dispatch(userLoggedOut())
-    console.log("User has logged out");
   }
 
 
   // Data for the pie chart
   const data = {
-    labels: ['Ongoing', 'Accepted', 'Rejected', 'Declined'],
+    labels: pie.labels,
     datasets: [{
-      data: [3, 1, 5, 2],
+      data: pie.data,
       backgroundColor: [
         '#FCF55F', // Yellow for Ongoing status
         '#4F7942', // Green for Accepted status

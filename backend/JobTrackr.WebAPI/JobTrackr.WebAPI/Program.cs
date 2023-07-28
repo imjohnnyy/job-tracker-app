@@ -25,6 +25,9 @@ builder.Services.AddTransient<IApplicationsServices, ApplicationsServices>();
 // Add IUserService as a transient service
 builder.Services.AddTransient<IUserService, UserService>();
 
+// Add IStatisticsServices as a transient service
+builder.Services.AddTransient<IStatisticsServices, StatisticsServices>();
+
 // Add IPasswordHasher as a transient service
 builder.Services.AddTransient<IPasswordHasher, PasswordHasher>();
 
