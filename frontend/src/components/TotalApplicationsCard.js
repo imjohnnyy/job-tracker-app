@@ -21,12 +21,12 @@ const TotalAppsCard = () => {
 
 
   return (
-    <div class="p-6 my-auto mx-auto bg-white shadow-md">
-    <div class="flex flex-col items-start">
+    <div class="p-10 my-auto mx-auto bg-white shadow-md">
+    <div class="flex flex-col items-start mr-6">
       <div class="w-16 h-16 p-4 bg-[#e0e0e0] rounded-full flex items-center justify-center">
         <SendIcon style={{fontSize: 35, color: "#2d2e32", marginLeft: 6 }}/>    
       </div>
-      <h1 class="mt-2 text-lg font-bold"> {totalJobApps} {totalJobApps < 2 ? 'Job Application Sent' : 'Job Applications Sent'} </h1>
+      <h1 class="mt-2 text-xl font-bold"> {totalJobApps} {totalJobApps < 2 ? 'Job Application Sent' : 'Job Applications Sent'} </h1>
     </div>
   </div>
   )

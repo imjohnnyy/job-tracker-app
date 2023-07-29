@@ -89,7 +89,7 @@ const Dashboard = () => {
 
         {/* Pie Chart */}
         <div className="p-4 mx-auto my-auto bg-white rounded-lg shadow-md">
-          <h1 className="flex ml-2 text-2xl font-bold item-start">Activity</h1>
+          <h1 className="flex ml-2 text-2xl font-bold item-start">My Statistics</h1>
           <div className="p-8 mx-auto w-96 h-96">
             <Pie data={data} />
           </div>
