@@ -7,6 +7,7 @@ import { Pie } from 'react-chartjs-2';
 import 'chart.js/auto';
 import LogoutIcon from '@mui/icons-material/Logout';
 import HamburgerNav from "../components/HamburgerNavbar";
+import TotalApplicationsCard from "../components/TotalApplicationsCard";
 
 
 const Dashboard = () => {
@@ -82,6 +83,9 @@ const Dashboard = () => {
             <LogoutIcon style={{ fontSize: 25 }} /> Sign Out
           </p>
         </header>
+
+        {/* Total Job Applications Card */}
+        <TotalApplicationsCard />
 
         {/* Pie Chart */}
         <div className="p-4 mx-auto my-auto bg-white rounded-lg shadow-md">
