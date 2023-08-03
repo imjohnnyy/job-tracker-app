@@ -1,4 +1,9 @@
 ﻿namespace Applications.Core.DTO
+
+   // This "Application" class serves as a Data Transfer Object that holds data related to an job application.
+   // The purpose of this class is to prevent (hide) the return of the job application data along with the user data.
+   // (The Applications.cs file under the Model folder returns both job applicaiton and user data, which is why this file is neccesarry).
+
 {
     public class Application
     {
