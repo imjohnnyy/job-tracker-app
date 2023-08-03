@@ -22,7 +22,7 @@ const Landing = () => {
   const handleClickRegister = () => navigate('/register');
 
   return (
-    <div className={"bg-lightergray"} id="home">
+    <div className="bg-lightergray" id="home">
 
       {/* HEADER */}
       <header className="flex items-center justify-between w-4/5 p-6 mx-auto max-lg:w-[95%]">

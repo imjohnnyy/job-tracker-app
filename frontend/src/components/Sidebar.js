@@ -34,11 +34,6 @@ const Sidebar = () => {
               <PostAddIcon className="my-1 ml-[9px] mr-[5px]" style={{ fontSize: '180%' }} /> Add Jobs
             </button>
           </li>
-          <li>
-            <button className="flex items-center justify-start w-full py-2 text-lg font-semibold rounded-sm text-zinc-300 hover:text-white hover:bg-slate-500">
-              <AccountBoxIcon className="my-1 ml-[10px] mr-[8px]" style={{ fontSize: '150%' }}/> My Profile
-            </button>
-          </li>
         </ul>
       </nav>
       

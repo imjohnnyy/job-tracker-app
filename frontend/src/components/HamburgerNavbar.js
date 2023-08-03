@@ -38,11 +38,6 @@ const HamburgerNav = () => {
           Add Jobs
         </h1>
       </li>
-      <li className={"py-5"}>
-        <h1 href="#myprofile" className={"hover:text-sky-500"}>
-          My Profile
-        </h1>
-      </li>
     </ul>
   </div>
   )

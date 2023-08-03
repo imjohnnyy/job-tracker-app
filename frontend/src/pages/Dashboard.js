@@ -60,43 +60,41 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="flex h-screen bg-lightergray">   
-      {/* Side navbar */}
-      <Sidebar />
-      
-      <div className="flex flex-col flex-1">
-        {/* Right Side Header */}
-        <header className="relative flex items-center justify-between p-8 bg-white shadow-md">
+    <div className="h-screen md:flex bg-lightergray">   
+    {/* Side navbar */}
+    <Sidebar />
+    
+    <div className="flex flex-col flex-1">
+      {/* Right Side Header */}
+      <header className="relative flex items-center justify-between p-4 bg-white shadow-md md:p-8">
+        {/* Hamburger Menu for smaller devices */}
+        <HamburgerNav />
+        
+        {/* Header Title */}
+        <div className="flex items-start text-2xl font-bold">
+          <h1 className="md:ml-8">
+            Dashboard
+          </h1>
+        </div>
   
-          {/* Hamburger Menu for smaller devices */}
-          <HamburgerNav />
-          
-          {/* Header Title */}
-          <div className="flex items-start text-3xl font-bold">
-            <h1 className="max-md:items-center max-md:justify-center max-md:ml-8">
-              Dashboard
-            </h1>
-          </div>
-
-          {/* Sign Out button and Logo */}
-          <p className="block px-4 py-3 cursor-pointer" onClick={handleLogOut}>
-            <LogoutIcon style={{ fontSize: 25 }} /> Sign Out
-          </p>
-        </header>
-
-        {/* Total Job Applications Card */}
-        <TotalApplicationsCard />
-
-        {/* Pie Chart */}
-        <div className="p-4 mx-auto my-auto bg-white rounded-lg shadow-md">
-          <h1 className="flex ml-2 text-2xl font-bold item-start">My Statistics</h1>
-          <div className="p-8 mx-auto w-96 h-96">
-            <Pie data={data} />
-          </div>
+        {/* Sign Out button and Logo */}
+        <p className="block px-2 py-1 cursor-pointer md:px-4 md:py-3" onClick={handleLogOut}>
+          <LogoutIcon style={{ fontSize: 25 }} /> Sign Out
+        </p>
+      </header>
+  
+      {/* Total Job Applications Card */}
+      <TotalApplicationsCard />
+  
+      {/* Pie Chart */}
+      <div className="p-4 mx-auto my-4 mt-12 bg-white rounded-lg shadow-md md:my-auto md:mx-6 md:mr-8">
+        <h1 className="flex items-start ml-2 text-2xl font-bold">My Statistics</h1>
+        <div className="w-full p-2 mx-auto md:p-8 md:w-96 h-80 md:h-96">
+          <Pie data={data} />
         </div>
       </div>
-      
     </div>
+  </div>
   )
 }
 
