@@ -21,7 +21,7 @@ const TotalAppsCard = () => {
 
 
   return (
-    <div class="p-10 my-auto mx-auto bg-white shadow-md">
+    <div class="p-10 my-14 mb-[-2px] mx-auto bg-white shadow-md">
     <div class="flex flex-col items-start mr-6">
       <div class="w-16 h-16 p-4 bg-[#e0e0e0] rounded-full flex items-center justify-center">
         <SendIcon style={{fontSize: 35, color: "#2d2e32", marginLeft: 6 }}/>    

@@ -25,7 +25,7 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center h-screen bg-lightergray">
-      <form className="w-full max-w-sm px-6 py-8 rounded-lg shadow-[0_0px_10px_rgba(0,0,0,0.25)] bg-white" onSubmit={handleSubmit}>
+      <form className="w-full max-w-sm px-6 py-8 rounded-lg shadow-[0_0px_10px_rgba(0,0,0,0.25)] bg-white max-md:mx-6" onSubmit={handleSubmit}>
 
         {/* Logo */}
         <div className={"flex items-center justify-center"}>
@@ -45,18 +45,6 @@ const Login = () => {
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-        {/* <div className="mb-4">
-            <label htmlFor="email" className="flex items-start mb-2 font-medium text-gray">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-        </div> */}
         <div className="mb-4">
           <label htmlFor="password" className="flex items-start mb-2 font-medium text-gray">
             Password

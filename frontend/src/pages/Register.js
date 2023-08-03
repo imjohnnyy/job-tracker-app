@@ -17,7 +17,7 @@ const Register = () => {
 
   return (
     <div className="flex items-center justify-center h-screen bg-lightergray">
-      <form className="w-full max-w-sm px-6 py-8 rounded-lg shadow-[0_0px_10px_rgba(0,0,0,0.25)] bg-white" onSubmit={handleSubmit}>
+      <form className="w-full max-w-sm px-6 py-8 rounded-lg shadow-[0_0px_10px_rgba(0,0,0,0.25)] bg-white max-md:mx-6" onSubmit={handleSubmit}>
 
         {/* Logo */}
         <div className={"flex items-center justify-center"}>
@@ -75,7 +75,7 @@ const Register = () => {
           </div>
           
           <div className="mt-4">
-              <p>Have an account? <a href="/login" className="text-blue-500 hover:text-blue-700">Sign in</a></p>
+              <p>Have an existing account? <a href="/login" className="text-blue-500 hover:text-blue-700">Sign in</a></p>
           </div>
       </form>
     </div>

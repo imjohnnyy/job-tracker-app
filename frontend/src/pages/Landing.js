@@ -33,7 +33,7 @@ const Landing = () => {
 
         {/* Login Button */}
         <div>
-            <a href="#login" className="px-4 py-1 text-lg font-medium text-white rounded-full bg-gray hover:bg-blue-700" onClick={handleClickLogin}> Login</a>
+            <a href="/login" className="px-4 py-1 text-lg font-medium text-white rounded-full bg-gray hover:bg-blue-700" onClick={handleClickLogin}> Login</a>
         </div>
       </header>
 
@@ -58,7 +58,11 @@ const Landing = () => {
       {/* Facts Section */}
       <footer className="h-[15rem] bg-lightergray max-lg:h-[22rem] max-lg:static inset-x-0 bottom-0">
         <div className="container px-4 mx-auto">
+
+          {/* Header */}
           <h2 className="mb-4 text-3xl font-bold">Helping Job Seekers Is Our Mission</h2>
+
+          {/* Grid for Animated Facts */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <div className="p-4 bg-white rounded-md shadow-md">
               <h3 className="mb-2 text-lg font-semibold">Applications Tracked</h3>
@@ -70,7 +74,7 @@ const Landing = () => {
             </div>
           </div>
         </div>
-        
+
       </footer>
     </div>
   );
