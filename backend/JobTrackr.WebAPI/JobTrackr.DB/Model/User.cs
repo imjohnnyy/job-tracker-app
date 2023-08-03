@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
+// Defines the User entity in the SQL database.
+
 namespace JobTrackr.DB.Model
 {
     public class User

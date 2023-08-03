@@ -21,6 +21,7 @@ namespace Applications.Core.Utilities
             return GenerateToken(claims, DateTime.UtcNow.AddDays(1));
         }
 
+        // Creates a JWT token
         private static string GenerateToken(Claim[] claims, DateTime expires) 
         { 
             var tokenHandler = new JwtSecurityTokenHandler();

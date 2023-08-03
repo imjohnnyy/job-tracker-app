@@ -35,7 +35,7 @@ builder.Services.AddTransient<IPasswordHasher, PasswordHasher>();
 builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
 
 
-
+// Setting up a CORS policy that allows requests from all origins, headers and methods.
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("ApplicationsPolicy", builder =>
@@ -44,6 +44,7 @@ builder.Services.AddCors(options =>
     });
 });
 
+// Retrieving the JWT_SECRET and JWT_ISSUER environment variables
 var secret = Environment.GetEnvironmentVariable("JWT_SECRET");
 var issuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
 

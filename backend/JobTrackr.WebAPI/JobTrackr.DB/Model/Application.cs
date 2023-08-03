@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-// This file defines the Application model for tracking job applications.
+// Defines the Job Application entity in the SQL database.
 
 namespace JobTrackr.DB.Model
 {
