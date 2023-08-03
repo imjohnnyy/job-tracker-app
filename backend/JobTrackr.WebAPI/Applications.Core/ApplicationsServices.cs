@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
+// This ApplicationsServices class allows us to perform actions to the database e.g. Retrieving All Job Applications, or
+// deleting a job application etc.
 
 namespace Applications.Core
 {

@@ -1,6 +1,7 @@
-﻿
+﻿namespace Applications.Core.DTO
 
-namespace Applications.Core.DTO
+// This "AuthenticatedUser" class serves as a Data Transfer Object that holds data related to an authenticated user.
+
 {
     public class AuthenticatedUser
     {

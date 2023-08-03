@@ -1,6 +1,4 @@
-﻿
-
-namespace Applications.Core
+﻿namespace Applications.Core
 {
     public interface IStatisticsServices
     {

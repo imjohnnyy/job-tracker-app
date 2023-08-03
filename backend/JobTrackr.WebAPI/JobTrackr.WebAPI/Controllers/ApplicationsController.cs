@@ -3,6 +3,9 @@ using Applications.Core.DTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+// This Applications API Controller handles job applications operations through HTTP requests.
+
+
 namespace JobTrackr.WebAPI.Controllers
 {
     // This [Authorize] attribute only allow valid users who are authenticated (with a JWT token)

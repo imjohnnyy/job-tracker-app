@@ -1,6 +1,4 @@
-﻿
-
-namespace Applications.Core.DTO
+﻿namespace Applications.Core.DTO
 {
     public class Application
     {
@@ -17,6 +15,8 @@ namespace Applications.Core.DTO
 
         public string JobStatus { get; set; }
 
+        // Converts an instance of the database model class ("JobTrackr.DB.Model.Application")
+        // into an instance of the "Application" DTO class.
         public static explicit operator Application(JobTrackr.DB.Model.Application a) => new Application
         {
             Id = a.Id,

@@ -1,8 +1,9 @@
 ﻿using Applications.Core;
 using Applications.Core.UserExceptions;
 using JobTrackr.DB.Model;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+
+// This Authentication API Controller handles user authentication operations - sign in and sign up.
 
 namespace JobTrackr.WebAPI.Controllers
 {
@@ -18,6 +19,7 @@ namespace JobTrackr.WebAPI.Controllers
             _userService = userService;
         }
 
+        // The '/signup' API Endpoint
         [HttpPost("signup")]
         public async Task<IActionResult> SignUp(User user)
         {
@@ -32,6 +34,7 @@ namespace JobTrackr.WebAPI.Controllers
             }
         }
 
+        // The '/signin' API Endpoint
         [HttpPost("signin")]
         public async Task<IActionResult> SignIn(User user)
         {

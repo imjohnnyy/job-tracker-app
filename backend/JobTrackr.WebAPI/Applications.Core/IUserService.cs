@@ -1,17 +1,15 @@
 ﻿using Applications.Core.DTO;
 using JobTrackr.DB.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Applications.Core
 {
     public  interface IUserService
     {
+        // Handles user sign-up operation.
         Task<AuthenticatedUser> SignUp(User user);
 
+        // Handles user sign-in operation.
         Task<AuthenticatedUser> SignIn(User user);
     }
 }

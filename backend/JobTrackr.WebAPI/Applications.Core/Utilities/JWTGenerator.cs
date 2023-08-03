@@ -34,7 +34,6 @@ namespace Applications.Core.Utilities
                 Expires = expires,
                 Issuer = issuer,
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptior);

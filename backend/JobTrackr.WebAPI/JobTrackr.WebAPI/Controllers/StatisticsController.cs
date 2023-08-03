@@ -6,7 +6,7 @@ namespace JobTrackr.WebAPI.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("statistics")] // "Drops the 'controller' in 'StatistcsController', meaning our route becomes '{PORT Number}/statistics'.
+    [Route("statistics")] // The route becomes '{PORT Number}/statistics'.
     public class StatisticsController : ControllerBase
     {
         private readonly IStatisticsServices _statisticsServices;
