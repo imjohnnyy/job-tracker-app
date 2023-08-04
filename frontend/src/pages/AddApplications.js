@@ -27,15 +27,15 @@ const AddApplications = () => {
         <HamburgerNav />
   
         {/* Header Title */}
-        <div className="flex items-start text-2xl font-bold">
-          <h1 className="md:ml-8">
-            My Job Applications
+        <div className="flex items-start text-2xl font-bold ">
+          <h1 className="">
+            My Applications
           </h1>
         </div>
   
         {/* Sign Out button and Logo */}
-        <p className="block py-2 cursor-pointer md:py-3 md:pl-0 md:max-w-1/3 max-md:w-[23%]" onClick={handleLogOut}>
-          <LogoutIcon style={{ fontSize: 25 }} /> Sign Out
+        <p className="block px-2 py-1 cursor-pointer md:px-4 md:py-3" onClick={handleLogOut}>
+          <LogoutIcon style={{ fontSize: 32}} />
         </p>
       </header>
   

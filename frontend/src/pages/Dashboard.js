@@ -78,8 +78,8 @@ const Dashboard = () => {
         </div>
   
         {/* Sign Out button and Logo */}
-        <p className="block px-2 py-1 cursor-pointer md:px-4 md:py-3" onClick={handleLogOut}>
-          <LogoutIcon style={{ fontSize: 25 }} /> Sign Out
+        <p className="block px-2 py-1 cursor-pointer max-md:mr-2 md:py-3" onClick={handleLogOut}>
+          <LogoutIcon style={{ fontSize: 32 }} />
         </p>
       </header>
   
