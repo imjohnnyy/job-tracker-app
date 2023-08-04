@@ -1,3 +1,5 @@
+// This is the Side Navigation Bar component on the left side of the screen.
+
 import React, { useState } from 'react';
 import Logo from "../assets/images/logo-white.svg";
 import DashboardIcon from '@mui/icons-material/Dashboard';

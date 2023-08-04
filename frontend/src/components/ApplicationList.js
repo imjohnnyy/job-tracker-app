@@ -20,7 +20,7 @@ const ApplicationList = () => {
   return (
     <div className="flex flex-wrap justify-center">
       {applications.map((e) => (
-        <div className="max-md:w-full md:w-1/2 max-md:mb-6" key={e.id}>
+        <div className="max-md:w-full max-md:mb-6 md:w-full" key={e.id}>
           <div className="flex justify-center">
             <FormItem data={e} />
           </div>

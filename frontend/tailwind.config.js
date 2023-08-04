@@ -29,6 +29,9 @@ module.exports = {
       'max-lg': {'max': '1023px'},
       // => @media (max-width: 1023px) { ... }
 
+      'max-large': {'max': '890px'},
+      // => @media (max-width: 890px) { ... }
+
       'max-mdd': {'max': '889px'},
       // => @media (max-width: 689px) { ... }
 
@@ -39,6 +42,9 @@ module.exports = {
       // => @media (max-width: 639px) { ... }
 
 
+      '3xl': {'min': '1635px'},
+      // => @media (min-width: 1535px) { ... }
+
       '2xl': {'min': '1535px'},
       // => @media (min-width: 1535px) { ... }
 
@@ -48,8 +54,8 @@ module.exports = {
       'lg': {'min': '1023px'},
       // => @media (min-width: 1023px) { ... }
 
-      'large': {'min': '790px'},
-      // => @media (min-width: 790px) { ... }
+      'large': {'min': '890px'},
+      // => @media (min-width: 890px) { ... }
 
       'md': {'min': '767px'},
       // => @media (min-width: 767px) { ... }

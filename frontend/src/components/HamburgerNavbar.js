@@ -1,4 +1,5 @@
-// Navigation option for smaller devices (Hamburger menu navbar) 
+// This is a Navigation component that appears for smaller devices (Hamburger menu navbar). 
+
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -16,7 +17,7 @@ const HamburgerNav = () => {
       const navigate = useNavigate();
 
   return (
-    <div className="block px-4 py-3 md:hidden" onClick={handleNav}>
+    <div className="block px-4 py-3 large:hidden" onClick={handleNav}>
     <MenuIcon style={{ fontSize: 35 }} />
     <ul
       className={

@@ -28,7 +28,7 @@ const AddApplications = () => {
   
         {/* Header Title */}
         <div className="flex items-start text-2xl font-bold ">
-          <h1 className="">
+          <h1 className="md:ml-8">
             My Applications
           </h1>
         </div>

@@ -1,4 +1,5 @@
 // This is the FormModal component where the user can edit the form item when they press on the 'Edit' button.
+
 import { EditApplication } from '../services/applications';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';

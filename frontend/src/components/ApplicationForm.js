@@ -1,9 +1,11 @@
+// This is a form component for the user to submit their job application details.
+
 import React, { useEffect, useState } from 'react';
 import { NewApplication } from '../services/applications';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-// A form for the user to submit their job application details
+
 const ApplicationForm = ({application, setIsEditing, }) => {
   const [formData, setFormData] = useState({company: "", position: "", date: "", jobStatus: "", jobType: "", city: ""});
   const [isNewApplication, setIsNewApplication] = useState(true);
