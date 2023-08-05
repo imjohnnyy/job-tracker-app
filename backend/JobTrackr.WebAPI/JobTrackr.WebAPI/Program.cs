@@ -31,9 +31,7 @@ builder.Services.AddTransient<IStatisticsServices, StatisticsServices>();
 // Add IPasswordHasher as a transient service
 builder.Services.AddTransient<IPasswordHasher, PasswordHasher>();
 
-
 builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
-
 
 // Setting up a CORS policy that allows requests from all origins, headers and methods.
 builder.Services.AddCors(options =>
@@ -47,7 +45,6 @@ builder.Services.AddCors(options =>
 // Retrieving the JWT_SECRET and JWT_ISSUER environment variables
 var secret = Environment.GetEnvironmentVariable("JWT_SECRET");
 var issuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
-
 
 // Configure JWT bearer authentication
 builder.Services.AddAuthentication(opts =>
@@ -64,10 +61,11 @@ builder.Services.AddAuthentication(opts =>
             ValidateAudience = false,
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secret))
         };
-});
+    });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
 
 builder.Services.AddSwaggerGen(options =>
 {
@@ -76,14 +74,16 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
+app.UseSwagger();
+
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
+
+app.UseDefaultFiles();
+
+app.UseStaticFiles();
 
 app.UseRouting();
 
@@ -93,6 +93,17 @@ app.UseAuthentication();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
+
+
+// Migrate the database before running the app
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetService<AppDbContext>();
+    db.Database.Migrate();
+}
 
 app.Run();

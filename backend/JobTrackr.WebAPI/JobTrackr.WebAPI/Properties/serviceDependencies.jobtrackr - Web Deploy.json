@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "apis1": {
+      "ignored": "true",
+      "type": "apis.azure"
+    },
+    "mssql1": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/applicationsdbserver/databases/ApplicationsDB",
+      "type": "mssql.azure",
+      "connectionId": "DB_CONNECTION_STRING"
+    }
+  }
+}

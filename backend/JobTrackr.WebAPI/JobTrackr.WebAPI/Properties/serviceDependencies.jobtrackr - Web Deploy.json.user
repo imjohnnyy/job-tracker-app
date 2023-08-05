@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "apis1": {
+      "restored": true,
+      "restoreTime": "2023-08-04T23:48:49.4372605Z"
+    },
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2023-08-04T09:49:24.7193924Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "363c8a7f-65b9-422d-925d-665c8445ea5a"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "JobApplicationsResourceGroup"
+    }
+  }
+}
