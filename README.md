@@ -1,4 +1,4 @@
-![add applications page](https://github.com/imjohnnyy/job-tracker-app/assets/87466526/50f82236-b9e4-4738-adee-77e5b791cb16)# NZMSA-2023-Job-Tracker-App
+# NZMSA-2023-Job-Tracker-App
 
 ## Description
 
@@ -7,18 +7,18 @@
 ## Table of Contents
 
 - [Features](#features)
-- [Website Demo](#websitedemo)
-- [Key Learnings](#keylearnings)
+- [Website Demo](#website-demo)
+- [Key Learnings](#key-learnings)
 
 ## Features
 
-### Frontend (React, TailwindCSS, Redux):
+### Frontend (React, &nbsp;TailwindCSS, &nbsp;Redux):
 - Scalable and responsive UI/UX
 - Mobile device compatibility (Media query breakpoints)
 - Redux state management
 - API calls to our backend WebAPI using Axios (Data retrieval)
 
-### Backend (C#, .NET Core, SQL):
+### Backend (C#, &nbsp;.NET Core, &nbsp;SQL):
 - EntityFramework (DbContext, Migrations, SQL Database Operations)
 - Authentication using JWTs
 - Password Hashing for data encryption (Security) 
@@ -44,4 +44,11 @@
 ### Dashboard Page
 ![dashboard page](https://github.com/imjohnnyy/job-tracker-app/assets/87466526/e91583fc-1bd0-440a-af8f-ceef6305e1a3)
 
+## Key Learnings
+- Redux for state management
+- .NET Core framework
+- MVC Architecture Pattern
+- Authentication with JWTs
+- Deployment of WebAPI, SQL Database, and React Frontend to Azure
+- Testing API Endpoints (Swagger UI and Postman)
 
