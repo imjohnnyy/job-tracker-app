@@ -21,7 +21,7 @@
 ### Backend (C#, &nbsp;.NET Core, &nbsp;SQL):
 - EntityFramework (DbContext, Migrations, SQL Database Operations)
 - Authentication using JWTs
-- Password Hashing for data encryption (Security) 
+- Password Hashing for password protection (Security) 
 
 ### Other features:
 - Deployment of WebAPI, SQL Database, and React Frontend to Azure (Azure Portal, Azure App Service)
