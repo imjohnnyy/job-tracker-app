@@ -1,8 +1,8 @@
-# NZMSA-2023-Job-Tracker-App
+# Job-Tracker-App
 
 ## Description
 
-[JobTrackr](https://jobtrackrapp.azurewebsites.net/) is a full-stack web application project for Phase 2 of NZ Microsoft Student Accelerator. It consists of both frontend and backend components with the purpose of allowing users to track their job applications. 
+[JobTrackr](https://jobtrackrapp.azurewebsites.net/) is a full-stack web application project built for Phase 2 of NZ Microsoft Student Accelerator 2023. It consists of both frontend and backend components with the purpose of allowing users to track their job applications. 
 
 ## Table of Contents
 
