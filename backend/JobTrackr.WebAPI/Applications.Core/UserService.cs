@@ -54,6 +54,8 @@ namespace Applications.Core
 
             // Hash the user's password before storing it in the database.
             user.Password = _passwordHasher.HashPassword(user.Password);
+            user.FirstName = user.FirstName;
+            user.LastName = user.LastName;
 
             // Add user data and save changes to the database.
             await _dbContext.AddAsync(user);
