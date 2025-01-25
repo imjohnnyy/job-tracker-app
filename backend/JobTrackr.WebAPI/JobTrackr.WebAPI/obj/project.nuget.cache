@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gtvarpTt5R5JWUFWcT6U3qW7VwSLP4eOcsKDdlfcVCtCiboeVze5kca7CL9pU+SzC39yJod5J6u3hTHVPhKGsg==",
+  "dgSpecHash": "G/b/ZVX7nvrJvfT4S8OsXmsHH7LZN0cSYgaKNv44717s/3gKp5FzfeHgYKE+JigUc7MnAwPk+EgdWi6dOHDDQg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\JobTrackr.WebAPI\\JobTrackr.WebAPI.csproj",
+  "projectFilePath": "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\JobTrackr.WEBAPI\\JobTrackr.WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ldong\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\ldong\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

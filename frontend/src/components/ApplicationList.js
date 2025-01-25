@@ -12,8 +12,13 @@ const ApplicationList = () => {
   const applications = useSelector(state => state.applicationsSlice.applications);
 
   useEffect(() => {
-      GetApplications(dispatch);
-  }, [applications]);
+    const timer = setTimeout(() => {
+        GetApplications(dispatch);
+    }, 500); // 0.5 sec delay
+
+    // Clean up the timeout when the component unmounts or when 'applications' changes
+    return () => clearTimeout(timer);
+}, [applications]);
 
 
   // Renders the list of job applications
