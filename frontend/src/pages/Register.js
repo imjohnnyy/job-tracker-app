@@ -8,11 +8,13 @@ const Register = () => {
   const [username, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    SignUp(dispatch, { username, email, password });
+    SignUp(dispatch, { username, email, password, firstName, lastName });
   };
 
   return (
@@ -49,6 +51,30 @@ const Register = () => {
               className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="firstName" className="flex items-start mb-2 font-medium text-gray">
+              First Name
+            </label>
+            <input
+              type="text"
+              id="firstName"
+              className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="lastName" className="flex items-start mb-2 font-medium text-gray">
+              Last Name
+            </label>
+            <input
+              type="text"
+              id="lastName"
+              className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
             />
           </div>
           <div className="mb-4">

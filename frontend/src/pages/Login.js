@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { lazy, useState } from 'react';
 import Logo from "../assets/images/logo.svg";
 import { SignIn } from '../services/authentication';
 import { useDispatch } from 'react-redux';
@@ -6,6 +6,8 @@ import { setUserData } from '../redux/userSlice';
 
 const Login = () => {
   const [username, setUsername] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
@@ -16,10 +18,12 @@ const Login = () => {
     const userData = {
       username: username, 
       password: password, 
+      firstName: firstName,
+      lastName: lastName,
       email: email, 
     };
     dispatch(setUserData(userData));
-    SignIn(dispatch, { username, password, email });
+    SignIn(dispatch, { username, password, firstName, lastName, email });
   };
 
 
