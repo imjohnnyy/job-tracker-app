@@ -4,6 +4,7 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AddApplications from "./pages/AddApplications";
+import Profile from "./pages/Profile";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -29,6 +30,7 @@ function App() {
         <Route path="/register" element={isLoggedIn ? <Navigate to="/" /> : <Register/>} />
         <Route path="/login" element={isLoggedIn ? <Navigate to="/" /> : <Login />} />
         <Route path="/add-applications" element={isLoggedIn ? <AddApplications /> : <Landing />} />
+        <Route path="/profile" element={isLoggedIn ? <Profile /> : <Landing />} />
         <Route path="*" element={<h2>Page not found!</h2>} />
       </Routes>
     </BrowserRouter>

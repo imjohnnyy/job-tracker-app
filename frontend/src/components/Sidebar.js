@@ -14,6 +14,7 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const handleClickAddApplications = () => navigate('/add-applications');
   const handleClickDashboard = () => navigate('/');
+  const handleClickProfile = () => navigate('/profile');
 
   return (
     <div className="flex flex-col w-64 px-8 py-4 bg-gray max-mdd:hidden">
@@ -34,6 +35,11 @@ const Sidebar = () => {
           <li onClick={handleClickAddApplications}>
             <button className="flex items-center justify-start w-full py-2 text-lg font-semibold rounded-sm text-zinc-300 hover:text-white hover:bg-slate-500">
               <PostAddIcon className="my-1 ml-[9px] mr-[5px]" style={{ fontSize: '180%' }} /> Add Jobs
+            </button>
+          </li>
+          <li onClick={handleClickProfile}>
+            <button className="flex items-center justify-start w-full py-2 text-lg font-semibold rounded-sm text-zinc-300 hover:text-white hover:bg-slate-500">
+              <AccountBoxIcon className="my-1 ml-[8px] mr-[5px]" style={{ fontSize: '180%' }} /> Profile
             </button>
           </li>
         </ul>

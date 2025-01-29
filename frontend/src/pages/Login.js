@@ -1,8 +1,7 @@
-import React, { lazy, useState } from 'react';
+import React, { useState } from 'react';
 import Logo from "../assets/images/logo.svg";
 import { SignIn } from '../services/authentication';
 import { useDispatch } from 'react-redux';
-import { setUserData } from '../redux/userSlice';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -15,17 +14,8 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const userData = {
-      username: username, 
-      password: password, 
-      firstName: firstName,
-      lastName: lastName,
-      email: email, 
-    };
-    dispatch(setUserData(userData));
     SignIn(dispatch, { username, password, firstName, lastName, email });
   };
-
 
   return (
     <div className="flex items-center justify-center h-screen bg-lightergray">
