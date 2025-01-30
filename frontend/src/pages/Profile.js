@@ -1,6 +1,7 @@
 import Sidebar from "../components/Sidebar";
 import LogoutIcon from "@mui/icons-material/Logout";
 import HamburgerNav from "../components/HamburgerNavbar";
+import ProfileForm from "../components/PofileForm";
 import { useDispatch, useSelector } from "react-redux"; // Import useSelector to access Redux state
 import { userLoggedOut } from "../redux/authenticationSlice";
 
@@ -40,10 +41,11 @@ const Profile = () => {
 
         {/* Profile details */}
         <div className="p-4 md:p-8 max-md:mt-4">
-          <h2 className="text-2xl font-semibold">
-            Hi {userDetails.firstName}!
-          </h2>
-          {/* Add more profile details here */}
+          <h1 className="flex text-2xl font-semibold align-left md:ml-8">
+            Hi {userDetails.firstName} 👋
+          </h1>
+          <ProfileForm />
+     
         </div>
       </div>
     </div>
