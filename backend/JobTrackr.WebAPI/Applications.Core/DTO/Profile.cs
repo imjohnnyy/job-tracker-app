@@ -1,4 +1,5 @@
-﻿namespace Applications.Core.DTO
+﻿
+namespace Applications.Core.DTO
 {
     public class Profile
     {

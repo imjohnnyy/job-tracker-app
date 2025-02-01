@@ -17,6 +17,13 @@ namespace JobTrackr.WebAPI.Controllers
             _profileServices = profileServices;
         }
 
+        // Retrieves a specific profile
+        [HttpGet("{email}", Name = "GetProfile")]
+        public IActionResult GetProfile(string email)
+        {
+            return Ok(_profileServices.GetProfile(email));
+        }
+
         // Updates the profile data
         [HttpPut]
         public IActionResult UpdateProfile(Profile profile)

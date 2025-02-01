@@ -44,12 +44,23 @@ namespace Applications.Core
         public async Task<AuthenticatedUser> SignUp(User user)
         {
             // Check if a user with the same username already exists in the database.
-            var verifyUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Username.Equals(user.Username));
+            var verifyUsername = await _dbContext.Users
+                .FirstOrDefaultAsync(u => u.Username.Equals(user.Username));
 
             // If the username already exists then the 'DuplicateUsernameException' is thrown.
-            if (verifyUser != null)
+            if (verifyUsername != null)
             {
                 throw new DuplicateUsernameException("This username already exists!");
+            }
+
+            // Check if a user with the same email already exists in the database.
+            var verifyEmail = await _dbContext.Users
+                .FirstOrDefaultAsync(u => u.Email.Equals(user.Email));
+
+            // If the email already exists, throw a 'DuplicateEmailException'.
+            if (verifyEmail != null)
+            {
+                throw new DuplicateEmailException("This email address is already taken!");
             }
 
             // Hash the user's password before storing it in the database.
@@ -68,5 +79,6 @@ namespace Applications.Core
                 Token = JWTGenerator.GenerateUserToken(user.Username),
             };
         }
+
     }
 }

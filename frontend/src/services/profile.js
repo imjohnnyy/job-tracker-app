@@ -1,9 +1,9 @@
 import axios from "axios";
 import { updateProfile } from "../redux/profileSlice";
 
-const axiosInstance = axios.create({
-  baseURL: `${process.env.REACT_APP_API_URL}/Profile`,
-});
+const axiosInstance = axios.create({    
+  baseURL: `${process.env.REACT_APP_BASE_URL}/Profile`,
+})
 
 axiosInstance.interceptors.request.use((config) => {
   config.headers = {

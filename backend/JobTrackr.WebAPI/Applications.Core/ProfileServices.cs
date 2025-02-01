@@ -15,6 +15,19 @@ namespace Applications.Core
             _user = _dbContext.Users
                  .First(u => u.Username == httpContextAccessor.HttpContext.User.Identity.Name);
         }
+        public Profile GetProfile(string email) =>
+            _dbContext.Users
+                .Where(u => u.Email == email) // Find the user with the given email
+                .Select(u => new Profile
+                {
+                    Id = u.Id,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    Email = u.Email
+                })
+                .FirstOrDefault(); // Return the Profile object (or null if not found)
+
+
 
         public Profile UpdateProfile(Profile profile)
         {
