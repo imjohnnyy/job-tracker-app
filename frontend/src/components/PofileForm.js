@@ -1,49 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { NewApplication } from "../services/applications";
+import React, { useState } from "react";
+import { UpdateProfile } from "../services/profile";
 import { useDispatch, useSelector } from "react-redux";
 
-const ProfileForm = ({ application, setIsEditing }) => {
+const ProfileForm = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
   });
-  const [isNewApplication, setIsNewApplication] = useState(true);
-  const [submittedData, setSubmittedData] = useState([]);
+
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.userSlice.userData);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    console.log('Form data ' + JSON.stringify(formData));
 
-    setSubmittedData([...submittedData, formData]);
+    UpdateProfile(dispatch, {firstName: formData.firstName, lastName: formData.lastName, email: formData.email});
 
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-    });
 
-    if (isNewApplication) {
-      NewApplication(
-        dispatch,
-        {
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          email: formData.email,
-        },
-        {
-          id: 0,
-          username: user.username,
-          password: user.password,
-          email: user.email,
-        }
-      );
-    } else {
-      setIsEditing(false);
-    }
   };
 
   const handleChange = (e) => {
