@@ -4,6 +4,10 @@ import { UpdateProfile } from "../services/profile";
 import { useDispatch, useSelector } from "react-redux";
 
 const ProfileForm = () => {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.userSlice.userData);
+  const profile = useSelector((state) => state.profileSlice.profile);
+
   const [formData, setFormData] = useState({
     id: 0,
     firstName: "",
@@ -14,24 +18,21 @@ const ProfileForm = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.userSlice.userData);
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Call the UpdateProfile service
-    UpdateProfile(dispatch, formData);
+    await UpdateProfile(dispatch, formData); // Wait for update to complete
   };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  // Fetch user data from the API
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const token = sessionStorage.getItem("token");
+
+        if (!user?.email) return;
 
         const response = await axios.get(
           `${process.env.REACT_APP_BASE_URL}/Profile/${user.email}`,
@@ -42,20 +43,36 @@ const ProfileForm = () => {
           }
         );
 
-        setFormData({
-          id: response.data.id,
-          firstName: response.data.firstName,
-          lastName: response.data.lastName,
-          email: response.data.email,
-        });
+        const userData = {
+          id: response.data.id || profile.id,
+          firstName: response.data.firstName || "",
+          lastName: response.data.lastName || "",
+          email: response.data.email || "",
+        };
+
+        setFormData(userData);
+        sessionStorage.setItem("userData", JSON.stringify(userData));
       } catch (err) {
         setError(err.message);
       } finally {
         setLoading(false);
       }
     };
+
     fetchUser();
-  }, []);
+  }, [user]);
+
+  // Sync formData with profile after an update
+  useEffect(() => {
+    if (profile) {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        firstName: profile.firstName || prevFormData.firstName,
+        lastName: profile.lastName || prevFormData.lastName,
+        email: profile.email || prevFormData.email,
+      }));
+    }
+  }, [profile]); // Runs when profile updates after submitting
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -78,7 +95,7 @@ const ProfileForm = () => {
             type="text"
             id="firstName"
             value={formData.firstName}
-            placeholder={user.firstName}
+            placeholder={profile.firstName || formData.firstName}
             className="w-full px-3 py-2 border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
             onChange={handleChange}
           />
@@ -96,7 +113,7 @@ const ProfileForm = () => {
             type="text"
             id="lastName"
             value={formData.lastName}
-            placeholder={user.lastName}
+            placeholder={profile.lastName || formData.lastName}
             className="w-full px-3 py-2 border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
             onChange={handleChange}
           />
@@ -114,7 +131,7 @@ const ProfileForm = () => {
             type="email"
             id="email"
             value={formData.email}
-            placeholder={user.email}
+            placeholder={profile.email || formData.email}
             className="w-full px-3 py-2 border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
             onChange={handleChange}
           />

@@ -4,6 +4,7 @@ export const profileSlice = createSlice({
     name: 'profile',
     initialState: {
         profile: {
+            id: 0,
             firstName: '',
             lastName: '',
             email: '',
