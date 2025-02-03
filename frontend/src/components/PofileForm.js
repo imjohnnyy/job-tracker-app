@@ -16,10 +16,18 @@ const ProfileForm = () => {
 
   const dispatch = useDispatch();
   const user = useSelector((state) => state.userSlice.userData);
-  console.log("User data:", user);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Call the UpdateProfile service
+    UpdateProfile(dispatch, formData);
+  };
 
- // Fetch user data from the API
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  // Fetch user data from the API
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -48,18 +56,6 @@ const ProfileForm = () => {
     };
     fetchUser();
   }, []);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form data:", formData);
-
-    // Call the UpdateProfile service
-    UpdateProfile(dispatch, formData);
-  };
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
-  };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
