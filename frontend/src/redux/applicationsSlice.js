@@ -1,4 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAction } from '@reduxjs/toolkit';
+
+export const setApplicationsError = createAction('setApplicationsError');
+export const newApplicationError = createAction('newApplicationError');
+export const editApplicationError = createAction('newEditApplicationError');
+export const deleteApplicationError = createAction('deleteApplicationError');  
 
 export const applicationsSlice = createSlice({
     name: 'applications',
