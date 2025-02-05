@@ -1,20 +1,19 @@
+import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import ApplicationForm from "../components/ApplicationForm";
 import ApplicationList from "../components/ApplicationList";
-import LogoutIcon from "@mui/icons-material/Logout";
 import HamburgerNav from "../components/HamburgerNavbar";
-import { useDispatch } from "react-redux";
-import { userLoggedOut } from "../redux/authenticationSlice";
+import AccountModal from "../components/AccountModal"
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { ToastContainer } from "react-toastify";
 
 const AddApplications = () => {
-  const dispatch = useDispatch();
+  const [isAccountIconClicked, setIsAccountIconClicked] = useState(false);
 
-  const handleLogOut = () => {
-    dispatch(userLoggedOut());
-    console.log("User has logged out");
-  };
-
+  const handleToggleAccountModal = () => {
+    setIsAccountIconClicked(!isAccountIconClicked);
+    console.log("Account Modal Toggled");
+  }
   return (
     <div class="md:flex bg-lightergray min-h-[150vh]">
       <ToastContainer />
@@ -34,9 +33,9 @@ const AddApplications = () => {
           {/* Sign Out button and Logo */}
           <p
             className="block px-2 py-1 cursor-pointer md:px-4 md:py-3"
-            onClick={handleLogOut}
+            onClick={handleToggleAccountModal}
           >
-            <LogoutIcon style={{ fontSize: 32 }} />
+            <AccountCircleIcon style={{ fontSize: 40 }} />
           </p>
         </header>
 
@@ -46,6 +45,7 @@ const AddApplications = () => {
           <ApplicationList />
         </div>
       </div>
+      {isAccountIconClicked && <AccountModal setIsAccountIconClicked={setIsAccountIconClicked} />}
     </div>
   );
 };
