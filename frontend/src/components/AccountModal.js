@@ -30,7 +30,7 @@ const AccountModal = ({ setIsAccountIconClicked }) => {
   return (
     <div
       ref={modalRef}
-      className="absolute p-4 bg-white border rounded-lg shadow-lg top-16 right-4 md:top-10 right-8"
+      className="absolute p-4 bg-white border rounded-lg shadow-lg top-16 right-8 md:top-10"
     >
       {/* Close Button */}
       <button
