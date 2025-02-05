@@ -1,19 +1,19 @@
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import Sidebar from "../components/Sidebar";
-import LogoutIcon from "@mui/icons-material/Logout";
 import HamburgerNav from "../components/HamburgerNavbar";
 import ProfileForm from "../components/PofileForm";
-import { useDispatch, useSelector } from "react-redux"; // Import useSelector to access Redux state
-import { userLoggedOut } from "../redux/authenticationSlice";
+import AccountModal from "../components/AccountModal";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const Profile = () => {
-  const dispatch = useDispatch();
-
+  const [isAccountIconClicked, setIsAccountIconClicked] = useState(false);
   const userDetails = useSelector((state) => state.userSlice.userData);
 
-  const handleLogOut = () => {
-    dispatch(userLoggedOut());
+  const handleToggleAccountModal = () => {
+    setIsAccountIconClicked(!isAccountIconClicked);
   };
-
+  
   return (
     <div className="md:flex bg-lightergray min-h-[150vh]">
       {/* Sidebar */}
@@ -33,9 +33,9 @@ const Profile = () => {
           {/* Sign Out button and Logo */}
           <p
             className="block px-2 py-1 cursor-pointer md:px-4 md:py-3"
-            onClick={handleLogOut}
+            onClick={handleToggleAccountModal}
           >
-            <LogoutIcon style={{ fontSize: 32 }} />
+            <AccountCircleIcon style={{ fontSize: 40 }} />
           </p>
         </header>
 
@@ -45,9 +45,9 @@ const Profile = () => {
             Hi {userDetails.firstName} 👋
           </h1>
           <ProfileForm />
-     
         </div>
       </div>
+      {isAccountIconClicked && (<AccountModal setIsAccountIconClicked={setIsAccountIconClicked} />)}
     </div>
   );
 };

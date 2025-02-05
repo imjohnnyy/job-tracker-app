@@ -1,18 +1,17 @@
 import { useState } from "react";
+import { ToastContainer } from "react-toastify";
 import Sidebar from "../components/Sidebar";
 import ApplicationForm from "../components/ApplicationForm";
 import ApplicationList from "../components/ApplicationList";
 import HamburgerNav from "../components/HamburgerNavbar";
 import AccountModal from "../components/AccountModal"
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { ToastContainer } from "react-toastify";
 
 const AddApplications = () => {
   const [isAccountIconClicked, setIsAccountIconClicked] = useState(false);
 
   const handleToggleAccountModal = () => {
     setIsAccountIconClicked(!isAccountIconClicked);
-    console.log("Account Modal Toggled");
   }
   return (
     <div class="md:flex bg-lightergray min-h-[150vh]">
@@ -45,7 +44,7 @@ const AddApplications = () => {
           <ApplicationList />
         </div>
       </div>
-      {isAccountIconClicked && <AccountModal setIsAccountIconClicked={setIsAccountIconClicked} />}
+      {isAccountIconClicked && (<AccountModal setIsAccountIconClicked={setIsAccountIconClicked} />)}
     </div>
   );
 };

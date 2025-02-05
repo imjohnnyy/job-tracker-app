@@ -5,7 +5,7 @@ import { userLoggedOut } from "../redux/authenticationSlice";
 
 const AccountModal = ({ setIsAccountIconClicked }) => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.userSlice.userData);
+  const userDetails = useSelector((state) => state.userSlice.userData);
   const modalRef = useRef(null);
 
   const handleLogOut = () => {
@@ -38,7 +38,7 @@ const AccountModal = ({ setIsAccountIconClicked }) => {
         className="absolute text-gray-500 top-2 right-2"
       ></button>
 
-      <p className="mb-4 text-xl font-bold">{user.firstName} {user.lastName}</p>
+      <p className="mb-4 text-xl font-bold">{userDetails.firstName} {userDetails.lastName}</p>
       {/* Log Out Button */}
       <button className="flex items-center justify-start w-full py-2 text-lg font-semibold text-black rounded-lg hover:bg-slate-100" onClick={handleLogOut}>
         <LogOutIcon className="my-1 ml-[9px] mr-[5px]" style={{ fontSize: "160%" }} />{" "}Sign out
