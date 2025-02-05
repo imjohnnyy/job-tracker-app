@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
 import LogOutIcon from "@mui/icons-material/Logout";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userLoggedOut } from "../redux/authenticationSlice";
 
 const AccountModal = ({ setIsAccountIconClicked }) => {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.userSlice.userData);
   const modalRef = useRef(null);
 
   const handleLogOut = () => {
@@ -29,21 +30,18 @@ const AccountModal = ({ setIsAccountIconClicked }) => {
   return (
     <div
       ref={modalRef}
-      className="absolute p-4 bg-white border rounded-lg shadow-lg top-16 right-4"
+      className="absolute p-4 bg-white border rounded-lg shadow-lg top-16 right-4 md:top-10 right-8"
     >
       {/* Close Button */}
       <button
         onClick={() => setIsAccountIconClicked(false)}
         className="absolute text-gray-500 top-2 right-2"
-      >
-      </button>
+      ></button>
 
-      <p className="mb-4 text-2xl font-bold">Account Options</p>
-      <button
-        onClick={handleLogOut}
-        className="flex items-center px-4 py-2 text-white bg-red-500 rounded-md"
-      >
-        <LogOutIcon className="mr-2" /> Log Out
+      <p className="mb-4 text-xl font-bold">{user.firstName} {user.lastName}</p>
+      {/* Log Out Button */}
+      <button className="flex items-center justify-start w-full py-2 text-lg font-semibold text-black rounded-lg hover:bg-slate-100" onClick={handleLogOut}>
+        <LogOutIcon className="my-1 ml-[9px] mr-[5px]" style={{ fontSize: "160%" }} />{" "}Sign out
       </button>
     </div>
   );

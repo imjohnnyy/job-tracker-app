@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\jobtrackr.webapi\\JobTrackr.WebAPI.csproj": {}
+    "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\JobTrackr.Webapi\\JobTrackr.WebAPI.csproj": {}
   },
   "projects": {
     "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\Applications.Core\\Applications.Core.csproj": {
@@ -144,14 +144,14 @@
         }
       }
     },
-    "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\jobtrackr.webapi\\JobTrackr.WebAPI.csproj": {
+    "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\JobTrackr.Webapi\\JobTrackr.WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\jobtrackr.webapi\\JobTrackr.WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\JobTrackr.Webapi\\JobTrackr.WebAPI.csproj",
         "projectName": "JobTrackr.WebAPI",
-        "projectPath": "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\jobtrackr.webapi\\JobTrackr.WebAPI.csproj",
+        "projectPath": "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\JobTrackr.Webapi\\JobTrackr.WebAPI.csproj",
         "packagesPath": "C:\\Users\\ldong\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\jobtrackr.webapi\\obj\\",
+        "outputPath": "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\JobTrackr.Webapi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ldong\\AppData\\Roaming\\NuGet\\NuGet.Config",
