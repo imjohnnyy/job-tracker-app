@@ -24,6 +24,11 @@ namespace Applications.Core
 
         public async Task<AuthenticatedUser> SignIn(User user)
         {
+            if(string.IsNullOrWhiteSpace(user?.Username) || string.IsNullOrWhiteSpace(user?.Password))
+            {
+                throw new InvalidCredentialsException("Username and password are required!");
+            }
+
             // Retrieve the user from the database based on the provided username.
             var dbUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Username == user.Username);
 
