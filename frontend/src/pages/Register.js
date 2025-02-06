@@ -50,7 +50,7 @@ const Register = () => {
             htmlFor="username"
             className="flex items-start mb-2 font-medium text-gray"
           >
-            Username
+            Username <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
@@ -66,7 +66,7 @@ const Register = () => {
             htmlFor="email"
             className="flex items-start mb-2 font-medium text-gray"
           >
-            Email
+            Email <span className="text-red-500">*</span>
           </label>
           <input
             type="email"
@@ -82,7 +82,7 @@ const Register = () => {
             htmlFor="firstName"
             className="flex items-start mb-2 font-medium text-gray"
           >
-            First Name
+            First Name 
           </label>
           <input
             type="text"
@@ -112,7 +112,7 @@ const Register = () => {
             htmlFor="password"
             className="flex items-start mb-2 font-medium text-gray"
           >
-            Password
+            Password <span className="text-red-500">*</span>
           </label>
           <input
             type="password"
