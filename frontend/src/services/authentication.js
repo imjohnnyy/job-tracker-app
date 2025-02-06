@@ -1,5 +1,5 @@
 import axios from "axios";
-import { userAuthenticated } from "../redux/authenticationSlice";
+import { invalidLoginCredentials, userAuthenticated } from "../redux/authenticationSlice";
 
 
 const axiosInstance = axios.create({
@@ -27,6 +27,6 @@ export const SignIn = async (dispatch, userCredentials) => {
         // If the request is successful, dispatch the userAuthenticated action with the returned data
         dispatch(userAuthenticated(data));
     } catch {
-        console.log("Error: Incorrect username or password");
+        dispatch(invalidLoginCredentials("Invalid credentials, please try again"));
     }
 };

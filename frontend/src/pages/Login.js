@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Logo from "../assets/images/logo.svg";
 import { SignIn } from '../services/authentication';
 import { useDispatch } from 'react-redux';
+import { ToastContainer } from "react-toastify";
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -19,6 +20,7 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center h-screen bg-lightergray">
+      <ToastContainer />
       <form className="w-full max-w-sm px-6 py-8 rounded-lg shadow-[0_0px_10px_rgba(0,0,0,0.25)] bg-white max-md:mx-6" onSubmit={handleSubmit}>
 
         {/* Logo */}

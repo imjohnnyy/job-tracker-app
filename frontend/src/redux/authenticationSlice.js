@@ -7,6 +7,7 @@ export const authenticationSlice = createSlice({
     initialState: {
         token: '',
         isLoggedIn: false,
+        error: null
     },
     reducers: {
         // When the user authenticates, the token is stored in the session storage (even if the page is refreshed).
@@ -31,9 +32,19 @@ export const authenticationSlice = createSlice({
               }
             };
         },
+        invalidLoginCredentials: (state, action) => {
+            return {
+                ...state,
+                ...{
+                    token: '',
+                    isLoggedIn: false,
+                    error: action.payload
+                }
+            }
+        }
     }
 });
 
-export const { userAuthenticated, userLoggedOut } = authenticationSlice.actions;
+export const { userAuthenticated, userLoggedOut, invalidLoginCredentials } = authenticationSlice.actions;
 
 export default authenticationSlice.reducer;

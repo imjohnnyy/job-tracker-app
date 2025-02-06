@@ -7,6 +7,7 @@ import {
   editApplicationError,
   deleteApplicationError,
 } from "../redux/applicationsSlice";
+import { invalidLoginCredentials } from "../redux/authenticationSlice";
 import { toast } from "react-toastify";
 
 const ToastMiddleware = () => (next) => (action) => {
@@ -31,6 +32,9 @@ const ToastMiddleware = () => (next) => (action) => {
       break;
     case deleteApplicationError.type:
       toast.error("Error deleting application");
+      break;
+    case invalidLoginCredentials.type:
+      toast.error("Invalid credentials, please try again");
       break;
     default:
       break;
