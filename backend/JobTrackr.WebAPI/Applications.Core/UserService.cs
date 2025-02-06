@@ -48,6 +48,11 @@ namespace Applications.Core
 
         public async Task<AuthenticatedUser> SignUp(User user)
         {
+            if (string.IsNullOrWhiteSpace(user.Username))
+            {
+              throw new InvalidCredentialsException("Username is required!");
+            }
+
             // Check if a user with the same username already exists in the database.
             var verifyUsername = await _dbContext.Users
                 .FirstOrDefaultAsync(u => u.Username.Equals(user.Username));
@@ -58,6 +63,11 @@ namespace Applications.Core
                 throw new DuplicateUsernameException("This username already exists!");
             }
 
+            if (string.IsNullOrWhiteSpace(user.Email))
+            {
+              throw new InvalidCredentialsException("Email is required!");
+            }
+
             // Check if a user with the same email already exists in the database.
             var verifyEmail = await _dbContext.Users
                 .FirstOrDefaultAsync(u => u.Email.Equals(user.Email));
@@ -66,6 +76,11 @@ namespace Applications.Core
             if (verifyEmail != null)
             {
                 throw new DuplicateEmailException("This email address is already taken!");
+            }
+
+            if (string.IsNullOrWhiteSpace(user?.Username) || string.IsNullOrWhiteSpace(user?.Password) || string.IsNullOrWhiteSpace(user?.Email)) 
+            {
+                throw new InvalidCredentialsException("Username, password, and email are required!");
             }
 
             // Hash the user's password before storing it in the database.

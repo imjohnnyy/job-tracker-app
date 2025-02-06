@@ -41,10 +41,20 @@ export const authenticationSlice = createSlice({
                     error: action.payload
                 }
             }
+        },
+        invalidSignupCredentials: (state, action) => {
+            return {
+                ...state,
+                ...{
+                    token: '',
+                    isLoggedIn: false,
+                    error: action.payload
+                }
+            }
         }
     }
 });
 
-export const { userAuthenticated, userLoggedOut, invalidLoginCredentials } = authenticationSlice.actions;
+export const { userAuthenticated, userLoggedOut, invalidLoginCredentials, invalidSignupCredentials } = authenticationSlice.actions;
 
 export default authenticationSlice.reducer;

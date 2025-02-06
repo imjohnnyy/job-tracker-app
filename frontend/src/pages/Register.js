@@ -3,6 +3,7 @@ import Logo from "../assets/images/logo.svg";
 import { SignUp } from "../services/authentication";
 import { useDispatch } from "react-redux";
 import { setUserData } from '../redux/userSlice';
+import { ToastContainer } from "react-toastify";
 
 const Register = () => {
   const [username, setUserName] = useState("");
@@ -29,6 +30,7 @@ const Register = () => {
 
   return (
     <div className="flex items-center justify-center h-screen bg-lightergray">
+      <ToastContainer />
       <form
         className="w-full max-w-sm px-6 py-8 rounded-lg shadow-[0_0px_10px_rgba(0,0,0,0.25)] bg-white max-md:mx-6"
         onSubmit={handleSubmit}

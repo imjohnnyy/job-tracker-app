@@ -7,7 +7,10 @@ import {
   editApplicationError,
   deleteApplicationError,
 } from "../redux/applicationsSlice";
-import { invalidLoginCredentials } from "../redux/authenticationSlice";
+import {
+  invalidLoginCredentials,
+  invalidSignupCredentials,
+} from "../redux/authenticationSlice";
 import { toast } from "react-toastify";
 
 const ToastMiddleware = () => (next) => (action) => {
@@ -35,6 +38,11 @@ const ToastMiddleware = () => (next) => (action) => {
       break;
     case invalidLoginCredentials.type:
       toast.error("Invalid credentials, please try again");
+      break;
+    case invalidSignupCredentials.type:
+      // Check if the action has a payload (error message)
+      const errorMessage = action.payload || "Invalid sign up credentials, please try again";
+      toast.error(errorMessage);
       break;
     default:
       break;
