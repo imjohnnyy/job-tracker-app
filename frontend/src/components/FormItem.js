@@ -33,7 +33,7 @@ const FormItem = ({ data }) => {
   ) : (
     // Form Item
     // If isEditing state is false then Form Item is displayed
-    <div className="p-6 mt-8 mx-auto bg-white rounded-lg shadow-[0_0px_10px_rgba(0,0,0,0.25)] w-full max-w-xl">
+    <div className="p-6 mt-8 mx-auto bg-white rounded-lg shadow-[0_0px_10px_rgba(0,0,0,0.25)] w-full max-w-xl hover:scale-100 hover:shadow-2xl">
       {/* Form Item Header */}
       <h3 className="mt-[-1rem] mb-2 text-xl font-bold">{data.company}</h3>
 
