@@ -44,8 +44,9 @@ const ApplicationList = () => {
         >
           <option value="all">All</option>
           <option value="ongoing">Ongoing</option>
-          <option value="approved">Approved</option>
+          <option value="declined">Declined</option>
           <option value="rejected">Rejected</option>
+          <option value="accepted">Accepted</option>
         </select>
       </div>
 

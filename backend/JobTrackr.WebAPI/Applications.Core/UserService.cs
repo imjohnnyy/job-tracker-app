@@ -24,7 +24,7 @@ namespace Applications.Core
 
         public async Task<AuthenticatedUser> SignIn(User user)
         {
-            if(string.IsNullOrWhiteSpace(user?.Username) || string.IsNullOrWhiteSpace(user?.Password))
+            if (string.IsNullOrWhiteSpace(user?.Username) || string.IsNullOrWhiteSpace(user?.Password))
             {
                 throw new InvalidCredentialsException("Username and password are required!");
             }
