@@ -39,7 +39,7 @@ const ApplicationList = () => {
   return (
     <div>
       {/* Dropdown Filter */}
-      <div className="flex justify-center mb-4">
+      <div className="flex justify-center mb-6">
         <select
           value={filterStatus}
           onChange={(e) => setFilterStatus(e.target.value)}
@@ -52,18 +52,25 @@ const ApplicationList = () => {
           <option value="accepted">Accepted</option>
         </select>
       </div>
+      <div>
+        <h1 className="ml-[68px] text-2xl font-semibold text-start">
+          {filteredApplications.length > 1
+            ? `${filteredApplications.length} Jobs Found`
+            : filteredApplications.length === 1
+            ? `1 Job Found`
+            : `No jobs to display`}
+        </h1>
+      </div>
 
       {/* Render Filtered Applications */}
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-3">
-        {filteredApplications.length > 0 ? (
-          filteredApplications.map((e) => (
-            <div className="flex justify-center" key={e.id}>
-              <FormItem data={e} />
-            </div>
-          ))
-        ) : (
-          <p>No job applications found.</p>
-        )}
+        {filteredApplications.length > 0
+          ? filteredApplications.map((e) => (
+              <div className="flex justify-center" key={e.id}>
+                <FormItem data={e} />
+              </div>
+            ))
+          : ""}
       </div>
     </div>
   );
