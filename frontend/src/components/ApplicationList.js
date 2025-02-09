@@ -54,7 +54,7 @@ const ApplicationList = () => {
       </div>
 
       {/* Render Filtered Applications */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 xl:grid-cols-3">
         {filteredApplications.length > 0 ? (
           filteredApplications.map((e) => (
             <div className="flex justify-center" key={e.id}>
