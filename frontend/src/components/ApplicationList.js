@@ -43,7 +43,7 @@ const ApplicationList = () => {
         <select
           value={filterStatus}
           onChange={(e) => setFilterStatus(e.target.value)}
-          className="px-4 py-2 mt-8 bg-white border rounded-lg shadow-md"
+          className="py-2 mt-8 text-center bg-white border rounded-lg shadow-md"
         >
           <option value="all">All</option>
           <option value="ongoing">Ongoing</option>
