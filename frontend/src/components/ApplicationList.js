@@ -2,17 +2,22 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GetApplications } from "../services/applications";
 import FormItem from "../components/FormItem";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
 const ApplicationList = () => {
   const dispatch = useDispatch();
 
-  // Retrieves data from Redux store
   const applications = useSelector(
     (state) => state.applicationsSlice.applications
   );
 
-  // State to hold the selected filter
   const [filterStatus, setFilterStatus] = useState("all"); // 'all' means no filter
+  const [toggleArrow, setToggleArrow] = useState(false);
+
+  const handleToggleArrow = () => {
+    setToggleArrow(!toggleArrow);
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -23,10 +28,6 @@ const ApplicationList = () => {
     return () => clearTimeout(timer);
   }, [applications]);
 
-  // Debugging
-  console.log("Applications Data:", applications);
-  console.log("Selected Filter Status:", filterStatus);
-
   // Filters applications based on the selected status
   const filteredApplications =
     filterStatus === "all"
@@ -36,8 +37,23 @@ const ApplicationList = () => {
             app.jobStatus?.trim().toLowerCase() === filterStatus.toLowerCase()
         );
 
+  // Create a new sorted array to avoid mutating the state directly
+  const sortedApplications = [...filteredApplications].sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+
+    if (toggleArrow) {
+      // Sort by most recent first (descending order)
+      return dateB - dateA;
+    } else {
+      // Sort by earliest first (ascending order)
+      return dateA - dateB;
+    }
+  });
+
   return (
     <div>
+      {/* Filter and Sort */}
       {/* Dropdown Filter */}
       <div className="flex justify-center mb-6">
         <select
@@ -51,21 +67,34 @@ const ApplicationList = () => {
           <option value="rejected">Rejected</option>
           <option value="accepted">Accepted</option>
         </select>
+        {/* Time sort toggle */}
+        {toggleArrow === false ? (
+          <ArrowUpwardIcon
+            onClick={handleToggleArrow}
+            className="mt-10 ml-2"
+            style={{ fontSize: "175%" }}
+          />
+        ) : (
+          <ArrowDownwardIcon
+            onClick={handleToggleArrow}
+            className="mt-10 ml-2"
+            style={{ fontSize: "175%" }}
+          />
+        )}
       </div>
       <div>
         <h1 className="ml-[68px] text-2xl font-semibold text-start">
-          {filteredApplications.length > 1
-            ? `${filteredApplications.length} Jobs Found`
-            : filteredApplications.length === 1
+          {sortedApplications.length > 1
+            ? `${sortedApplications.length} Jobs Found`
+            : sortedApplications.length === 1
             ? `1 Job Found`
             : `No jobs to display`}
         </h1>
       </div>
 
-      {/* Render Filtered Applications */}
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-3">
-        {filteredApplications.length > 0
-          ? filteredApplications.map((e) => (
+        {sortedApplications.length > 0
+          ? sortedApplications.map((e) => (
               <div className="flex justify-center" key={e.id}>
                 <FormItem data={e} />
               </div>
