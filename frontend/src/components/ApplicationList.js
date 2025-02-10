@@ -13,20 +13,15 @@ const ApplicationList = () => {
   );
 
   const [filterStatus, setFilterStatus] = useState("all"); // 'all' means no filter
-  const [toggleArrow, setToggleArrow] = useState(false);
+  const [toggleTimeArrow, setToggleTimeArrow] = useState(false);
 
   const handleToggleArrow = () => {
-    setToggleArrow(!toggleArrow);
+    setToggleTimeArrow(!toggleTimeArrow);
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      GetApplications(dispatch);
-    }, 500); // 0.5 sec delay
-
-    // Clean up the timeout when the component unmounts or when 'applications' changes
-    return () => clearTimeout(timer);
-  }, [applications]);
+    GetApplications(dispatch);
+  }, [dispatch]);
 
   // Filters applications based on the selected status
   const filteredApplications =
@@ -37,12 +32,12 @@ const ApplicationList = () => {
             app.jobStatus?.trim().toLowerCase() === filterStatus.toLowerCase()
         );
 
-  // Create a new sorted array to avoid mutating the state directly
+  // Sort job applications based on the date
   const sortedApplications = [...filteredApplications].sort((a, b) => {
     const dateA = new Date(a.date);
     const dateB = new Date(b.date);
 
-    if (toggleArrow) {
+    if (toggleTimeArrow) {
       // Sort by most recent first (descending order)
       return dateB - dateA;
     } else {
@@ -67,8 +62,9 @@ const ApplicationList = () => {
           <option value="rejected">Rejected</option>
           <option value="accepted">Accepted</option>
         </select>
+
         {/* Time sort toggle */}
-        {toggleArrow === false ? (
+        {toggleTimeArrow === false ? (
           <ArrowUpwardIcon
             onClick={handleToggleArrow}
             className="mt-10 ml-2"
@@ -82,6 +78,7 @@ const ApplicationList = () => {
           />
         )}
       </div>
+
       <div>
         <h1 className="ml-[68px] text-2xl font-semibold text-start">
           {sortedApplications.length > 1
