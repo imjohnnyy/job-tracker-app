@@ -38,7 +38,7 @@ namespace JobTrackr.WebAPI.Controllers
 
         // Creates a new job application
         [HttpPost]
-        public IActionResult CreateApplication(JobTrackr.DB.Model.Application application)
+        public IActionResult CreateApplication(Application application)
         {
             var newApplication = _applicationsServices.CreateApplication(application);
             return CreatedAtRoute("GetApplication", new { newApplication.Id }, newApplication);

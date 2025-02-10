@@ -11,7 +11,7 @@ namespace Applications.Core
         Application GetApplication(int id);
 
         // Creates a new job application
-        Application CreateApplication(JobTrackr.DB.Model.Application application);
+        Application CreateApplication(Application application);
 
         // Deletes an existing job application
         void DeleteApplication(Application application);

@@ -3850,11 +3850,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\JobTrackr.WebAPI\\JobTrackr.WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\jobtrackr.webapi\\JobTrackr.WebAPI.csproj",
       "projectName": "JobTrackr.WebAPI",
-      "projectPath": "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\JobTrackr.WebAPI\\JobTrackr.WebAPI.csproj",
+      "projectPath": "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\jobtrackr.webapi\\JobTrackr.WebAPI.csproj",
       "packagesPath": "C:\\Users\\ldong\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\JobTrackr.WebAPI\\obj\\",
+      "outputPath": "C:\\Users\\ldong\\job-tracker-app\\backend\\JobTrackr.WebAPI\\jobtrackr.webapi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ldong\\AppData\\Roaming\\NuGet\\NuGet.Config",

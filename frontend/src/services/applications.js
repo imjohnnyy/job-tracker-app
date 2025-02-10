@@ -36,27 +36,14 @@ export const GetApplications = async (dispatch) => {
   }
 };
 
-export const NewApplication = async (dispatch, application, user) => {
+export const NewApplication = async (dispatch, application) => {
   try {
-    const newApplicationData = {
-      ...application,
-      user: {
-        id: user.id,
-        username: user.username,
-        password: user.password,
-        firstName: user?.firstName,
-        lastName: user?.lastName,
-        email: user.email,
-      },
-    };
-
     // POST a new job application to our Web API (API call)
-    const { data } = await axiosInstance.post("", newApplicationData);
-    // const { data } = await axiosInstance.post("", application);
+     const { data } = await axiosInstance.post("", application);
 
     // Dispatches an action to add a new application to the Redux store
     console.log("The data is:" + data);
-    dispatch(newApplication(application));
+    dispatch(newApplication(data));
   } catch (error) {
     dispatch(newApplicationError());
     console.log(

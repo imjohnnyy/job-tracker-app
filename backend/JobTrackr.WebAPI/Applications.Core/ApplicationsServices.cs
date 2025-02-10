@@ -38,14 +38,44 @@ namespace Applications.Core
 
 
         // Creates a new job application in the database
-        public Application CreateApplication(JobTrackr.DB.Model.Application application)
+        public Application CreateApplication(Application application)
         {
-            application.User = _user;
-            _dbContext.Add(application);
+            // Ensure the _user is set (the current authenticated user)
+            if (_user == null)
+            {
+                throw new InvalidOperationException("User must be set.");
+            }
+
+            // Retrieve the full User object from the database (based on the _user.Id)
+            var user = _dbContext.Users.FirstOrDefault(u => u.Id == _user.Id);
+
+            if (user == null)
+            {
+                throw new InvalidOperationException("User not found.");
+            }
+
+            // Map the DTO to the database model (JobTrackr.DB.Model.Application)
+            var dbApplication = new JobTrackr.DB.Model.Application
+            {
+                Company = application.Company,
+                Position = application.Position,
+                City = application.City,
+                Date = application.Date,
+                JobType = application.JobType,
+                JobStatus = application.JobStatus,
+
+                // Associate the application with the current user (set the full User object)
+                User = user // Set the full User object here
+            };
+
+            // Add the new application to the DbContext and save changes
+            _dbContext.Add(dbApplication);
             _dbContext.SaveChanges();
 
-            return (Application)application;
+            // Optionally, return the saved application as a DTO (mapping the model back to the DTO)
+            return (Application)dbApplication; // Mapping the saved model back to the DTO
         }
+
 
         // Deletes a job application from the database
         public void DeleteApplication(Application application)
