@@ -19,10 +19,6 @@ const ApplicationList = () => {
     setToggleTimeArrow(!toggleTimeArrow);
   };
 
-  useEffect(() => {
-    GetApplications(dispatch);
-  }, [dispatch]);
-
   // Filters applications based on the selected status
   const filteredApplications =
     filterStatus === "all"
@@ -45,6 +41,11 @@ const ApplicationList = () => {
       return dateA - dateB;
     }
   });
+  
+  useEffect(() => {
+    GetApplications(dispatch);
+  }, [dispatch, sortedApplications]);
+
 
   return (
     <div>
