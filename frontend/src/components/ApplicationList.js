@@ -44,7 +44,7 @@ const ApplicationList = () => {
   
   useEffect(() => {
     GetApplications(dispatch);
-  }, [dispatch, sortedApplications]);
+  }, []);
 
 
   return (
@@ -81,7 +81,7 @@ const ApplicationList = () => {
       </div>
 
       <div>
-        <h1 className="ml-[68px] text-2xl font-semibold text-start">
+        <h1 className="ml-[68px] text-2xl font-semibold text-start max-md:text-center max-md:ml-0">
           {sortedApplications.length > 1
             ? `${sortedApplications.length} Jobs Found`
             : sortedApplications.length === 1

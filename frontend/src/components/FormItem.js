@@ -75,7 +75,7 @@ const FormItem = ({ data }) => {
       <div className="flex flex-col flex-wrap justify-center my-3 space-y-4 transition-all duration-300 ease-in-out sm:flex-row sm:space-y-0 sm:space-x-2 md:space-x-4">
         <button
           type="button"
-          className="px-6 py-2 text-sm font-semibold text-white transition duration-300 ease-in-out transform bg-indigo-500 rounded-lg sm:text-base hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-400 hover:scale-105 focus:outline-none min-w-[100px]"
+          className="px-6 py-2 text-sm font-semibold text-white transition duration-300  bg-indigo-500 rounded-lg sm:text-base hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-400 hover:scale-100 focus:outline-none min-w-[100px]"
           onClick={toggleModal}
           aria-label="Edit"
         >
@@ -83,7 +83,7 @@ const FormItem = ({ data }) => {
         </button>
         <button
           type="button"
-          className="px-6 py-2 text-sm font-semibold text-white transition duration-300 ease-in-out transform bg-red-600 rounded-lg sm:text-base hover:bg-red-700 focus:ring-2 focus:ring-red-400 hover:scale-105 focus:outline-none min-w-[100px]"
+          className="px-6 py-2 text-sm font-semibold text-white transition duration-300  bg-red-600 rounded-lg sm:text-base hover:bg-red-700 focus:ring-2 focus:ring-red-400 hover:scale-100 focus:outline-none min-w-[100px]"
           onClick={handleDelete}
           aria-label="Delete"
         >
