@@ -25,9 +25,8 @@ const ApplicationList = () => {
   };
 
   useEffect(() => {
-    // Fetch applications based on current page and filter status
     GetApplications(dispatch, currentPage, itemsPerPage);
-  }, [dispatch, currentPage, filterStatus]);
+  }, [dispatch, currentPage, filterStatus, total]);
 
   // Filters applications based on the selected status
   const filteredApplications = Array.isArray(applications)
@@ -84,16 +83,16 @@ const ApplicationList = () => {
 
       <div>
         <h1 className="ml-[68px] text-2xl font-semibold text-start max-md:text-center max-md:ml-0">
-          {sortedApplications.length > 1
-            ? `${sortedApplications.length} Jobs Found`
-            : sortedApplications.length === 1
+          {total > 1
+            ? `${total} Jobs Found`
+            : total === 1
             ? `1 Job Found`
             : `No jobs to display`}
         </h1>
       </div>
 
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-3">
-        {Array.isArray(sortedApplications) && sortedApplications.length > 0
+        {Array.isArray(sortedApplications) && total > 0
           ? sortedApplications.map((e) => (
               <div className="flex justify-center" key={e.id}>
                 <FormItem data={e} />
@@ -101,7 +100,8 @@ const ApplicationList = () => {
             ))
           : ""}
       </div>
-
+        
+      {/* Pagination */}
       <div className="flex justify-center mt-5">
         <ApplicationsPagination
           currentPage={currentPage}

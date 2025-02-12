@@ -1,6 +1,5 @@
 import { createSlice, createAction } from "@reduxjs/toolkit";
 
-// Error actions
 export const setApplicationsError = createAction("setApplicationsError");
 export const newApplicationError = createAction("newApplicationError");
 export const editApplicationError = createAction("newEditApplicationError");
@@ -10,14 +9,14 @@ export const applicationsSlice = createSlice({
   name: 'applications',
   initialState: {
     applications: [],
-    total: 0,  // Add a total field for pagination
+    total: 0,  // Total count for pagination
   },
   reducers: {
     setApplications: (state, action) => {
       return { 
         ...state, 
         applications: action.payload.applications,
-        total: action.payload.total // Update total here
+        total: action.payload.total 
       };
     },
     // Action to add a new job application to the applications array
@@ -25,6 +24,7 @@ export const applicationsSlice = createSlice({
       return {
         ...state,
         applications: [...state.applications, action.payload],
+        total: state.total + 1, 
       };
     },
     // Action to edit an existing job application in the applications array
@@ -35,20 +35,22 @@ export const applicationsSlice = createSlice({
         }
         return application;
       });
-      return { ...state, applications: [...applications] };
+      return { 
+        ...state, 
+        applications: [...applications] 
+      };
     },
     // Action to delete a job application from the applications array
     deleteApplication: (state, action) => {
       const applications = state.applications.filter(
         (application) => application.id !== action.payload.id
       );
-      return { ...state, applications: [...applications] };
-    },
-    // Optional: You can add actions to set current page and limit (pagination state)
-    setPagination: (state, action) => {
-      state.page = action.payload.page;
-      state.limit = action.payload.limit;
-    },
+      return { 
+        ...state, 
+        applications: [...applications],
+        total: state.total > 0 ? state.total - 1 : 0, // Decrement the total count, ensure it doesn't go negative
+      };
+    }
   },
 });
 
@@ -58,7 +60,6 @@ export const {
   newApplication,
   editApplication,
   deleteApplication,
-  setPagination, // Action for pagination (optional)
 } = applicationsSlice.actions;
 
 // Export the reducer function
