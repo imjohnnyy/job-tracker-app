@@ -28,25 +28,41 @@ namespace Applications.Core
                 .First();
 
 
-
-
         // Retrieves a list of job applications from the database
-        public List<Application> GetApplications() =>
-            _dbContext.Applications.Where(a => a.User.Id == _user.Id)
-                .Select(a => (Application)a)
+        // Updated GetApplications with pagination
+        public (List<Application> Applications, int TotalCount) GetApplications(int page = 1, int limit = 6)
+        {
+            if (page < 1) page = 1;  // Ensure that the page is at least 1
+            if (limit < 1) limit = 6;  
+
+            // Calculate the skip value based on page and limit
+            var skip = (page - 1) * limit;
+
+            // Get the total number of applications (for pagination)
+            var totalCount = _dbContext.Applications
+                .Where(a => a.User.Id == _user.Id)
+                .Count();
+
+            // Fetch the paginated applications
+            var applications = _dbContext.Applications
+                .Where(a => a.User.Id == _user.Id)
+                .Skip(skip)
+                .Take(limit)
+                .Select(a => (Application)a) 
                 .ToList();
+
+            return (applications, totalCount);
+        }
 
 
         // Creates a new job application in the database
         public Application CreateApplication(Application application)
         {
-            // Ensure the _user is set (the current authenticated user)
             if (_user == null)
             {
                 throw new InvalidOperationException("User must be set.");
             }
 
-            // Retrieve the full User object from the database (based on the _user.Id)
             var user = _dbContext.Users.FirstOrDefault(u => u.Id == _user.Id);
 
             if (user == null)
@@ -54,7 +70,7 @@ namespace Applications.Core
                 throw new InvalidOperationException("User not found.");
             }
 
-            // Map the DTO to the database model (JobTrackr.DB.Model.Application)
+           
             var dbApplication = new JobTrackr.DB.Model.Application
             {
                 Company = application.Company,
@@ -65,14 +81,13 @@ namespace Applications.Core
                 JobStatus = application.JobStatus,
 
                 // Associate the application with the current user (set the full User object)
-                User = user // Set the full User object here
+                User = user 
             };
 
             // Add the new application to the DbContext and save changes
             _dbContext.Add(dbApplication);
             _dbContext.SaveChanges();
 
-            // Optionally, return the saved application as a DTO (mapping the model back to the DTO)
             return (Application)dbApplication; // Mapping the saved model back to the DTO
         }
 

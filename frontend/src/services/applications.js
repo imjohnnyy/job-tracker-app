@@ -24,17 +24,21 @@ axiosInstance.interceptors.request.use((config) => {
 
 // HTTP Requests and API calls e.g. GET, POST, PUT, DELETE job applications from WEB API
 
-export const GetApplications = async (dispatch) => {
+export const GetApplications = async (dispatch, currentPage, itemsPerPage) => {
   try {
-    // GET all job applications from our Web API (API call)
-    const { data } = await axiosInstance.get();
+    // Fetch data from the API with pagination
+    const { data } = await axiosInstance.get(`?page=${currentPage}&limit=${itemsPerPage}`);
 
-    // Dispatches an action to set the applications in the Redux store
-    dispatch(setApplications(data));
-  } catch {
+    // Dispatch both applications and total count to Redux
+    dispatch(setApplications({
+      applications: data.applications,  // the array of applications
+      total: data.totalCount            // the total count for pagination
+    }));
+  } catch (error) {
     dispatch(setApplicationsError());
   }
 };
+
 
 export const NewApplication = async (dispatch, application) => {
   try {

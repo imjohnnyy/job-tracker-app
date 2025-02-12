@@ -4,8 +4,8 @@ namespace Applications.Core
 {
     public interface IApplicationsServices
     {
-        // Retrieves a list of all job applications
-        List<Application> GetApplications();
+        // Retrieves a list of all job applications with pagination
+        (List<Application> Applications, int TotalCount) GetApplications(int page = 1, int limit = 6);
 
         // Retrieves a specific job application
         Application GetApplication(int id);

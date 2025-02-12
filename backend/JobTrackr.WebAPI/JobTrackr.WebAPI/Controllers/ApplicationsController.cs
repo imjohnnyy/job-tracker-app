@@ -3,14 +3,9 @@ using Applications.Core.DTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-// This Applications API Controller handles job applications operations through HTTP requests.
-
-
 namespace JobTrackr.WebAPI.Controllers
 {
-    // This [Authorize] attribute only allow valid users who are authenticated (with a JWT token)
-    // to access these actions below. Otherwise, the will receive a 401 status code (Unauthorized).
-    [Authorize] 
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class ApplicationsController : ControllerBase
@@ -22,11 +17,15 @@ namespace JobTrackr.WebAPI.Controllers
             _applicationsServices = applicationsServices;
         }
 
-        // Retrieves all job applications
+        // Retrieves all job applications with pagination
         [HttpGet]
-        public IActionResult GetApplications()
+        public IActionResult GetApplications([FromQuery] int page = 1, [FromQuery] int limit = 10)
         {
-            return Ok(_applicationsServices.GetApplications());
+            // Get the paginated applications from the service
+            var (applications, totalCount) = _applicationsServices.GetApplications(page, limit);
+
+            // Return the applications and total count
+            return Ok(new { Applications = applications, TotalCount = totalCount });
         }
 
         // Retrieves a specific job application
@@ -41,10 +40,10 @@ namespace JobTrackr.WebAPI.Controllers
         public IActionResult CreateApplication(Application application)
         {
             var newApplication = _applicationsServices.CreateApplication(application);
-            return CreatedAtRoute("GetApplication", new { newApplication.Id }, newApplication);
+            return CreatedAtRoute("GetApplication", new { id = newApplication.Id }, newApplication);
         }
 
-        // Deletes an job application
+        // Deletes a job application
         [HttpDelete]
         public IActionResult DeleteApplication(Application application)
         {
@@ -58,6 +57,5 @@ namespace JobTrackr.WebAPI.Controllers
         {
             return Ok(_applicationsServices.EditApplication(application));
         }
-
     }
 }
