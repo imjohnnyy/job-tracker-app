@@ -15,7 +15,7 @@ const Profile = () => {
   };
   
   return (
-    <div className="md:flex bg-lightergray min-h-[150vh]">
+    <div className="h-screen md:flex bg-lightergray">
       {/* Sidebar */}
       <Sidebar />
 

@@ -14,7 +14,7 @@ const AddApplications = () => {
     setIsAccountIconClicked(!isAccountIconClicked);
   }
   return (
-    <div class="md:flex bg-lightergray min-h-[150vh]">
+    <div class="md:flex bg-lightergray min-h-[140vh]">
       <ToastContainer />
       <Sidebar />
 
