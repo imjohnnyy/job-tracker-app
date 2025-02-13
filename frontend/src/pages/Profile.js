@@ -5,6 +5,7 @@ import HamburgerNav from "../components/HamburgerNavbar";
 import ProfileForm from "../components/PofileForm";
 import AccountModal from "../components/AccountModal";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { ToastContainer } from "react-toastify";
 
 const Profile = () => {
   const [isAccountIconClicked, setIsAccountIconClicked] = useState(false);
@@ -16,6 +17,7 @@ const Profile = () => {
   
   return (
     <div className="h-screen md:flex bg-lightergray">
+      <ToastContainer />
       {/* Sidebar */}
       <Sidebar />
 

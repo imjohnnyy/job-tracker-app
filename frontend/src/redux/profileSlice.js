@@ -1,4 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAction } from '@reduxjs/toolkit';
+
+export const updateProfileError  = createAction('updateProfileError');
 
 export const profileSlice = createSlice({
     name: 'profile',

@@ -80,7 +80,7 @@ const ProfileForm = () => {
   return (
     <div className="flex flex-col items-center justify-center bg-lightergray">
       <form
-        className="w-full md:w-1/3 max-w-2xl px-6 py-8 bg-white rounded-lg shadow-[0_0px_10px_rgba(0,0,0,0.25)]"
+        className="w-full md:w-1/3 max-w-2xl px-6 py-8 bg-white rounded-lg shadow-[0_0px_10px_rgba(0,0,0,0.25)] mt-24 max-md:mt-12"
         onSubmit={handleSubmit}
       >
         {/* First Name Input */}

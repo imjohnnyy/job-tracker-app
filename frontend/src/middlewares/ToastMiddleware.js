@@ -11,6 +11,7 @@ import {
   invalidLoginCredentials,
   invalidSignupCredentials,
 } from "../redux/authenticationSlice";
+import { updateProfileError } from "../redux/profileSlice";
 import { toast } from "react-toastify";
 
 const ToastMiddleware = () => (next) => (action) => {
@@ -44,6 +45,9 @@ const ToastMiddleware = () => (next) => (action) => {
       const errorMessage = action.payload || "Invalid sign up credentials, please try again";
       toast.error(errorMessage);
       break;
+    case updateProfileError.type:
+      toast.error("Error updating profile");
+      break; 
     default:
       break;
   }

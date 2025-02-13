@@ -1,5 +1,5 @@
 import axios from "axios";
-import { updateProfile } from "../redux/profileSlice";
+import { updateProfile, updateProfileError } from "../redux/profileSlice";
 
 const axiosInstance = axios.create({    
   baseURL: `${process.env.REACT_APP_BASE_URL}/Profile`,
@@ -21,5 +21,6 @@ export const UpdateProfile = async (dispatch, profile) => {
     dispatch(updateProfile(profile));
   } catch (error) {
     console.log("Error: Could not update the profile", error.response?.data || error.message);
+    dispatch(updateProfileError());
   }
 };
