@@ -7,7 +7,7 @@ import Sidebar from "../components/Sidebar";
 import HamburgerNav from "../components/HamburgerNavbar";
 import TotalApplicationsCard from "../components/TotalApplicationsCard";
 import AccountModal from "../components/AccountModal";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const Dashboard = () => {
   const [isAccountIconClicked, setIsAccountIconClicked] = useState(false);
@@ -15,7 +15,6 @@ const Dashboard = () => {
     setIsAccountIconClicked(!isAccountIconClicked);
   };
 
-  // Dispatch function from Redux to trigger 'getApplicationsPerCategory' action
   const dispatch = useDispatch();
   const applicationsPerCategory = useSelector(
     (state) => state.statisticsSlice.applicationsPerCategory
@@ -26,56 +25,53 @@ const Dashboard = () => {
     data: [],
   });
 
-  // Updates the 'pie' state when 'applicationsPerCategory' changes
   useEffect(() => {
     const categories = Object.keys(applicationsPerCategory);
     const counts = Object.values(applicationsPerCategory);
 
-    // Update the 'pie' state with the extracted data
     setPie({
       labels: categories,
       data: counts,
     });
   }, [applicationsPerCategory]);
 
-  // Fetches the 'applicationsPerCategory' data from Redux store when the component mounts
   useEffect(() => {
     getApplicationsPerCategory(dispatch);
   }, []);
 
-  // Data for the pie chart
+  // Mapping categories to corresponding colors
+  const categoryColors = {
+    Ongoing: "#FCF55F", // Yellow
+    Accepted: "#4F7942", // Green
+    Rejected: "#EE4B2B", // Red
+    Declined: "#0096FF", // Blue
+  };
+
+  // Dynamically map the colors based on category labels
+  const mappedColors = pie.labels.map(
+    (label) => categoryColors[label] || "#000000"
+  ); // Default to black if no color is found
+  
   const data = {
     labels: pie.labels,
     datasets: [
       {
         data: pie.data,
-        backgroundColor: [
-          "#FCF55F", // Yellow
-          "#4F7942", // Green
-          "#EE4B2B", // Red
-          "#0096FF", // Blue
-        ],
+        backgroundColor: mappedColors,
       },
     ],
   };
 
   return (
     <div className="h-screen md:flex bg-lightergray">
-      {/* Side navbar */}
       <Sidebar />
 
       <div className="flex flex-col flex-1">
-        {/* Right Side Header */}
         <header className="relative flex items-center justify-between p-4 bg-white shadow-md md:p-8">
-          {/* Hamburger Menu for smaller devices */}
           <HamburgerNav />
-
-          {/* Header Title */}
           <div className="flex items-start text-2xl font-bold">
             <h1 className="md:ml-8">Dashboard</h1>
           </div>
-
-          {/* Sign Out button and Logo */}
           <p
             className="block px-2 py-1 cursor-pointer md:px-4 md:py-3"
             onClick={handleToggleAccountModal}
@@ -84,10 +80,8 @@ const Dashboard = () => {
           </p>
         </header>
 
-        {/* Total Job Applications Card */}
         <TotalApplicationsCard />
 
-        {/* Pie Chart */}
         <div className="p-4 mx-auto my-4 mt-12 bg-white rounded-lg shadow-md md:my-auto md:mx-6 md:mr-8">
           <h1 className="flex items-start ml-2 text-2xl font-bold">
             My Statistics
@@ -97,7 +91,9 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      {isAccountIconClicked && (<AccountModal setIsAccountIconClicked={setIsAccountIconClicked} />)}
+      {isAccountIconClicked && (
+        <AccountModal setIsAccountIconClicked={setIsAccountIconClicked} />
+      )}
     </div>
   );
 };
