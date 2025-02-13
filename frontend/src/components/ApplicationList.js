@@ -9,7 +9,9 @@ import ApplicationsPagination from "./ApplicationsPagination";
 const ApplicationList = () => {
   const dispatch = useDispatch();
 
-  const { applications, total } = useSelector((state) => state.applicationsSlice); // Ensure total is fetched correctly
+  const { applications, total } = useSelector(
+    (state) => state.applicationsSlice
+  ); // Ensure total is fetched correctly
 
   const [filterStatus, setFilterStatus] = useState("all");
   const [toggleTimeArrow, setToggleTimeArrow] = useState(false);
@@ -83,10 +85,14 @@ const ApplicationList = () => {
 
       <div>
         <h1 className="ml-[68px] text-2xl font-semibold text-start max-md:text-center max-md:ml-0">
-          {total > 1
-            ? `${total} Jobs Found`
-            : total === 1
+          {sortedApplications.length > 0 && filterStatus !== "all"
+            ? `${sortedApplications.length} Jobs Found`
+            : sortedApplications.length === 1
             ? `1 Job Found`
+            : sortedApplications.length === 0 && filterStatus !== "all"
+            ? `No jobs to display`
+            : total > 0
+            ? `${total} Jobs Found`
             : `No jobs to display`}
         </h1>
       </div>
@@ -100,12 +106,12 @@ const ApplicationList = () => {
             ))
           : ""}
       </div>
-        
+
       {/* Pagination */}
-      <div className="flex justify-center mt-5">
+      <div className="flex justify-center mt-5 max-md:mb-4">
         <ApplicationsPagination
           currentPage={currentPage}
-          total={total}   
+          total={total}
           itemsPerPage={itemsPerPage}
           onPageChange={handlePageChange}
         />
