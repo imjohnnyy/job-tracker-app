@@ -51,9 +51,9 @@ const FormModal = ({ setIsEditing, formData }) => {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-black bg-opacity-50">
+    <div className="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full bg-black bg-opacity-50">
       <div
-        className="p-6 bg-white rounded-lg shadow-[0_0px_10px_rgba(0,0,0,0.25)] max-w-md"
+        className="p-6 bg-white rounded-lg shadow-[0_0px_10px_rgba(0,0,0,0.25)] max-w-md z-50"
         ref={formModalRef}
       >
         <h3 className="mb-4 text-xl font-bold">Editing</h3>
@@ -200,3 +200,4 @@ const FormModal = ({ setIsEditing, formData }) => {
   );
 };
 export default FormModal;
+
