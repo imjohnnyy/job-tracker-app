@@ -43,6 +43,7 @@ namespace Applications.Core
             {
                 Username = user.Username,
                 Token = JWTGenerator.GenerateUserToken(user.Username),
+                Email = dbUser.Email
             };
         }
 

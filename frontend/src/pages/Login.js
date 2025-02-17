@@ -6,8 +6,6 @@ import { ToastContainer } from "react-toastify";
 
 const Login = () => {
   const [username, setUsername] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
@@ -15,7 +13,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    SignIn(dispatch, { username, password, firstName, lastName, email });
+    SignIn(dispatch, { username, password, email });
   };
 
   return (

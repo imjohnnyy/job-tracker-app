@@ -5,8 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 const ProfileForm = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.userSlice.userData);
+  const authentication = useSelector((state) => state.authenticationSlice);
   const profile = useSelector((state) => state.profileSlice.profile);
+
+  // console.log("Profile: " + JSON.stringify(profile));
+  // console.log("Auth: " + JSON.stringify(authentication));
 
   const [formData, setFormData] = useState({
     id: 0,
@@ -32,16 +35,17 @@ const ProfileForm = () => {
       try {
         const token = sessionStorage.getItem("token");
 
-        if (!user?.email) return;
+        //if (!user?.email) return;
 
         const response = await axios.get(
-          `${process.env.REACT_APP_BASE_URL}/Profile/${user.email}`,
+          `${process.env.REACT_APP_BASE_URL}/Profile/${authentication.email}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           }
         );
+       // console.log("Response: " + JSON.stringify(response.data));
 
         const userData = {
           id: response.data.id || profile.id,
@@ -49,8 +53,10 @@ const ProfileForm = () => {
           lastName: response.data.lastName || "",
           email: response.data.email || "",
         };
-
+        
         setFormData(userData);
+        console.log("USer data" + JSON.stringify(userData));
+        
         sessionStorage.setItem("userData", JSON.stringify(userData));
       } catch (err) {
         setError(err.message);
@@ -60,7 +66,7 @@ const ProfileForm = () => {
     };
 
     fetchUser();
-  }, [user]);
+  }, []);
 
   // Sync formData with profile after an update
   useEffect(() => {

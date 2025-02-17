@@ -1,55 +1,51 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-// This Authentication Slice that is used to store the token in the session storage and stores the login status of the user.
-
 export const authenticationSlice = createSlice({
     name: 'authentication',
     initialState: {
         token: '',
         isLoggedIn: false,
-        error: null
+        error: null,
+        username: '',   
+        email: '',      
     },
     reducers: {
-        // When the user authenticates, the token is stored in the session storage (even if the page is refreshed).
+        // When the user authenticates, the token, username, and email are stored in the session storage (even if the page is refreshed).
         userAuthenticated: (state, action) => {
             sessionStorage.setItem('token', action.payload.token);
             return {
                 ...state,
-                ...{
-                    token: action.payload.token,
-                    isLoggedIn: true,
-                }
+                token: action.payload.token,
+                isLoggedIn: true,
+                username: action.payload.username, // storing username
+                email: action.payload.email,       // storing email
             }
         },
-        // When the user logs out, the token is removed from the session storage and the login status is set to false.
+        // When the user logs out, the token, username, and email are removed from the session storage, and the login status is set to false.
         userLoggedOut: (state) => {
             sessionStorage.removeItem('token'); 
             return {
               ...state,
-              ...{
-                token: '',
-                isLoggedIn: false,
-              }
+              token: '',
+              isLoggedIn: false,
+              username: '',   // clearing username
+              email: '',      // clearing email
             };
         },
         invalidLoginCredentials: (state, action) => {
             return {
                 ...state,
-                ...{
-                    token: '',
-                    isLoggedIn: false,
-                    error: action.payload
-                }
+                token: '',
+                isLoggedIn: false,
+                error: action.payload
             }
         },
         invalidSignupCredentials: (state, action) => {
             return {
                 ...state,
-                ...{
-                    token: '',
-                    isLoggedIn: false,
-                    error: action.payload
-                }
+                token: '',
+                isLoggedIn: false,
+                error: action.payload
             }
         }
     }
