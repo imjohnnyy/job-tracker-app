@@ -73,6 +73,7 @@ namespace Applications.Core
             user.Password = _passwordHasher.HashPassword(user.Password);
             user.FirstName = user.FirstName;
             user.LastName = user.LastName;
+            user.Email = user.Email;
 
             // Add user data and save changes to the database.
             await _dbContext.AddAsync(user);
@@ -83,6 +84,7 @@ namespace Applications.Core
             {
                 Username = user.Username,
                 Token = JWTGenerator.GenerateUserToken(user.Username),
+                Email = user.Email
             };
         }
 
