@@ -11,7 +11,7 @@ import {
   invalidLoginCredentials,
   invalidSignupCredentials,
 } from "../redux/authenticationSlice";
-import { updateProfileError } from "../redux/profileSlice";
+import { updateProfile, updateProfileError } from "../redux/profileSlice";
 import { toast } from "react-toastify";
 
 const ToastMiddleware = () => (next) => (action) => {
@@ -24,6 +24,9 @@ const ToastMiddleware = () => (next) => (action) => {
       break;
     case deleteApplication.type:
       toast.success("Application deleted successfully");
+      break;
+    case updateProfile.type:
+      toast.success("Profile updated successfully");
       break;
     case setApplicationsError.type:
       toast.error("Error loading applications");
@@ -42,12 +45,15 @@ const ToastMiddleware = () => (next) => (action) => {
       break;
     case invalidSignupCredentials.type:
       // Check if the action has a payload (error message)
-      const errorMessage = action.payload || "Invalid sign up credentials, please try again";
-      toast.error(errorMessage);
+      const signUpErrorMessage =
+        action.payload || "Invalid sign up credentials, please try again";
+      toast.error(signUpErrorMessage);
       break;
     case updateProfileError.type:
-      toast.error("Error updating profile");
-      break; 
+      const updateProfileErrorMessage =
+        action.payload || "Error updating profile";
+      toast.error(updateProfileErrorMessage);
+      break;
     default:
       break;
   }

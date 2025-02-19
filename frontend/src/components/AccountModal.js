@@ -1,16 +1,26 @@
 import { useEffect, useRef } from "react";
 import LogOutIcon from "@mui/icons-material/Logout";
+import CloseIcon from "@mui/icons-material/Close";
 import { useDispatch, useSelector } from "react-redux";
 import { userLoggedOut } from "../redux/authenticationSlice";
 
 const AccountModal = ({ setIsAccountIconClicked }) => {
   const dispatch = useDispatch();
-  const userDetails = useSelector((state) => state.userSlice.userData);
+  const userDetails = useSelector((state) => state.authenticationSlice);
   const modalRef = useRef(null);
+
+  useEffect(() => {
+    if (userDetails.username && userDetails.email) {
+      sessionStorage.setItem("userInfo", JSON.stringify({ username: userDetails.username, email: userDetails.email }));
+    }
+  }, [userDetails]);
+
+  const userFromSessionStorage = sessionStorage.getItem("userInfo");
+  const parsedUser = userFromSessionStorage ? JSON.parse(userFromSessionStorage) : {};
 
   const handleLogOut = () => {
     dispatch(userLoggedOut());
-    console.log("User has logged out");
+    sessionStorage.removeItem("userInfo");
   };
 
   // Close modal when clicking outside
@@ -30,18 +40,28 @@ const AccountModal = ({ setIsAccountIconClicked }) => {
   return (
     <div
       ref={modalRef}
-      className="absolute p-4 bg-white border rounded-lg shadow-lg top-16 right-8 md:top-10"
+      className="absolute w-64 p-5 bg-white border shadow-xl rounded-2xl top-16 right-8 md:top-10"
     >
       {/* Close Button */}
       <button
         onClick={() => setIsAccountIconClicked(false)}
-        className="absolute text-gray-500 top-2 right-2"
-      ></button>
+        className="absolute text-gray-400 hover:text-gray-600 top-2 right-2"
+      >
+        <CloseIcon fontSize="small" />
+      </button>
 
-      <p className="mb-4 text-xl font-bold">{userDetails.firstName} {userDetails.lastName}</p>
+      {/* User Details */}
+      <div className="mb-4 text-center">
+        <p className="text-lg font-semibold text-gray-900">{parsedUser.username}</p>
+        <p className="text-sm text-gray-600">{parsedUser.email || userDetails.email}</p>
+      </div>
+
       {/* Log Out Button */}
-      <button className="flex items-center justify-start w-full py-2 text-lg font-semibold text-black rounded-lg hover:bg-slate-100" onClick={handleLogOut}>
-        <LogOutIcon className="my-1 ml-[9px] mr-[5px]" style={{ fontSize: "160%" }} />{" "}Sign out
+      <button 
+        className="flex items-center justify-center w-full py-2 text-lg font-semibold text-white transition bg-red-500 rounded-xl hover:bg-red-600"
+        onClick={handleLogOut}
+      >
+        <LogOutIcon className="mr-2" fontSize="medium" /> Sign out
       </button>
     </div>
   );

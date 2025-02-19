@@ -1,5 +1,6 @@
 ﻿using Applications.Core;
 using Applications.Core.DTO;
+using Applications.Core.UserExceptions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,11 +25,25 @@ namespace JobTrackr.WebAPI.Controllers
             return Ok(_profileServices.GetProfile(email));
         }
 
-        // Updates the profile data
         [HttpPut]
         public IActionResult UpdateProfile(Profile profile)
         {
-            return Ok(_profileServices.UpdateProfile(profile));
+            try
+            {
+                var updatedProfile = _profileServices.UpdateProfile(profile);
+
+                return Ok(updatedProfile);
+            }
+            catch (DuplicateEmailException ex)
+            {
+                // Email already exists, return 409 Conflict
+                return Conflict(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An unexpected error occurred.", details = ex.Message });
+            }
         }
+
     }
 }

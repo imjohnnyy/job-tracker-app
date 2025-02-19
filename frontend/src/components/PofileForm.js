@@ -32,11 +32,25 @@ const ProfileForm = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
+      console.log("Authentication: ", authentication);
+    
+      // Check if the user data is available in sessionStorage
+      let storedUserData = sessionStorage.getItem("userData");
+  
+      if (storedUserData) {
+        // Parse and set the form data from sessionStorage if available
+        const parsedUserData = JSON.parse(storedUserData);
+        setFormData(parsedUserData);
+        setLoading(false);
+        return;
+      }
+  
+      // If there's no user data in sessionStorage, proceed to fetch it from the API
       try {
         const token = sessionStorage.getItem("token");
-
-        //if (!user?.email) return;
-
+  
+        //if (!authentication?.email) return; // If there's no email in authentication, return early
+  
         const response = await axios.get(
           `${process.env.REACT_APP_BASE_URL}/Profile/${authentication.email}`,
           {
@@ -45,29 +59,28 @@ const ProfileForm = () => {
             },
           }
         );
-       // console.log("Response: " + JSON.stringify(response.data));
-
+  
         const userData = {
           id: response.data.id || profile.id,
-          firstName: response.data.firstName || "",
-          lastName: response.data.lastName || "",
-          email: response.data.email || "",
+          firstName: response.data.firstName || profile.firstName,
+          lastName: response.data.lastName || profile.lastName,
+          email: response.data.email || profile.email,
         };
-        
+  
+        console.log("User Data: ", JSON.stringify(userData)); 
+        sessionStorage.setItem("userData", JSON.stringify(userData)); 
         setFormData(userData);
-        console.log("USer data" + JSON.stringify(userData));
-        
-        sessionStorage.setItem("userData", JSON.stringify(userData));
       } catch (err) {
         setError(err.message);
       } finally {
         setLoading(false);
       }
     };
-
+  
     fetchUser();
-  }, []);
-
+  }, [setFormData, authentication, profile]);
+  
+  
   // Sync formData with profile after an update
   useEffect(() => {
     if (profile) {

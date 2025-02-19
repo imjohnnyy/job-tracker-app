@@ -24,6 +24,8 @@ export const authenticationSlice = createSlice({
         // When the user logs out, the token, username, and email are removed from the session storage, and the login status is set to false.
         userLoggedOut: (state) => {
             sessionStorage.removeItem('token'); 
+            sessionStorage.removeItem('userData');
+            sessionStorage.removeItem('userInfo');
             return {
               ...state,
               token: '',

@@ -1,9 +1,9 @@
 import axios from "axios";
 import { updateProfile, updateProfileError } from "../redux/profileSlice";
 
-const axiosInstance = axios.create({    
+const axiosInstance = axios.create({
   baseURL: `${process.env.REACT_APP_BASE_URL}/Profile`,
-})
+});
 
 axiosInstance.interceptors.request.use((config) => {
   config.headers = {
@@ -20,7 +20,12 @@ export const UpdateProfile = async (dispatch, profile) => {
     // Dispatches an action to update the profile from the Redux store
     dispatch(updateProfile(profile));
   } catch (error) {
-    console.log("Error: Could not update the profile", error.response?.data || error.message);
-    dispatch(updateProfileError());
+    const { status, data } = error.response;
+    if (status === 409 && data.message.includes("This email address is already taken!")) {
+      return dispatch(updateProfileError("Email is already in use."));
+    } else {
+      dispatch(updateProfileError("Failed to update profile. Please try again."));
+    }
   }
+
 };

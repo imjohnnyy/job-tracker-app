@@ -9,11 +9,13 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-
+  
   const handleSubmit = (e) => {
+    const userInfo = { username: username, email: email };
     e.preventDefault();
 
     SignIn(dispatch, { username, password, email });
+    sessionStorage.setItem('userInfo', JSON.stringify(userInfo));
   };
 
   return (

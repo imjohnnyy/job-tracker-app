@@ -11,11 +11,15 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const Dashboard = () => {
   const [isAccountIconClicked, setIsAccountIconClicked] = useState(false);
+  const dispatch = useDispatch();
+  const name = sessionStorage.getItem("userInfo");
+  const parsedUsername = name ? JSON.parse(name) : {};
+
   const handleToggleAccountModal = () => {
     setIsAccountIconClicked(!isAccountIconClicked);
   };
 
-  const dispatch = useDispatch();
+
   const applicationsPerCategory = useSelector(
     (state) => state.statisticsSlice.applicationsPerCategory
   );
@@ -24,6 +28,7 @@ const Dashboard = () => {
     labels: [],
     data: [],
   });
+  
 
   useEffect(() => {
     const categories = Object.keys(applicationsPerCategory);
@@ -80,6 +85,9 @@ const Dashboard = () => {
           </p>
         </header>
 
+        <h1 className="flex mt-6 text-2xl font-semibold align-left md:ml-8 max-md:justify-center">
+            Hi {parsedUsername.username} 👋
+        </h1>
         <TotalApplicationsCard />
 
         <div className="p-4 mx-auto my-4 mt-12 bg-white rounded-lg shadow-md md:my-auto md:mx-6 md:mr-8">

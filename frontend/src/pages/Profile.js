@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import Sidebar from "../components/Sidebar";
 import HamburgerNav from "../components/HamburgerNavbar";
 import ProfileForm from "../components/PofileForm";
@@ -9,12 +8,11 @@ import { ToastContainer } from "react-toastify";
 
 const Profile = () => {
   const [isAccountIconClicked, setIsAccountIconClicked] = useState(false);
-  const userDetails = useSelector((state) => state.userSlice.userData);
 
   const handleToggleAccountModal = () => {
     setIsAccountIconClicked(!isAccountIconClicked);
   };
-  
+
   return (
     <div className="h-screen md:flex bg-lightergray">
       <ToastContainer />
@@ -43,13 +41,12 @@ const Profile = () => {
 
         {/* Profile details */}
         <div className="p-4 md:p-8 max-md:mt-4">
-          <h1 className="flex text-2xl font-semibold align-left md:ml-8">
-            Hi {userDetails.firstName} 👋
-          </h1>
           <ProfileForm />
         </div>
       </div>
-      {isAccountIconClicked && (<AccountModal setIsAccountIconClicked={setIsAccountIconClicked} />)}
+      {isAccountIconClicked && (
+        <AccountModal setIsAccountIconClicked={setIsAccountIconClicked} />
+      )}
     </div>
   );
 };
