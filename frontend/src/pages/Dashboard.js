@@ -12,13 +12,35 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 const Dashboard = () => {
   const [isAccountIconClicked, setIsAccountIconClicked] = useState(false);
   const dispatch = useDispatch();
-  const name = sessionStorage.getItem("userInfo");
-  const parsedUsername = name ? JSON.parse(name) : {};
+
+  const userDetails = useSelector((state) => state.authenticationSlice);
+
+  const [parsedProfileInfo, setParsedProfileInfo] = useState({});
+
+  useEffect(() => {
+    const profileData = sessionStorage.getItem("profileData");
+    if (profileData) {
+      setParsedProfileInfo(JSON.parse(profileData)); // Set updated profile data from sessionStorage
+    }
+  }, []); 
+
+  useEffect(() => {
+    if (userDetails && userDetails.firstName) {
+      sessionStorage.setItem(
+        "userInfo",
+        JSON.stringify({
+          username: userDetails.username,
+          email: userDetails.email,
+          firstName: userDetails.firstName,
+          lastName: userDetails.lastName,
+        })
+      );
+    }
+  }, [userDetails]);
 
   const handleToggleAccountModal = () => {
     setIsAccountIconClicked(!isAccountIconClicked);
   };
-
 
   const applicationsPerCategory = useSelector(
     (state) => state.statisticsSlice.applicationsPerCategory
@@ -28,7 +50,6 @@ const Dashboard = () => {
     labels: [],
     data: [],
   });
-  
 
   useEffect(() => {
     const categories = Object.keys(applicationsPerCategory);
@@ -56,7 +77,7 @@ const Dashboard = () => {
   const mappedColors = pie.labels.map(
     (label) => categoryColors[label] || "#000000"
   ); // Default to black if no color is found
-  
+
   const data = {
     labels: pie.labels,
     datasets: [
@@ -86,7 +107,7 @@ const Dashboard = () => {
         </header>
 
         <h1 className="flex mt-6 text-2xl font-semibold align-left md:ml-8 max-md:justify-center">
-            Hi {parsedUsername.username} 👋
+          Hi {parsedProfileInfo.firstName || userDetails.firstName} 👋
         </h1>
         <TotalApplicationsCard />
 

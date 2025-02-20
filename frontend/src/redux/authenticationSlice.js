@@ -10,7 +10,7 @@ export const authenticationSlice = createSlice({
         email: '',      
     },
     reducers: {
-        // When the user authenticates, the token, username, and email are stored in the session storage (even if the page is refreshed).
+        // When the user authenticates, the token, username, email, first name and last name are stored in the session storage (even if the page is refreshed).
         userAuthenticated: (state, action) => {
             sessionStorage.setItem('token', action.payload.token);
             return {
@@ -19,19 +19,23 @@ export const authenticationSlice = createSlice({
                 isLoggedIn: true,
                 username: action.payload.username, // storing username
                 email: action.payload.email,       // storing email
+                firstName: action.payload.firstName, // storing firstName
+                lastName: action.payload.lastName, // storing lastName
             }
         },
-        // When the user logs out, the token, username, and email are removed from the session storage, and the login status is set to false.
+        // When the user logs out, the token, username, email, first name and last name are removed from the session storage, and the login status is set to false.
         userLoggedOut: (state) => {
             sessionStorage.removeItem('token'); 
-            sessionStorage.removeItem('userData');
+            sessionStorage.removeItem('profileData');
             sessionStorage.removeItem('userInfo');
             return {
               ...state,
               token: '',
               isLoggedIn: false,
-              username: '',   // clearing username
-              email: '',      // clearing email
+              username: '',   
+              email: '',      
+              firstName: '', 
+              lastName: '', 
             };
         },
         invalidLoginCredentials: (state, action) => {

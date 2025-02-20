@@ -43,7 +43,9 @@ namespace Applications.Core
             {
                 Username = user.Username,
                 Token = JWTGenerator.GenerateUserToken(user.Username),
-                Email = dbUser.Email
+                Email = dbUser.Email,
+                FirstName = dbUser.FirstName,
+                LastName = dbUser.LastName
             };
         }
 
@@ -84,7 +86,9 @@ namespace Applications.Core
             {
                 Username = user.Username,
                 Token = JWTGenerator.GenerateUserToken(user.Username),
-                Email = user.Email
+                Email = user.Email,
+                FirstName = user.FirstName,
+                LastName = user.LastName
             };
         }
 

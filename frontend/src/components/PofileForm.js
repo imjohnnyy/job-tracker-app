@@ -5,11 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 const ProfileForm = () => {
   const dispatch = useDispatch();
-  const authentication = useSelector((state) => state.authenticationSlice);
   const profile = useSelector((state) => state.profileSlice.profile);
 
-  // console.log("Profile: " + JSON.stringify(profile));
-  // console.log("Auth: " + JSON.stringify(authentication));
+  const [emailFromSessionStorage, setEmailFromSessionStorage] = useState("");
 
   const [formData, setFormData] = useState({
     id: 0,
@@ -24,6 +22,7 @@ const ProfileForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await UpdateProfile(dispatch, formData); // Wait for update to complete
+    sessionStorage.setItem("profileData", JSON.stringify(formData)); // Update session storage
   };
 
   const handleChange = (e) => {
@@ -31,56 +30,55 @@ const ProfileForm = () => {
   };
 
   useEffect(() => {
+    const userInfo = sessionStorage.getItem("userInfo");
+    if (userInfo) {
+      const parsedUserInfo = JSON.parse(userInfo);
+      setEmailFromSessionStorage(parsedUserInfo.email); // Set email from sessionStorage
+    }
+  }, []);
+
+  useEffect(() => {
     const fetchUser = async () => {
-      console.log("Authentication: ", authentication);
-    
-      // Check if the user data is available in sessionStorage
-      let storedUserData = sessionStorage.getItem("userData");
-  
-      if (storedUserData) {
-        // Parse and set the form data from sessionStorage if available
-        const parsedUserData = JSON.parse(storedUserData);
-        setFormData(parsedUserData);
-        setLoading(false);
+      if (!emailFromSessionStorage) {
+        console.error("Email is not available in sessionStorage");
         return;
       }
-  
-      // If there's no user data in sessionStorage, proceed to fetch it from the API
+
+      // Proceed to fetch the user profile
       try {
         const token = sessionStorage.getItem("token");
-  
-        //if (!authentication?.email) return; // If there's no email in authentication, return early
-  
+
         const response = await axios.get(
-          `${process.env.REACT_APP_BASE_URL}/Profile/${authentication.email}`,
+          `${process.env.REACT_APP_BASE_URL}/Profile/${emailFromSessionStorage}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           }
         );
-  
-        const userData = {
+
+        const profileData = {
           id: response.data.id || profile.id,
           firstName: response.data.firstName || profile.firstName,
           lastName: response.data.lastName || profile.lastName,
           email: response.data.email || profile.email,
         };
-  
-        console.log("User Data: ", JSON.stringify(userData)); 
-        sessionStorage.setItem("userData", JSON.stringify(userData)); 
-        setFormData(userData);
+
+        console.log("User Data: ", JSON.stringify(profileData));
+        sessionStorage.setItem("profileData", JSON.stringify(profileData));
+        setFormData(profileData);
       } catch (err) {
         setError(err.message);
       } finally {
         setLoading(false);
       }
     };
-  
-    fetchUser();
-  }, [setFormData, authentication, profile]);
-  
-  
+
+    if (emailFromSessionStorage) {
+      fetchUser();
+    }
+  }, [emailFromSessionStorage, profile]);
+
   // Sync formData with profile after an update
   useEffect(() => {
     if (profile) {
