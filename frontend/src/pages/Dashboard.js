@@ -11,18 +11,10 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const Dashboard = () => {
   const [isAccountIconClicked, setIsAccountIconClicked] = useState(false);
-  const dispatch = useDispatch();
-
-  const userDetails = useSelector((state) => state.authenticationSlice);
-
   const [parsedProfileInfo, setParsedProfileInfo] = useState({});
-
-  useEffect(() => {
-    const profileData = sessionStorage.getItem("profileData");
-    if (profileData) {
-      setParsedProfileInfo(JSON.parse(profileData)); // Set updated profile data from sessionStorage
-    }
-  }, []); 
+  const [parsedUserInfo, setParsedUserInfo] = useState({});
+  const userDetails = useSelector((state) => state.authenticationSlice);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (userDetails && userDetails.firstName) {
@@ -37,6 +29,17 @@ const Dashboard = () => {
       );
     }
   }, [userDetails]);
+
+  useEffect(() => {
+    const profileData = sessionStorage.getItem("profileData");
+    if (profileData) {
+      setParsedProfileInfo(JSON.parse(profileData)); // Set updated profile data from sessionStorage
+    } else {
+      const userInfo = sessionStorage.getItem("userInfo");
+      setParsedUserInfo(JSON.parse(userInfo)); 
+    }
+  }, [userDetails]); 
+
 
   const handleToggleAccountModal = () => {
     setIsAccountIconClicked(!isAccountIconClicked);
@@ -107,7 +110,7 @@ const Dashboard = () => {
         </header>
 
         <h1 className="flex mt-6 text-2xl font-semibold align-left md:ml-8 max-md:justify-center">
-          Hi {parsedProfileInfo.firstName || userDetails.firstName} 👋
+          Hi {parsedUserInfo.firstName || parsedProfileInfo.firstName} 👋
         </h1>
         <TotalApplicationsCard />
 
