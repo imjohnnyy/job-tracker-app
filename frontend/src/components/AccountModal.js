@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import LogOutIcon from "@mui/icons-material/Logout";
 import CloseIcon from "@mui/icons-material/Close";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,6 +8,8 @@ const AccountModal = ({ setIsAccountIconClicked }) => {
   const dispatch = useDispatch();
   const userDetails = useSelector((state) => state.authenticationSlice);
   const modalRef = useRef(null);
+  const [sessionStorageProfile, setSessionStorageProfile] = useState({});
+  const [sessionStorageUser, setSessionStorageUser] = useState({});
 
   useEffect(() => {
     if (userDetails.username && userDetails.email) {
@@ -15,8 +17,15 @@ const AccountModal = ({ setIsAccountIconClicked }) => {
     }
   }, [userDetails]);
 
-  const userFromSessionStorage = sessionStorage.getItem("userInfo");
-  const parsedUser = userFromSessionStorage ? JSON.parse(userFromSessionStorage) : {};
+  useEffect(()=> {  
+    const profileData = sessionStorage.getItem("profileData");
+    if (profileData) {
+      setSessionStorageProfile(JSON.parse(profileData));
+    } 
+      const userInfo = sessionStorage.getItem("userInfo");
+      setSessionStorageUser(JSON.parse(userInfo));
+    
+  }, [userDetails])
 
   const handleLogOut = () => {
     dispatch(userLoggedOut());
@@ -52,8 +61,8 @@ const AccountModal = ({ setIsAccountIconClicked }) => {
 
       {/* User Details */}
       <div className="mb-4 text-center">
-        <p className="text-lg font-semibold text-gray-900">{parsedUser.username}</p>
-        <p className="text-sm text-gray-600">{parsedUser.email || userDetails.email}</p>
+        <p className="text-lg font-semibold text-gray-900">{sessionStorageUser.username}</p>
+        <p className="text-sm text-gray-600">{sessionStorageUser.email || sessionStorageProfile.email}</p>
       </div>
 
       {/* Log Out Button */}
