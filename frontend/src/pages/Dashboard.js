@@ -8,6 +8,7 @@ import HamburgerNav from "../components/HamburgerNavbar";
 import TotalApplicationsCard from "../components/TotalApplicationsCard";
 import AccountModal from "../components/AccountModal";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import JobApplicationsChart from "../components/JobApplicationsChart";
 
 const Dashboard = () => {
   const [isAccountIconClicked, setIsAccountIconClicked] = useState(false);
@@ -33,13 +34,12 @@ const Dashboard = () => {
   useEffect(() => {
     const profileData = sessionStorage.getItem("profileData");
     if (profileData) {
-      setParsedProfileInfo(JSON.parse(profileData)); // Set updated profile data from sessionStorage
+      setParsedProfileInfo(JSON.parse(profileData));
     } else {
       const userInfo = sessionStorage.getItem("userInfo");
-      setParsedUserInfo(JSON.parse(userInfo)); 
+      setParsedUserInfo(JSON.parse(userInfo));
     }
-  }, [userDetails]); 
-
+  }, [userDetails]);
 
   const handleToggleAccountModal = () => {
     setIsAccountIconClicked(!isAccountIconClicked);
@@ -76,10 +76,9 @@ const Dashboard = () => {
     Declined: "#0096FF", // Blue
   };
 
-  // Dynamically map the colors based on category labels
   const mappedColors = pie.labels.map(
     (label) => categoryColors[label] || "#000000"
-  ); // Default to black if no color is found
+  );
 
   const data = {
     labels: pie.labels,
@@ -110,19 +109,41 @@ const Dashboard = () => {
         </header>
 
         <h1 className="flex mt-6 text-2xl font-semibold align-left md:ml-8 max-md:justify-center">
-          Hi {parsedUserInfo.firstName || parsedProfileInfo.firstName} 👋
+          Welcome back {parsedUserInfo.firstName || parsedProfileInfo.firstName}{" "}
+          👋
         </h1>
         <TotalApplicationsCard />
 
-        <div className="p-4 mx-auto my-4 mt-12 bg-white rounded-lg shadow-md md:my-auto md:mx-6 md:mr-8">
-          <h1 className="flex items-start ml-2 text-2xl font-bold">
-            My Statistics
-          </h1>
-          <div className="w-full p-2 mx-auto md:p-8 md:w-96 h-80 md:h-96">
-            <Pie data={data} />
+        {/* Charts Row */}
+        <div className="flex flex-col gap-6 mt-8 md:flex-row md:mx-6">
+          {/* Pie Chart */}
+          <div className="flex items-center justify-center w-full p-4 bg-white rounded-lg shadow-md md:w-1/2 max-md:w-[90%] max-md:ml-7">
+            <div className="flex flex-col items-center">
+              <h1 className="mb-4 text-2xl font-bold">Applications Trend</h1>
+              <div className="flex justify-center w-full">
+                <div className="min-w-[400px] min-h-[400px] max-w-[400px] max-h-[400px] md:min-w-[475px] md:max-w-[475px]">
+                  <JobApplicationsChart />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Job Applications Chart */}
+          <div className="flex items-center justify-center w-full p-4 bg-white rounded-lg shadow-md md:w-1/2 max-md:w-[90%] max-md:ml-7">
+            <div className="flex flex-col items-center">
+              <h1 className="mb-4 text-2xl font-bold">
+                Job Applications Summary
+              </h1>
+              <div className="flex justify-center w-full">
+                <div className="min-w-[350px] min-h-[350px] max-w-[350px] max-h-[350px]">
+                  <Pie data={data} />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
       {isAccountIconClicked && (
         <AccountModal setIsAccountIconClicked={setIsAccountIconClicked} />
       )}
