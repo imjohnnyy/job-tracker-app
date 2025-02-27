@@ -73,14 +73,14 @@ const ApplicationForm = ({ application, setIsEditing }) => {
       onSubmit={handleSubmit}
     >
       {/* Form */}
-      <form class="w-full max-w-2xl px-6 py-8 rounded-lg shadow-[0_0px_10px_rgba(0,0,0,0.25)] bg-white">
+      <form className="w-full max-w-2xl px-6 py-8 rounded-lg shadow-[0_0px_10px_rgba(0,0,0,0.25)] bg-white">
         {/* Form Labels and Inputs*/}
-        <div class="flex flex-col md:flex-row md:space-x-4">
+        <div className="flex flex-col md:flex-row md:space-x-4">
           {/* Company Input */}
-          <div class="w-full md:w-1/3 pr-4 mb-4 md:mb-0 max-md:pr-0">
+          <div className="w-full mb-4 md:w-1/3 md:mb-0 max-md:pr-0">
             <label
               htmlFor="company"
-              class="flex items-start mb-2 font-medium text-gray"
+              className="flex items-start mb-2 font-medium text-gray"
             >
               {" "}
               Company{" "}
@@ -89,17 +89,17 @@ const ApplicationForm = ({ application, setIsEditing }) => {
               type="text"
               id="company"
               value={formData.company}
-              class="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
+              className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
               onChange={handleChange}
               required
             />
           </div>
 
           {/* Job Position Input */}
-          <div class="w-full md:w-1/3 pr-4 mb-4 md:mb-0 max-md:pr-0">
+          <div className="w-full mb-4 md:w-1/3 md:mb-0 max-md:pr-0">
             <label
               htmlFor="position"
-              class="flex items-start mb-2 font-medium text-gray"
+              className="flex items-start mb-2 font-medium text-gray"
             >
               {" "}
               Position{" "}
@@ -108,17 +108,17 @@ const ApplicationForm = ({ application, setIsEditing }) => {
               type="text"
               id="position"
               value={formData.position}
-              class="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
+              className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
               onChange={handleChange}
               required
             />
           </div>
 
           {/* City Input */}
-          <div class="w-full md:w-1/3 mb-4 md:mb-0">
+          <div className="w-full mb-4 md:w-1/3 md:mb-0">
             <label
               htmlFor="city"
-              class="flex items-start mb-2 font-medium text-gray"
+              className="flex items-start mb-2 font-medium text-gray"
             >
               {" "}
               City{" "}
@@ -127,7 +127,7 @@ const ApplicationForm = ({ application, setIsEditing }) => {
               type="text"
               id="city"
               value={formData.city}
-              class="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
+              className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
               onChange={handleChange}
               required
             />
@@ -135,11 +135,11 @@ const ApplicationForm = ({ application, setIsEditing }) => {
         </div>
 
         {/* Job Type Drop-down List */}
-        <div class="flex flex-col md:flex-row md:space-x-4">
-          <div class="w-full md:w-1/3 pr-4 mb-4 md:mb-0 max-md:pr-0">
+        <div className="flex flex-col md:flex-row md:space-x-1">
+          <div className="w-full pr-3 mb-4 md:w-1/3 md:mb-0 max-md:pr-0">
             <label
               htmlFor="jobType"
-              class="flex items-start mb-2 font-medium text-gray"
+              className="flex items-start mb-2 font-medium text-gray"
             >
               {" "}
               Job Type{" "}
@@ -149,7 +149,7 @@ const ApplicationForm = ({ application, setIsEditing }) => {
               type="text"
               value={formData.jobType}
               onChange={handleChange}
-              class="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
+              className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
               required
             >
               <option value="">Select job type</option>
@@ -160,10 +160,10 @@ const ApplicationForm = ({ application, setIsEditing }) => {
           </div>
 
           {/* Job Status Drop-down List */}
-          <div class="w-full md:w-1/3 pr-4 mb-4 md:mb-0 max-md:pr-0">
+          <div className="w-full pr-3 mb-4 md:w-1/3 md:mb-0 max-md:pr-0">
             <label
               htmlFor="jobStatus"
-              class="flex items-start mb-2 font-medium text-gray"
+              className="flex items-start mb-2 font-medium text-gray"
             >
               {" "}
               Status{" "}
@@ -173,7 +173,7 @@ const ApplicationForm = ({ application, setIsEditing }) => {
               type="text"
               value={formData.jobStatus}
               onChange={handleChange}
-              class="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
+              className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
               required
             >
               <option value="">Select job status</option>
@@ -188,7 +188,7 @@ const ApplicationForm = ({ application, setIsEditing }) => {
         {/* Submit Button */}
         <button
           type="submit"
-          class="w-[50%] px-4 py-2 mt-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+          className="w-[50%] px-4 py-2 mt-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline"
         >
           Add Job Application
         </button>
