@@ -8,7 +8,6 @@ const ApplicationForm = ({ application, setIsEditing }) => {
   const [formData, setFormData] = useState({
     company: "",
     position: "",
-    date: "",
     jobStatus: "",
     jobType: "",
     city: "",
@@ -24,7 +23,6 @@ const ApplicationForm = ({ application, setIsEditing }) => {
       setFormData({
         company: application.company,
         position: application.position,
-        date: application.date,
         jobStatus: application.jobStatus,
         jobType: application.jobType,
         city: application.city,
@@ -44,7 +42,6 @@ const ApplicationForm = ({ application, setIsEditing }) => {
     setFormData({
       company: "",
       position: "",
-      date: "",
       jobStatus: "",
       jobType: "",
       city: "",
@@ -56,7 +53,6 @@ const ApplicationForm = ({ application, setIsEditing }) => {
         {
           company: formData.company,
           position: formData.position,
-          date: formData.date,
           jobStatus: formData.jobStatus,
           jobType: formData.jobType,
           city: formData.city,
@@ -186,25 +182,6 @@ const ApplicationForm = ({ application, setIsEditing }) => {
               <option value="Rejected">Rejected</option>
               <option value="Accepted">Accepted</option>
             </select>
-          </div>
-
-          {/* Date Input */}
-          <div class="w-full md:w-1/3 mb-4 md:mb-0">
-            <label
-              htmlFor="date"
-              class="flex items-start mb-2 font-medium text-gray"
-            >
-              {" "}
-              Date{" "}
-            </label>
-            <input
-              type="date"
-              id="date"
-              value={formData.date}
-              class="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
-              onChange={handleChange}
-              required
-            />
           </div>
         </div>
 

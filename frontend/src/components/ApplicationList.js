@@ -42,8 +42,8 @@ const ApplicationList = () => {
 
   // Sort job applications based on the date
   const sortedApplications = [...filteredApplications].sort((a, b) => {
-    const dateA = new Date(a.date);
-    const dateB = new Date(b.date);
+    const dateA = new Date(a.createdAt);
+    const dateB = new Date(b.createdAt);
 
     if (toggleTimeArrow) {
       return dateB - dateA; // Sort by most recent first

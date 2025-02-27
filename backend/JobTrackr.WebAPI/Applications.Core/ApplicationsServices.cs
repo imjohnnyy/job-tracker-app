@@ -76,7 +76,7 @@ namespace Applications.Core
                 Company = application.Company,
                 Position = application.Position,
                 City = application.City,
-                Date = application.Date,
+                CreatedAt = application.CreatedAt,
                 JobType = application.JobType,
                 JobStatus = application.JobStatus,
 
@@ -109,7 +109,7 @@ namespace Applications.Core
             dbApplication.Company = application.Company;
             dbApplication.Position = application.Position;
             dbApplication.City = application.City;
-            dbApplication.Date = application.Date;
+            dbApplication.CreatedAt = application.CreatedAt;
             dbApplication.JobType = application.JobType;
             dbApplication.JobStatus = application.JobStatus;
 

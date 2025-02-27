@@ -15,7 +15,7 @@ namespace JobTrackr.DB.Model
 
         public string City { get; set; }
 
-        public DateTime Date { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         public string JobType { get; set; }
 

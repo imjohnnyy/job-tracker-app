@@ -30,7 +30,7 @@ const FormItem = ({ data }) => {
     <div className="p-2 my-4 bg-white rounded-2xl shadow-[0_0px_10px_rgba(0,0,0,0.25)] w-[100%] max-w-sm hover:scale-100 hover:shadow-2xl transition-all duration-300 ease-in-out">
       <div className="w-full p-4 bg-blue-100 h-54 rounded-2xl border-light-blue-200">
         <h3 className="py-1 mb-2 text-sm font-semibold bg-white border border-white rounded-2xl sm:text-md md:text-lg">
-          {formatDate(data.date)}
+          {formatDate(data.createdAt)}
         </h3>
 
         <div className="grid items-start grid-cols-1">

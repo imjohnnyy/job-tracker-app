@@ -14,7 +14,7 @@ const FormModal = ({ setIsEditing, formData }) => {
       id: useFormData.id,
       company: useFormData.company,
       position: useFormData.position,
-      date: useFormData.date,
+      createdAt: useFormData.createdAt,
       jobStatus: useFormData.jobStatus,
       jobType: useFormData.jobType,
       city: useFormData.city,
@@ -37,7 +37,7 @@ const FormModal = ({ setIsEditing, formData }) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
-        formModalRef.current &&         // Check if the formModalRef is not null (if the form modal element in the DOM exists)
+        formModalRef.current && // Check if the formModalRef is not null (if the form modal element in the DOM exists)
         !formModalRef.current.contains(event.target) // Check if mouse click is outside the form modal
       ) {
         closeModal();
@@ -49,6 +49,15 @@ const FormModal = ({ setIsEditing, formData }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  // Converts DateTime String into 'DD Month, YYYY' format
+  const formatDate = (dateTimeString) => {
+    const dateObject = new Date(dateTimeString);
+    const day = dateObject.getDate();
+    const month = dateObject.toLocaleString("default", { month: "short" }); // Get short month name
+    const year = dateObject.getFullYear();
+    return `${day} ${month}, ${year}`;
+  };
 
   return (
     <div className="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full bg-black bg-opacity-50">
@@ -161,19 +170,19 @@ const FormModal = ({ setIsEditing, formData }) => {
             {/* Date Input */}
             <div className="w-1/2 mb-4">
               <label
-                htmlFor="date"
+                htmlFor="createdAt"
                 className="flex items-start mb-2 font-medium text-gray"
               >
                 {" "}
-                Date{" "}
+                Sent On{" "}
               </label>
-              <input
-                type="date"
-                id="date"
-                className="w-full px-3 py-2 mb-2 leading-tight border rounded border-zinc-300 text-gray focus:outline-none focus:shadow-outline bg-lightergray"
-                value={useFormData.date}
-                onChange={handleChangeText}
-              />
+              <p
+                type="createdAt"
+                id="createdAt"
+                className="w-full px-3 py-2 mb-2 leading-tight text-gray focus:outline-none focus:shadow-outline bg-lightergray"
+              >
+                {formatDate(useFormData.createdAt)}
+              </p>
             </div>
           </div>
 
@@ -200,4 +209,3 @@ const FormModal = ({ setIsEditing, formData }) => {
   );
 };
 export default FormModal;
-

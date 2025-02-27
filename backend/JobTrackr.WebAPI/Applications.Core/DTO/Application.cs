@@ -14,11 +14,12 @@
 
         public string City { get; set; }
 
-        public DateTime Date { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         public string JobType { get; set; }
 
         public string JobStatus { get; set; }
+
 
         // Converts an instance of the database model class ("JobTrackr.DB.Model.Application")
         // into an instance of the "Application" DTO class.
@@ -28,7 +29,7 @@
             Company = a.Company,
             Position = a.Position,
             City = a.City,
-            Date = a.Date,
+            CreatedAt = a.CreatedAt,
             JobType = a.JobType,
             JobStatus = a.JobStatus
         };
