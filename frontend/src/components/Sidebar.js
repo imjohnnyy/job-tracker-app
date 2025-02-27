@@ -12,8 +12,8 @@ const Sidebar = () => {
 
   // Navigation using React Router
   const navigate = useNavigate();
-  const handleClickAddApplications = () => navigate('/add-applications');
-  const handleClickDashboard = () => navigate('/');
+  const handleClickAddApplications = () => navigate('/');
+  const handleClickDashboard = () => navigate('/dashboard');
   const handleClickProfile = () => navigate('/profile');
 
   return (
@@ -27,14 +27,14 @@ const Sidebar = () => {
       {/* Navigation Links */}
       <nav className="mt-[5rem]">
         <ul className="space-y-3">
-          <li onClick={handleClickDashboard}>
-            <button className="flex items-center justify-start w-full py-2 text-lg font-semibold rounded-sm text-zinc-300 hover:text-white hover:bg-slate-500">
-            <DashboardIcon className="my-1 ml-[10px] mr-[8px]" style={{ fontSize: '150%' }} /> Dashboard
-            </button>
-          </li>
           <li onClick={handleClickAddApplications}>
             <button className="flex items-center justify-start w-full py-2 text-lg font-semibold rounded-sm text-zinc-300 hover:text-white hover:bg-slate-500">
               <PostAddIcon className="my-1 ml-[9px] mr-[5px]" style={{ fontSize: '180%' }} /> Add Jobs
+            </button>
+          </li>
+          <li onClick={handleClickDashboard}>
+            <button className="flex items-center justify-start w-full py-2 text-lg font-semibold rounded-sm text-zinc-300 hover:text-white hover:bg-slate-500">
+            <DashboardIcon className="my-1 ml-[10px] mr-[8px]" style={{ fontSize: '150%' }} /> Dashboard
             </button>
           </li>
           <li onClick={handleClickProfile}>

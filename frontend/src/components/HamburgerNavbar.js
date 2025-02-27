@@ -31,16 +31,16 @@ const HamburgerNav = () => {
       </div>
       <li className={"py-5"}>
         <h1 onClick={() => navigate('/')} className={"hover:text-sky-500"}>
-          Dashboard
-        </h1>
-      </li>
-      <li className={"py-5"}>
-        <h1 href="#add-applications" onClick={() => navigate('/add-applications')} className={"hover:text-sky-500"}>
           Add Jobs
         </h1>
       </li>
       <li className={"py-5"}>
-        <h1 href="#add-applications" onClick={() => navigate('/profile')} className={"hover:text-sky-500"}>
+        <h1 href="#dashboard" onClick={() => navigate('/dashboard')} className={"hover:text-sky-500"}>
+          Dashboard
+        </h1>
+      </li>
+      <li className={"py-5"}>
+        <h1 href="#profile" onClick={() => navigate('/profile')} className={"hover:text-sky-500"}>
           Profile
         </h1>
       </li>

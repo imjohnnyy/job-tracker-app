@@ -26,10 +26,10 @@ function App() {
     <div className="App">
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={isLoggedIn ? <Dashboard /> : <Landing />} />
+        <Route path="/" element={isLoggedIn ? <AddApplications /> : <Landing />} />
         <Route path="/register" element={isLoggedIn ? <Navigate to="/" /> : <Register/>} />
         <Route path="/login" element={isLoggedIn ? <Navigate to="/" /> : <Login />} />
-        <Route path="/add-applications" element={isLoggedIn ? <AddApplications /> : <Landing />} />
+        <Route path="/dashboard" element={isLoggedIn ? <Dashboard /> : <Landing />} />
         <Route path="/profile" element={isLoggedIn ? <Profile /> : <Landing />} />
         <Route path="*" element={<h2>Page not found!</h2>} />
       </Routes>

@@ -119,7 +119,7 @@ const Dashboard = () => {
           {/* Pie Chart */}
           <div className="flex items-center justify-center w-full p-4 bg-white rounded-lg shadow-md md:w-1/2 max-md:w-[90%] max-md:ml-7">
             <div className="flex flex-col items-center">
-              <h1 className="mb-4 text-2xl font-bold">Applications Trend</h1>
+              <h1 className="mb-4 text-2xl font-bold">Monthly Job Applications</h1>
               <div className="flex justify-center w-full">
                 <div className="min-w-[400px] min-h-[400px] max-w-[400px] max-h-[400px] md:min-w-[475px] md:max-w-[475px]">
                   <JobApplicationsChart />
