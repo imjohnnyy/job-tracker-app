@@ -32,5 +32,23 @@ namespace Applications.Core
             return result;
         }
 
+        public IEnumerable<KeyValuePair<string, double>> GetApplicationsPerMonth()
+        {
+            var applications = _dbContext.Applications
+                .Where(a => a.User.Id == _user.Id)
+                .GroupBy(a => new { a.CreatedAt.Year, a.CreatedAt.Month })  // Grouping by Year and Month
+                .Select(group => new
+                {
+                    MonthYear = $"{group.Key.Year}-{group.Key.Month:D2}",  // Formatting as "YYYY-MM"
+                    TotalCount = group.Count()
+                })
+                .ToList();
+
+            var result = applications.ToDictionary(a => a.MonthYear, a => (double)a.TotalCount);
+
+            return result;
+        }
+
+
     }
 }

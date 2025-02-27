@@ -21,5 +21,11 @@ namespace JobTrackr.WebAPI.Controllers
         {
             return Ok(_statisticsServices.GetApplicationsPerCategory());
         }
+
+        [HttpGet("monthly")]
+        public IActionResult GetApplicationsPerMonth()
+        {
+            return Ok(_statisticsServices.GetApplicationsPerMonth());
+        }
     }
 }

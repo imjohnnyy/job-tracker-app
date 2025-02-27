@@ -3,5 +3,7 @@
     public interface IStatisticsServices
     {
         IEnumerable<KeyValuePair<string, double>> GetApplicationsPerCategory();
+        
+        IEnumerable<KeyValuePair<string, double>> GetApplicationsPerMonth();
     }
 }

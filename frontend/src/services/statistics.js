@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setApplicationsPerCategory } from '../redux/statisticsSlice';
+import { setApplicationsPerCategory, setApplicationsPerMonth } from '../redux/statisticsSlice';
 
 const axiosInstance = axios.create({    
     baseURL: `${process.env.REACT_APP_BASE_URL}/statistics`,
@@ -15,6 +15,15 @@ export const getApplicationsPerCategory = async (dispatch) => {
     try {
         const { data } = await axiosInstance.get();  // API call to our endpoint (https://localhost:7043/statistics) for the GET method to retrieve stats data.
         dispatch(setApplicationsPerCategory(data)); // Dispatches an action to set the job applications per category in the Redux store.
+    } catch (error) {
+        console.log("Error" + error)
+    }
+};
+
+export const getApplicationsPerMonth = async (dispatch) => {
+    try {
+        const { data } = await axiosInstance.get("/monthly");  // API call to our endpoint (https://localhost:7043/statistics/monthly) for the monthly stats data.
+        dispatch(setApplicationsPerMonth(data));
     } catch (error) {
         console.log("Error" + error)
     }

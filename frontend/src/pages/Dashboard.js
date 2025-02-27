@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getApplicationsPerCategory } from "../services/statistics";
+import {
+  getApplicationsPerCategory,
+  getApplicationsPerMonth,
+} from "../services/statistics";
 import { Pie } from "react-chartjs-2";
 import "chart.js/auto";
 import Sidebar from "../components/Sidebar";
@@ -48,25 +51,47 @@ const Dashboard = () => {
   const applicationsPerCategory = useSelector(
     (state) => state.statisticsSlice.applicationsPerCategory
   );
+  const applicationsPerMonth = useSelector(
+    (state) => state.statisticsSlice.applicationsPerMonth
+  );
 
   const [pie, setPie] = useState({
     labels: [],
     data: [],
   });
 
+  const [barData, setBarData] = useState({
+    labels: [],
+    data: [],
+  });
+
   useEffect(() => {
+    // Extracting the categories and counts from the applicationsPerCategory object
     const categories = Object.keys(applicationsPerCategory);
     const counts = Object.values(applicationsPerCategory);
 
-    setPie({
-      labels: categories,
-      data: counts,
-    });
-  }, [applicationsPerCategory]);
+    setPie({ labels: categories, data: counts });
+
+    // Extracting the months and counts from the applicationsPerMonth object
+    const months = Object.keys(applicationsPerMonth);
+    // Convert "YYYY-MM" to "Month" format
+    const monthsLabel = months.map(dateString => {
+      const [year, month] = dateString.split("-"); 
+      const date = new Date(year, month - 1); 
+      return new Intl.DateTimeFormat('en', { month: 'long' }).format(date); 
+  });
+  
+    const monthlyJobApplicationsCount = Object.values(applicationsPerMonth);
+
+    setBarData({ labels: monthsLabel, data: monthlyJobApplicationsCount });
+
+  }, [applicationsPerCategory, applicationsPerMonth]);
 
   useEffect(() => {
     getApplicationsPerCategory(dispatch);
+    getApplicationsPerMonth(dispatch);
   }, []);
+
 
   // Mapping categories to corresponding colors
   const categoryColors = {
@@ -119,10 +144,12 @@ const Dashboard = () => {
           {/* Pie Chart */}
           <div className="flex items-center justify-center w-full p-4 bg-white rounded-lg shadow-md md:w-1/2 max-md:w-[90%] max-md:ml-7">
             <div className="flex flex-col items-center">
-              <h1 className="mb-4 text-2xl font-bold">Monthly Job Applications</h1>
+              <h1 className="mb-4 text-2xl font-bold">
+                Monthly Job Applications
+              </h1>
               <div className="flex justify-center w-full">
                 <div className="min-w-[400px] min-h-[400px] max-w-[400px] max-h-[400px] md:min-w-[475px] md:max-w-[475px]">
-                  <JobApplicationsChart />
+                  <JobApplicationsChart data={barData} />
                 </div>
               </div>
             </div>
