@@ -12,7 +12,7 @@ import {
 const JobApplicationsChart = ({ data }) => {
   ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
-  // Ensure chart data exists  before using it
+  // Ensure chart data exists before using it
   const [applicationsData, setApplicationsData] = useState({
     labels: [],
     datasets: [
@@ -38,13 +38,27 @@ const JobApplicationsChart = ({ data }) => {
       });
     }
   }, [data]); 
+
+  // const monthlyData = {
+  //   labels: ["Jan", "Feb", "Mar", "Apr"],
+  //   datasets: [
+  //     {
+  //       label: "Applications Sent",
+  //       data: [100, 200, 150, 300],
+  //       backgroundColor: "rgba(114, 64, 194, 1)",
+  //     },
+  //   ],
+  // };
+
   
   return (
     <div className="w-full h-64 p-4 mx-auto">
       <Bar
+        // data={monthlyData}
         data={applicationsData}
         options={{ responsive: true, maintainAspectRatio: false }}
-        height={300}
+        height={250}
+        width={475}
       />
     </div>
   );

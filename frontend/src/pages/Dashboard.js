@@ -143,7 +143,7 @@ const Dashboard = () => {
         <div className="flex flex-col gap-6 mt-8 md:flex-row md:mx-6">
           {/* Pie Chart */}
           <div className="flex items-center justify-center w-full p-4 bg-white rounded-lg shadow-md md:w-1/2 max-md:w-[90%] max-md:ml-7">
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center mt-6">
               <h1 className="mb-4 text-2xl font-bold">
                 Monthly Job Applications
               </h1>
