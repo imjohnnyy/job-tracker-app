@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import Sidebar from "../components/Sidebar";
 import ApplicationForm from "../components/ApplicationForm";
@@ -9,6 +10,14 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const AddApplications = () => {
   const [isAccountIconClicked, setIsAccountIconClicked] = useState(false);
+
+  const userDetails = useSelector((state) => state.authenticationSlice);
+  
+  useEffect(() => {
+    if (userDetails.username && userDetails.email) {
+      sessionStorage.setItem("userInfo", JSON.stringify({ username: userDetails.username, email: userDetails.email }));
+    }
+  }, [userDetails]);
 
   const handleToggleAccountModal = () => {
     setIsAccountIconClicked(!isAccountIconClicked);

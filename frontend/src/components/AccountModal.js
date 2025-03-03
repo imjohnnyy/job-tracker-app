@@ -62,7 +62,7 @@ const AccountModal = ({ setIsAccountIconClicked }) => {
       {/* User Details */}
       <div className="mb-4 text-center">
         <p className="text-lg font-semibold text-gray-900">{sessionStorageUser.username}</p>
-        <p className="text-sm text-gray-600">{sessionStorageUser.email || sessionStorageProfile.email}</p>
+        <p className="text-sm text-gray-600">{sessionStorageProfile?.email}</p>
       </div>
 
       {/* Log Out Button */}
