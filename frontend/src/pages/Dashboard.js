@@ -156,7 +156,7 @@ const Dashboard = () => {
           </div>
 
           {/* Job Applications Chart */}
-          <div className="flex items-center justify-center w-full p-4 bg-white rounded-lg shadow-md md:w-1/2 max-md:w-[90%] max-md:ml-7">
+          <div className="flex items-center justify-center w-full p-4 bg-white rounded-lg shadow-md md:w-1/2 max-md:w-[90%] max-md:ml-7 max-md:mb-6">
             <div className="flex flex-col items-center">
               <h1 className="mb-4 text-2xl font-bold">
                 Job Applications Summary
