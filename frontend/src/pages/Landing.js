@@ -42,9 +42,7 @@ const Landing = () => {
         <div className="ml-[10%] mt-[-100px] max-lg:ml-[-10%]">
           <h1 className={"w-auto items-start text-5xl text-left font-bold text-gray mr-12 max-lg:text-4xl max-md:flex max-lg:text-center max-lg:w-[110%] max-lg:mt-[5rem]"}>Job Application Tracking Made Easy</h1>
           <p className={"w-auto text-gray text-left text-lg font-semibold mt-10 mr-12 max-md:flex max-lg:text-center max-lg:w-[110%]"}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe molestiae tempore
-            suscipit officia ab omnis soluta obcaecati nobis aliquid ullam
-            eos repudiandae quis natus vel, nostrum odio alias.</p>
+            Easily manage job applications, track your progress at every stage, and stay organized throughout your job search!</p>
           <button class="relative bg-gray hover:bg-blue-700 text-white font-bold text-lg py-3 px-5 rounded-full mt-5 mr-16 max-lg:mr-0 max-lg:ml-8" onClick={handleClickRegister}> Get Started </button>
         </div>
 
