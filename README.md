@@ -7,48 +7,48 @@
 ## Table of Contents
 
 - [Features](#features)
-- [Website Demo](#website-demo)
+- [Website Screenshots](#website-screenshots)
 - [Key Learnings](#key-learnings)
 
 ## Features
 
 ### Frontend (React, &nbsp;TailwindCSS, &nbsp;Redux):
-- Scalable and responsive UI/UX
-- Mobile device compatibility (Media query breakpoints)
+- Scalable and responsive UI/UX, mobile device compatibility
 - Redux state management
 - API calls to our backend WebAPI using Axios (Data retrieval)
 
 ### Backend (C#, &nbsp;.NET Core, &nbsp;SQL):
 - EntityFramework (DbContext, Migrations, SQL Database Operations)
 - Authentication using JWTs
-- Password Hashing for password protection (Security) 
 
-### Other features:
-- Deployment of WebAPI, SQL Database, and React Frontend to Azure (Azure Portal, Azure App Service)
-- CRUD functionalities (Create, Read, Update, Delete)
+### Additional features:
+- CRUD functionality (Create, Read, Update, Delete operations)
+- Pagination to handle large datasets of job applications
+- Dashboard to display the user's job applications statistics
 
-## Website Demo
+## Website Screenshots
 
 ### Landing Page
-![landing](https://github.com/imjohnnyy/job-tracker-app/assets/87466526/b70b0a1c-c2e6-4043-8df3-1b34c8913144)
+![landing](https://github.com/user-attachments/assets/ae295f5f-d350-405d-bbf1-639c23ea5e9e)
 
 ### Register Page
-![register page](https://github.com/imjohnnyy/job-tracker-app/assets/87466526/c687df23-667d-4274-86ae-66c091ff1a0a)
+![register page](https://github.com/user-attachments/assets/d62eac39-6164-4dd0-a491-81b988c0cb56)
 
 ### Login Page
 ![login page](https://github.com/imjohnnyy/job-tracker-app/assets/87466526/59b7b0f9-a791-46b1-9ec4-f154082c4885)
 
 ### Add Job Applications Page
-![add applications page](https://github.com/imjohnnyy/job-tracker-app/assets/87466526/3f414582-c9e1-4d0a-acaf-6dbb579afec4)
+![add applications page](https://github.com/user-attachments/assets/d4fa6f8c-a78e-40e5-925d-bb202de33618)
 
 ### Dashboard Page
-![dashboard page](https://github.com/imjohnnyy/job-tracker-app/assets/87466526/e91583fc-1bd0-440a-af8f-ceef6305e1a3)
+![dashboard page](https://github.com/user-attachments/assets/dcf5f88c-f1d3-45cc-87ac-1c3586060836)
+
 
 ## Key Learnings
-- Redux for state management
 - .NET Core framework
 - MVC Architecture Pattern
 - Authentication with JWTs
-- Deployment of WebAPI, SQL Database, and React Frontend to Azure
+- Redux for state management
+- Deployment of WebAPI, SQL Database, and React Front-end onto Azure 
 - Testing API Endpoints (Swagger UI and Postman)
 
