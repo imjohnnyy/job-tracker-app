@@ -55,7 +55,8 @@
 - React Unit Testing with Jest and React Testing Library
 
 ## Future Improvements
-- Make branches for each new features (Note: this is a solo project, but its good practice to do so).
+- Make branches for new features (Note: this is a solo project, but it is good practice to do so).
 - .NET Unit Testing
 - CI/CD pipelines (Automated testing and deployment to feature branch and Prod branch)
+- Semantic Versioning e.g. v1.0.0 to keep track of patch releases
 
