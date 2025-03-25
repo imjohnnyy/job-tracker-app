@@ -9,6 +9,7 @@
 - [Features](#features)
 - [Website Screenshots](#website-screenshots)
 - [Key Learnings](#key-learnings)
+- [Future Improvements](#future-improvements)
 
 ## Features
 
@@ -51,4 +52,10 @@
 - Redux for state management
 - Deployment of WebAPI, SQL Database, and React Front-end onto Azure 
 - Testing API Endpoints (Swagger UI and Postman)
+- React Unit Testing with Jest and React Testing Library
+
+## Future Improvements
+- Make branches for each new features (Note: this is a solo project, but its good practice to do so).
+- .NET Unit Testing
+- CI/CD pipelines (Automated testing and deployment to feature branch and Prod branch)
 
